@@ -5,21 +5,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './PMX/Hook/useLanguage';
 import { EmployeeProvider } from './contexts/EmployeeContext';
 
-import AttendancePage from './pages/AttendancePage';
-import LeavePage from './pages/LeavePage';
-import Apply from './pages/Apply';
-import Checkin from './pages/Checkin'; 
-import FrontPage from './pages/FrontPage';
-import Replenish from './pages/Replenish';
-import ReplenishApply from './pages/ReplenishApply';
-import WorkOvertimeApply from './pages/WorkOvertimeApply';
-import WorkOvertime from './pages/WorkOvertime';
-import AuditSystem from './pages/AuditSystem';
-import Salary from './pages/Salary';
-import Schedule from './pages/Schedule';
-import Announcement from './pages/Announcement';
-import AppLogIn from './pages/AppLogIn';
-import PersonalData from './pages/PersonalData';
 
 // 婆婆部分
 import ApploginPMX from './PMX/ApploginPMX';
@@ -59,18 +44,6 @@ import Checkin01 from './Google_sheet/Checkin';
 import Queryresults from './Google_sheet/Queryresults';
 import TunQueryResults from './Google_sheet/TunQueryResults';
 
-// 後台部分
-import Login from './Backpage/Log_in'; 
-import HomePage from './Backpage/HomePage'; 
-import Human from './Backpage/EmployeeInformation/Human';
-import SchedulingSystem from './Backpage/SchedulingSystem';
-import AddNewMonth from './Backpage/AddNewMonth';
-import SalaryCalculate from './Backpage/SalaryCalculate';
-import CompanyInformation from './Backpage/CompanyBasicInformation/CompanyInformation';
-import Permissions from './Backpage/Permissions_Control/Permissions';
-import HypothesisSetting from './Backpage/Hypothesis_Setting/HypothesisSetting';
-import UploadAnnouncement from './Backpage/NoticeBoard/Upload_Announcement';
-
 function App() {
   return (
     <LanguageProvider>
@@ -78,23 +51,7 @@ function App() {
         <Router>
           <Routes>
             {/* 手機畫面 */}
-            <Route path="/attendance" element={<AttendancePage />} />{/* 查詢出勤畫面 */}
-            <Route path="/leave" element={<LeavePage />} />{/* 請假畫面 */}
-            <Route path="/apply" element={<Apply />} /> {/* 新增請假申請頁面 */}
-            <Route path="/replenish" element={<Replenish />} /> {/* 補卡頁面 */}
-            <Route path="/replenishapply" element={<ReplenishApply />} /> {/* 補卡申請頁面 */}
-            <Route path="/workovertimeapply" element={<WorkOvertimeApply />} /> {/* 加班申請頁面 */}
-            <Route path="/workovertime" element={<WorkOvertime />} /> {/* 加班頁面 */}
-            <Route path="/auditsystem" element={<AuditSystem />} /> {/*審核系統頁面 */}
-            <Route path="/salary" element={<Salary />} /> {/*薪資查詢頁面 */}
-            <Route path="/schedule" element={<Schedule />} /> {/*班表查詢頁面 */}
-            <Route path="/announcement" element={<Announcement />} /> {/*公告頁面 */}
-            <Route path="/personaldata" element={<PersonalData />} /> {/*個人資料查詢頁面 */}
-            
-            {/* 網頁版畫面 */}
-            <Route path="/checkin" element={<Checkin />} /> {/* 手機打卡畫面 */}
-            <Route path="/frontpage" element={<FrontPage />} /> {/* 手機首頁畫面 */}
-            <Route path="/applogin" element={<AppLogIn />} /> {/* 手機登入畫面 */}
+
             
             {/* 給婆婆的打卡登入部分11月要給新朋友的 */}
             <Route path="/apploginpmx" element={<ApploginPMX />} /> {/* 手機登入畫面 */}
@@ -137,18 +94,7 @@ function App() {
             <Route path="/Queryresults" element={<Queryresults />} /> {/* 打卡記錄查詢 */}
             <Route path="/tunqueryresults" element={<TunQueryResults />} /> {/* 打卡記錄查詢 給朱先生用的 */}
             <Route path="/tunqueryresults" element={<TunQueryResults />} /> {/* 打卡記錄查詢 給朱先生用的 */}
-            
-            {/* 後台 */}
-            <Route path="/human" element={<Human />} /> {/* 後台員工資料畫面 */}
-            <Route path="/login" element={<Login />} /> {/* 後台登入畫面 */}
-            <Route path="/homepage" element={<HomePage />} /> {/* 後台員工出缺勤況畫面 */}
-            <Route path="/addnewmonth" element={<AddNewMonth />} /> {/* 排班系統畫面新增月份 */}
-            <Route path="/schedulingsystem" element={<SchedulingSystem />} /> {/* 正式排班畫面 */}
-            <Route path="/salarycalculate" element={<SalaryCalculate />} /> {/* 薪資計算畫面 */}
-            <Route path="/cmpanyinformation" element={<CompanyInformation />} /> {/* 甲方公司資料設定 */}
-            <Route path="/permissions" element={<Permissions />} /> {/* 權限設定頁面 */}
-            <Route path="/hypothesissetting" element={<HypothesisSetting />} /> {/* 假別設定頁面 */}
-            <Route path="/uploadannouncement" element={<UploadAnnouncement />} /> {/* 假別設定頁面 */}
+          
 
           </Routes>
         </Router>
@@ -183,12 +129,6 @@ function Sheet() {
             <Route path="/Queryresults" element={<Queryresults />} /> {/* 打卡記錄查詢 */}
             <Route path="/tunqueryresults" element={<TunQueryResults />} /> {/* 打卡記錄查詢 給朱先生用的 */}
             {/* 後台 */}
-            <Route path="/human" element={<Human />} /> {/* 後台員工資料畫面 */}
-            <Route path="/login" element={<Login />} /> {/* 後台登入畫面 */}
-            <Route path="/homepage" element={<HomePage />} /> {/* 後台首頁畫面 */}
-            <Route path="/addnewmonth" element={<AddNewMonth />} /> {/* 排班系統畫面新增月份 */}
-            <Route path="/schedulingsystem" element={<SchedulingSystem />} /> {/* 正式排班畫面 */}
-            <Route path="/salarycalculate" element={<SalaryCalculate />} /> {/* 薪資計算畫面 */}
           </Routes>
         </Router>
       </EmployeeProvider>
