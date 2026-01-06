@@ -1,0 +1,1486 @@
+/* 權限頁面專用樣式 - 修正 Sidebar 遮擋問題 */
+
+/* 全域移除搜尋相關元素的所有動畫效果 */
+.permissions-search-input-container,
+.permissions-search-input-container *,
+.permissions-search-input,
+.permissions-search-button,
+.permissions-search-icon {
+  transition: none !important;
+  animation: none !important;
+}
+
+/* 主容器 - 修正 Sidebar 遮擋問題 */
+.permissions-management-page {
+  display: flex;
+  height: 100vh;
+  background-color: #f5f5f5;
+  font-family: "Microsoft JhengHei", Arial, sans-serif;
+  overflow: hidden;
+  margin-left: 250px; /* 為固定的 Sidebar 騰出空間 */
+}
+
+/* 主內容區 - 修正佈局 */
+.permissions-main-content {
+  flex-grow: 1;
+  padding: 5px;
+  background-color: white;
+  border-radius: 8px;
+  margin: 15px;
+  overflow: hidden;
+  height: calc(100vh - 30px);
+  display: flex;
+  flex-direction: row;
+}
+
+/* 左側內容區域 - 佔2/3 */
+.permissions-main-content-inner {
+  flex: 2;
+  padding: 20px;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 麵包屑導航 */
+.permissions-breadcrumb {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.permissions-breadcrumb-button {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  color: #4a86e8;
+  cursor: pointer;
+  padding: 0;
+  font-size: 14px;
+}
+
+.permissions-breadcrumb-icon {
+  margin-right: 5px;
+}
+
+/* 頁面標題 */
+.permissions-page-title {
+  font-size: 24px;
+  color: #666;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+
+/* 按鈕組容器 */
+.permissions-button-group-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 35px;
+}
+
+/* 查詢方式容器 */
+.permissions-query-method-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  width: 276px;
+  height: 41px;
+  border: 1px solid #E8E8E8;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+/* 查詢按鈕 */
+.permissions-query-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 9px 8px;
+  gap: 10px;
+  width: 138px; /* 修正寬度讓兩個按鈕平分 */
+  height: 41px;
+  background-color: transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: none;
+}
+
+.permissions-query-button-active {
+  background-color: #3A6CA6;
+}
+
+.permissions-query-button-text {
+  width: 72px;
+  height: 24px;
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #909090;
+}
+
+.permissions-query-button-text-active {
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+/* 內容區域 */
+.permissions-content-area {
+  height: calc(100% - 120px);
+  overflow: auto;
+}
+
+/* 載入狀態 */
+.permissions-loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.permissions-loading-content {
+  text-align: center;
+}
+
+.permissions-loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #4a86e8;
+  border-radius: 50%;
+  margin: 0 auto 10px;
+  animation: permissionsSpin 2s linear infinite;
+}
+
+@keyframes permissionsSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 錯誤狀態 */
+.permissions-error-container {
+  text-align: center;
+  color: #e74c3c;
+  padding: 20px;
+  background-color: #fceaea;
+  border-radius: 4px;
+  margin: 20px 0;
+}
+
+.permissions-error-retry-button {
+  padding: 8px 16px;
+  background-color: #4a86e8;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* 部門標籤容器 */
+.permissions-departments-container {
+  display: flex;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.permissions-department-tab {
+  padding: 10px 20px;
+  border-radius: 4px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border: 1px solid #eee;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+}
+
+.permissions-department-tab-active {
+  background-color: #f8f8f8;
+}
+
+.permissions-department-icon {
+  margin-right: 5px;
+  color: #FFD700;
+}
+
+/* 沒有員工狀態 */
+.permissions-no-employees-container {
+  text-align: center;
+  color: #999;
+  padding: 40px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+}
+
+/* 搜尋輸入框容器 */
+.permissions-search-input-container {
+  position: relative;
+  width: 100%;
+  max-width: 1080px;
+  height: 60px;
+  margin: 0 auto 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 搜尋輸入框 */
+.permissions-search-input {
+  width: 100%;
+  max-width: 1080px;
+  height: 60px;
+  padding: 0 70px 0 20px;
+  background: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.05em;
+  color: #1F1F1F;
+  box-sizing: border-box;
+  outline: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: none !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+.permissions-search-input:hover,
+.permissions-search-input:focus,
+.permissions-search-input:active {
+  width: 100% !important;
+  max-width: 1080px !important;
+  height: 60px !important;
+  padding: 0 70px 0 20px !important;
+  box-sizing: border-box !important;
+  transition: none !important;
+  transform: none !important;
+  animation: none !important;
+  box-shadow: 0 0 0 2px rgba(58, 108, 166, 0.2);
+}
+
+.permissions-search-input::placeholder {
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.05em;
+  color: #CCCCCC;
+  text-align: center;
+}
+
+/* 搜尋按鈕 */
+.permissions-search-button {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #3A6CA6;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: none !important;
+  animation: none !important;
+}
+
+.permissions-search-button:hover {
+  background: #2d5a94;
+  width: 48px !important;
+  height: 48px !important;
+  transition: none !important;
+  transform: translateY(-50%) !important;
+}
+
+.permissions-search-icon {
+  width: 20px;
+  height: 20px;
+  fill: #FFFFFF;
+  transition: none !important;
+  animation: none !important;
+}
+
+/* 員工卡片網格 */
+.permissions-employees-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 15px;
+  padding: 20px 0;
+}
+
+.permissions-employee-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.permissions-employee-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.permissions-employee-name-text {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.permissions-employee-details-text {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 右側邊欄 - Frame 681 設計 */
+.permissions-right-sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  width: 298px;
+  min-width: 298px;
+  max-width: 298px;
+  height: 100%;
+  flex: none;
+  order: 1;
+  flex-shrink: 0;
+}
+
+/* Frame 322 */
+.permissions-sidebar-spacer {
+  width: 100%;
+  height: 18px;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+/* 主要內容範圍 */
+.permissions-sidebar-main {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 24px 18px;
+  gap: 10px;
+  width: 100%;
+  height: calc(100% - 18px);
+  background: rgba(58, 108, 166, 0.1);
+  border: 5px solid rgba(58, 108, 166, 0.1);
+  border-radius: 10px;
+  flex: 1;
+  order: 1;
+  overflow-y: auto;
+}
+
+/* Frame 721 */
+.permissions-sidebar-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+  gap: 25px;
+  width: 100%;
+  max-width: 262px;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+/* 已開通後台權限 */
+.permissions-sidebar-title {
+  width: 100%;
+  height: 30px;
+  font-family: 'Microsoft JhengHei UI';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+  text-align: center;
+  color: #616161;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 0;
+}
+
+/* Frame 96 */
+.permissions-authorized-employees {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+  gap: 5px;
+  width: 100%;
+  flex: 1;
+  order: 1;
+  align-self: stretch;
+  overflow-y: auto;
+}
+
+/* 修正：員工+權限卡片 - 移除固定高度，添加動態高度和點擊功能 */
+.permissions-employee-permission-card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+  gap: 4px;
+  width: 100%;
+  max-width: 262px;
+  min-height: 60px; /* 改為最小高度而非固定高度 */
+  background: #FFFFFF;
+  border: 1px solid #E9E9E9;
+  border-radius: 10px;
+  flex: none;
+  flex-grow: 0;
+  margin-bottom: 5px;
+  transition: all 0.3s ease; /* 添加動畫效果 */
+  overflow: visible; /* 確保內容可見 */
+  cursor: pointer; /* 添加點擊指示 */
+}
+
+/* 展開狀態的特殊樣式 */
+.permissions-employee-permission-card.expanded {
+  height: auto;
+  min-height: 241px; /* 根據設計稿高度 */
+}
+
+/* 修正：員工列 - 移除固定高度 */
+.permissions-employee-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  gap: 10px;
+  width: 100%;
+  min-height: 60px; /* 改為最小高度 */
+  background: #FFFFFF;
+  border: 1px solid #E9E9E9;
+  border-radius: 5px;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+/* Frame 83 */
+.permissions-employee-info-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  gap: 10px;
+  width: 100%;
+  max-width: 220px;
+  height: 40px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+/* Frame 690 */
+.permissions-employee-left-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 5px;
+  flex: 1;
+  height: 44px;
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+/* Star */
+.permissions-star-icon {
+  width: 16px;
+  height: 16px;
+  flex: none;
+  order: 0; /* 確保是第一個 */
+  flex-grow: 0;
+  position: relative;
+}
+
+.permissions-star-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: #FFD233;
+}
+
+/* mingcute:user-4-fill */
+.permissions-user-avatar {
+  width: 40px;
+  height: 40px;
+  flex: none;
+  order: 1; /* 確保是第二個 */
+  flex-grow: 0;
+  position: relative;
+  border-radius: 50%;
+  background: #C4D4E8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.permissions-user-avatar svg {
+  width: 24px;
+  height: 24px;
+  fill: #FFFFFF;
+}
+
+/* Frame 88 */
+.permissions-employee-text-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  flex: 1;
+  height: 44px;
+  min-width: 0;
+  order: 2; /* 確保是第三個 */
+}
+
+.permissions-employee-name {
+  width: 100%;
+  height: 24px;
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.05em;
+  color: #1F1F1F;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.permissions-employee-id {
+  width: 100%;
+  height: 20px;
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 0.05em;
+  color: #919191;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.permissions-employee-department {
+  width: auto;
+  height: 32px;
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: right;
+  letter-spacing: 0.05em;
+  color: #1F1F1F;
+  flex: none;
+  order: 3; /* 確保是第四個 */
+  flex-grow: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 60px;
+}
+
+/* 權限圖示區域 */
+.permissions-employee-permissions-icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 0px;
+  gap: 15px;
+  width: 100%;
+  max-width: 240px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* 權限圖示網格 */
+.permissions-icons-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: flex-start;
+  padding: 0px;
+  gap: 10px;
+  width: 100%;
+  max-width: 240px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  justify-content: flex-start;
+}
+
+/* 權限圖示項目 */
+.permissions-icon-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  width: 48px;
+  height: 60px;
+  flex: none;
+  flex-grow: 0;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.permissions-icon-item:hover {
+  transform: scale(1.05);
+}
+
+.permissions-icon-item span {
+  width: 100%;
+  min-height: 16px; /* 改為最小高度而不是固定高度 */
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: -2px;
+  white-space: nowrap; /* 保持不換行 */
+  overflow: visible; /* 改為可見，讓文字顯示出來 */
+  /* 移除 text-overflow: ellipsis; 因為我們不希望顯示省略號 */
+  word-wrap: normal;
+}
+
+/* 編輯權限按鈕 */
+.permissions-edit-permissions-button {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 240px;
+  height: 35px;
+  border: 1px solid #C4D4E8;
+  border-radius: 5px;
+  background: transparent;
+  cursor: pointer;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+  
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #3A6CA6;
+  
+  transition: all 0.2s ease;
+}
+
+.permissions-edit-permissions-button:hover {
+  background-color: #f0f7ff;
+  border-color: #3A6CA6;
+  transform: translateY(-1px);
+}
+
+.permissions-edit-permissions-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* 動畫效果 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 員工卡片樣式 - 完全仿照 Human.css */
+
+/* 職位區塊 */
+.permissions-position-section {
+  margin-bottom: 24px;
+  background-color: transparent;
+  border-radius: 0;
+  padding: 0;
+}
+
+.permissions-position-section-header {
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #00B1FF;
+}
+
+.permissions-position-section-title {
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: 0.01em;
+  color: #3A6CA6;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* 員工標籤網格佈局 */
+.permissions-position-section-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 18px;
+  margin-top: 20px;
+  margin-bottom: 25px;
+  justify-content: start;
+}
+
+/* 員工卡片 */
+.permissions-employee-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 12px 16px;
+  gap: 12px;
+  width: 380px;
+  min-width: 380px;
+  height: 70px;
+  background: #FFFFFF;
+  border: 1px solid #E9E9E9;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.permissions-employee-card:hover {
+  background: #F8F8F8;
+  border-color: #D0D0D0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+}
+
+.permissions-employee-card-selected {
+  background: rgba(74, 134, 232, 0.05);
+  border-color: #4a86e8;
+  box-shadow: 0 2px 8px rgba(74, 134, 232, 0.15);
+}
+
+/* 選擇指示器 */
+.permissions-employee-card-selected-indicator {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 20px;
+  height: 20px;
+  background: #4a86e8;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* 員工卡片內容容器 */
+.permissions-employee-card-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  gap: 12px;
+}
+
+/* 頭像樣式 */
+.permissions-employee-card-avatar {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #C4D4E8;
+  flex-shrink: 0;
+  border: none;
+}
+
+.permissions-employee-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.permissions-employee-card-fallback {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #C4D4E8;
+}
+
+/* 主要資訊區域 */
+.permissions-employee-card-main-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  gap: 4px;
+}
+
+/* 第一行：姓名 + 部門 */
+.permissions-employee-card-avatar-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 24px;
+  gap: 15px;
+}
+
+/* 第二行：員工編號 + 職位 */
+.permissions-employee-card-department-position {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 20px;
+  gap: 15px;
+}
+
+/* 姓名樣式 */
+.permissions-employee-card-name {
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.05em;
+  color: #1F1F1F;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
+  flex-shrink: 1;
+}
+
+/* 員工編號樣式 */
+.permissions-employee-card-id {
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 0.05em;
+  color: #919191;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
+  flex-shrink: 1;
+}
+
+/* 部門樣式 */
+.permissions-employee-card-department {
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: right;
+  letter-spacing: 0.05em;
+  color: #1F1F1F;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px;
+  flex-shrink: 0;
+}
+
+/* 職位樣式 */
+.permissions-employee-card-position {
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: right;
+  letter-spacing: 0.05em;
+  color: #1F1F1F;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px;
+  flex-shrink: 0;
+}
+
+/* 部門載入和錯誤狀態 */
+.permissions-departments-loading,
+.permissions-departments-error {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  color: #666;
+}
+
+/* 目前已選取員工 - 根據設計稿樣式，但使用與上方相同的卡片樣式 */
+.permissions-selected-panel {
+  box-sizing: border-box;
+  width: 100%; /* 改為100%以匹配上方寬度 */
+  max-width: none; /* 移除最大寬度限制 */
+  min-height: 250px; /* 增加最小高度 */
+  background: #FFFFFF;
+  border: 1px solid #C4D4E8;
+  border-radius: 10px;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+  position: relative;
+  margin-top: 20px;
+  padding: 30px; /* 增加內邊距 */
+}
+
+/* Frame 95 - 主要內容容器 */
+.permissions-selected-panel-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 44px;
+  width: 100%;
+  min-height: 190px; /* 增加最小高度 */
+}
+
+/* Frame 94 - 左側員工列表區域 */
+.permissions-selected-employees-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 20px; /* 增加間距 */
+  flex: 1;
+  min-height: 190px; /* 增加最小高度 */
+}
+
+/* 目前已選取員工標題 */
+.permissions-selected-title {
+  width: 100%;
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px; /* 增大字體 */
+  line-height: 24px;
+  color: #3A6CA6;
+  margin: 0;
+}
+
+/* Frame 93 - 員工列表容器 */
+.permissions-selected-employees-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  flex: 1;
+}
+
+/* Frame 89 - 員工卡片網格 - 使用與上方相同的網格佈局 */
+.permissions-selected-employees-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 18px; /* 增加間距以匹配上方 */
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  min-height: 140px; /* 增加最小高度 */
+}
+
+/* 選中的員工卡片 - 完全使用與上方相同的樣式 */
+.permissions-selected-employee-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 12px 16px;
+  gap: 12px;
+  width: 380px;
+  min-width: 380px;
+  height: 70px;
+  background: #FFFFFF;
+  border: 1px solid #E9E9E9;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.permissions-selected-employee-card:hover {
+  background: #F8F8F8;
+  border-color: #D0D0D0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+}
+
+/* 選中員工卡片內容容器 - 完全仿照上方樣式 */
+.permissions-selected-employee-card-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  gap: 12px;
+}
+
+/* 選中員工頭像 - 完全仿照上方樣式 */
+.permissions-selected-employee-avatar {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #C4D4E8;
+  flex-shrink: 0;
+  border: none;
+}
+
+.permissions-selected-employee-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.permissions-selected-employee-avatar-fallback {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #C4D4E8;
+}
+
+/* 選中員工主要資訊區域 - 完全仿照上方樣式 */
+.permissions-selected-employee-main-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  gap: 4px;
+}
+
+/* 選中員工第一行：姓名 + 部門 - 完全仿照上方樣式 */
+.permissions-selected-employee-name-department {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 24px;
+  gap: 15px;
+}
+
+/* 選中員工第二行：員工編號 + 職位 - 完全仿照上方樣式 */
+.permissions-selected-employee-id-position {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 20px;
+  gap: 15px;
+}
+
+/* 選中員工姓名樣式 - 完全仿照上方樣式 */
+.permissions-selected-employee-name {
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.05em;
+  color: #1F1F1F;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
+  flex-shrink: 1;
+}
+
+/* 選中員工編號樣式 - 完全仿照上方樣式 */
+.permissions-selected-employee-id {
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 0.05em;
+  color: #919191;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
+  flex-shrink: 1;
+}
+
+/* 選中員工部門樣式 - 完全仿照上方樣式 */
+.permissions-selected-employee-department {
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: right;
+  letter-spacing: 0.05em;
+  color: #1F1F1F;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px;
+  flex-shrink: 0;
+}
+
+/* 選中員工職位樣式 - 完全仿照上方樣式 */
+.permissions-selected-employee-position {
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: right;
+  letter-spacing: 0.05em;
+  color: #1F1F1F;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px;
+  flex-shrink: 0;
+}
+
+/* Frame 91 - 右側按鈕區域 */
+.permissions-selected-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 5px;
+  width: 152px;
+  min-width: 152px;
+  height: 128px;
+  flex-shrink: 0;
+}
+
+/* 清除重選按鈕 */
+.permissions-clear-button {
+  box-sizing: border-box;
+  width: 152px;
+  height: 56px;
+  background: #FFFFFF;
+  border: 1px solid #C4D4E8;
+  border-radius: 10px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #3A6CA6;
+  transition: all 0.2s ease;
+}
+
+.permissions-clear-button:hover {
+  background: #F8F9FA;
+  border-color: #3A6CA6;
+}
+
+/* 下一步按鈕 */
+.permissions-next-button {
+  width: 152px;
+  height: 67px;
+  background: #3A6CA6;
+  border-radius: 10px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  transition: all 0.2s ease;
+}
+
+.permissions-next-button:hover {
+  background: #2d5a94;
+}
+
+/* 下一步按鈕文字 */
+.permissions-next-button-main-text {
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #FFFFFF;
+}
+
+.permissions-next-button-sub-text {
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #FFFFFF;
+}
+
+/* 移除原有的不一致樣式 */
+.permissions-selected-header,
+.permissions-selected-count,
+.permissions-selected-list,
+.permissions-selected-item,
+.permissions-selected-remove,
+.permissions-action-buttons {
+  display: none;
+}
+
+/* 響應式設計 */
+@media (max-width: 1600px) {
+  .permissions-position-section-grid,
+  .permissions-selected-employees-grid {
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 15px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .permissions-management-page {
+    margin-left: 0; /* 小螢幕時移除左邊距 */
+    flex-direction: column;
+  }
+  
+  .permissions-main-content {
+    flex-direction: column;
+  }
+  
+  .permissions-main-content-inner {
+    flex: none;
+    height: 60%;
+  }
+  
+  .permissions-right-sidebar {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    height: 40%;
+  }
+  
+  .permissions-position-section-grid,
+  .permissions-selected-employees-grid {
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 12px;
+  }
+  
+  .permissions-selected-panel-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .permissions-selected-actions {
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 900px) {
+  .permissions-position-section-grid,
+  .permissions-selected-employees-grid {
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .permissions-management-page {
+    margin-left: 0; /* 移動裝置時移除左邊距 */
+  }
+  
+  .permissions-search-input-container {
+    max-width: 100%;
+  }
+  
+  .permissions-selected-panel {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .permissions-position-section-grid,
+  .permissions-selected-employees-grid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .permissions-employee-card,
+  .permissions-selected-employee-card {
+    width: 320px;
+    min-width: 320px;
+    height: 65px;
+    padding: 10px 14px;
+  }
+  
+  .permissions-employee-card-avatar,
+  .permissions-selected-employee-avatar {
+    width: 35px;
+    height: 35px;
+    min-width: 35px;
+  }
+  
+  .permissions-employee-card-name,
+  .permissions-selected-employee-name {
+    font-size: 16px;
+    max-width: 120px;
+  }
+  
+  .permissions-employee-card-id,
+  .permissions-selected-employee-id {
+    font-size: 11px;
+    max-width: 120px;
+  }
+  
+  .permissions-employee-card-department,
+  .permissions-employee-card-position,
+  .permissions-selected-employee-department,
+  .permissions-selected-employee-position {
+    font-size: 11px;
+    max-width: 80px;
+  }
+}
+
+/* 自定義滾動條樣式 */
+.permissions-main-content-inner::-webkit-scrollbar,
+.permissions-content-area::-webkit-scrollbar,
+.permissions-authorized-employees::-webkit-scrollbar,
+.permissions-selected-employees-grid::-webkit-scrollbar {
+  width: 6px;
+}
+
+.permissions-main-content-inner::-webkit-scrollbar-track,
+.permissions-content-area::-webkit-scrollbar-track,
+.permissions-authorized-employees::-webkit-scrollbar-track,
+.permissions-selected-employees-grid::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.permissions-main-content-inner::-webkit-scrollbar-thumb,
+.permissions-content-area::-webkit-scrollbar-thumb,
+.permissions-authorized-employees::-webkit-scrollbar-thumb,
+.permissions-selected-employees-grid::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.permissions-main-content-inner::-webkit-scrollbar-thumb:hover,
+.permissions-content-area::-webkit-scrollbar-thumb:hover,
+.permissions-authorized-employees::-webkit-scrollbar-thumb:hover,
+.permissions-selected-employees-grid::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}

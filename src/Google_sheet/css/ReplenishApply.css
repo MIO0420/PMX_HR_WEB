@@ -1,0 +1,475 @@
+/* ReplenishApply.css */
+
+/* 容器樣式 */
+.replenish-apply-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f7fa;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.replenish-apply-wrapper {
+  width: 100%;
+  max-width: 100%; /* 移除最大寬度限制，與打卡頁面一致 */
+  height: 100%;
+  background-color: white;
+  font-family: "Microsoft JhengHei", Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  
+  /* 防止整個應用變形 */
+  transform: translate3d(0, 0, 0) !important;
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  will-change: auto;
+}
+
+/* 頭部樣式 */
+.replenish-apply-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2b6cb0;
+  color: white;
+  padding: 0 16px;
+  height: 92px;
+  width: 100vw;
+  max-width: 100vw;
+  box-sizing: border-box;
+  position: relative;
+  left: 0;
+  right: 0;
+  
+  /* 固定標題欄 */
+  min-height: 70px;
+  max-height: 100px;
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.replenish-apply-home-icon {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.replenish-apply-time-display {
+  font-size: 16px;
+  color: #FFFFFF;
+  margin-top: 20px;
+}
+
+.replenish-apply-page-title {
+  font-size: 18px;
+  font-weight: normal;
+  color: #FFFFFF;
+  text-align: center;
+  flex: 1;
+  margin-top: 20px;
+}
+
+/* 表單容器 */
+.replenish-apply-form-container {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  padding-bottom: 70px; /* 底部間距，為底部按鈕留出空間 */
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+/* 表單行 */
+.replenish-apply-form-row {
+  display: flex;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 15px;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.replenish-apply-form-label {
+  width: 70px;
+  font-size: 14px;
+  color: #666;
+  flex-shrink: 0;
+}
+
+.replenish-apply-form-value {
+  flex: 1;
+  font-size: 14px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  width: calc(100% - 60px);
+  box-sizing: border-box;
+}
+
+/* 卡片類型容器 */
+.replenish-apply-card-type-container {
+  display: flex;
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+}
+
+.replenish-apply-card-type-button {
+  flex: 1;
+  padding: 8px 0;
+  text-align: center;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  background-color: white;
+  color: #333;
+}
+
+.replenish-apply-card-type-button-active {
+  background-color: #2b6cb0;
+  color: white;
+}
+
+/* 事由選擇器 */
+.replenish-apply-reason-selector {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  cursor: pointer;
+}
+
+.replenish-apply-reason-name {
+  font-weight: bold;
+}
+
+.replenish-apply-dropdown-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+/* 日期時間行 */
+.replenish-apply-date-time-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.replenish-apply-date-time {
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.replenish-apply-time-input {
+  font-size: 14px;
+  text-align: right;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+/* 描述容器 */
+.replenish-apply-description-container {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 15px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.replenish-apply-description-label {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.replenish-apply-description-textarea {
+  min-height: 100px;
+  width: 100%;
+  border: none;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 14px;
+  resize: none;
+  font-family: "Microsoft JhengHei", Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+/* 按鈕容器 */
+.replenish-apply-button-container {
+  position: absolute;
+  bottom: 3px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 5;
+}
+
+.replenish-apply-cancel-button {
+  width: 45%;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 5px;
+  background-color: white;
+  font-size: 16px;
+  font-weight: bold;
+  color: #6b7280;
+  cursor: pointer;
+  height: 48px;
+  min-height: 48px;
+  max-height: 48px;
+}
+
+.replenish-apply-submit-button {
+  width: 45%;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #2b6cb0;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  height: 48px;
+  min-height: 48px;
+  max-height: 48px;
+}
+
+.replenish-apply-button-loading {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* 事由選項容器 */
+.replenish-apply-reason-options-container {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  right: 0;
+  background-color: white;
+  z-index: 10;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  max-height: 70vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.replenish-apply-reason-category {
+  padding: 10px 16px;
+  background-color: #f5f7fa;
+  color: #666;
+  font-size: 14px;
+  font-weight: bold;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.replenish-apply-reason-option {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 遮罩層 */
+.replenish-apply-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 5;
+}
+
+/* 針對 iOS 設備的特殊處理 */
+@supports (-webkit-touch-callout: none) {
+  .replenish-apply-button-container {
+    position: fixed !important;
+  }
+  
+  .replenish-apply-wrapper {
+    transform: translate3d(0, 0, 0) !important;
+    -webkit-transform: translate3d(0, 0, 0) !important;
+    will-change: auto;
+  }
+}
+
+/* 響應式調整 */
+@media (max-width: 360px) {
+  .replenish-apply-wrapper {
+    width: 100%;
+    border: none;
+  }
+}
+
+/* 針對小螢幕的額外調整 */
+@media (max-height: 600px) {
+  .replenish-apply-form-container {
+    max-height: calc(100vh - 140px);
+    overflow-y: auto;
+  }
+}
+
+/* 載入中指示器 */
+.replenish-apply-loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+}
+
+.replenish-apply-loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #2b6cb0;
+  border-radius: 50%;
+  animation: replenish-apply-spin 1s linear infinite;
+}
+
+.replenish-apply-loading-text {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+@keyframes replenish-apply-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 錯誤訊息樣式 */
+.replenish-apply-error-container {
+  position: fixed;
+  top: 92px;
+  left: 0;
+  right: 0;
+  z-index: 25;
+  padding: 10px;
+}
+
+.replenish-apply-error-message {
+  background-color: #fff3f3;
+  border-left: 4px solid #f56565;
+  padding: 12px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.replenish-apply-error-icon {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.replenish-apply-error-text {
+  flex: 1;
+  font-size: 14px;
+  color: #e53e3e;
+}
+
+.replenish-apply-error-close {
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0 5px;
+}
+
+/* 自動填入提示樣式 */
+.replenish-apply-auto-fill-notice {
+  position: fixed;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  animation: slideDownFadeIn 0.4s ease-out;
+}
+
+.replenish-apply-auto-fill-message {
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+  padding: 14px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 90vw;
+  text-align: center;
+}
+
+.replenish-apply-auto-fill-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.replenish-apply-auto-fill-text {
+  line-height: 1.4;
+}
+
+@keyframes slideDownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-30px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+}
+
+/* 響應式設計 */
+@media (max-width: 480px) {
+  .replenish-apply-auto-fill-notice {
+    left: 15px;
+    right: 15px;
+    transform: none;
+  }
+  
+  .replenish-apply-auto-fill-message {
+    padding: 12px 16px;
+    font-size: 13px;
+  }
+}

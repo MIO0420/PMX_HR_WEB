@@ -1,0 +1,1128 @@
+/* 基本樣式 */
+.scheduling-system {
+  display: flex;
+  height: 100vh;
+  background-color: #f5f5f5;
+  font-family: "Microsoft JhengHei", Arial, sans-serif;
+  overflow: hidden;
+}
+
+/* 主內容區 */
+.scheduling-main-content {
+  flex-grow: 1;
+  background-color: #F8F8F8;
+  border-radius: 8px;
+  margin: 15px;
+  margin-left: 265px;
+  overflow-y: hidden;
+  height: calc(100vh - 30px);
+  display: flex;
+  flex-direction: column;
+}
+
+/* 頂部標題和操作區 */
+.scheduling-header-section {
+  padding: 15px 20px;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+/* ✅ 修改：header-row 改為縱向排列 */
+.scheduling-header-row {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+/* ✅ 修改：第一行 - 返回按鈕、標題和日期範圍 */
+.scheduling-header-first-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ✅ 修改：第二行 - 操作按鈕靠左對齊 */
+.scheduling-header-second-row {
+  display: flex;
+  justify-content: flex-start;  /* 改為靠左對齊 */
+  align-items: center;
+}
+
+.scheduling-header-left {
+  display: flex;
+  align-items: center;
+}
+
+.scheduling-back-button {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #666;
+  margin-right: 15px;
+  font-size: 14px;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.scheduling-back-button:hover {
+  background-color: #f8f9fa;
+}
+
+.scheduling-back-button-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.scheduling-back-button-text {
+  text-decoration: underline;
+  color: #666;
+}
+
+.scheduling-back-button:hover .scheduling-back-button-text {
+  color: #333;
+}
+
+.scheduling-page-title {
+  font-size: 18px;
+  color: #333;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.scheduling-date-range-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.scheduling-date-range-label {
+  color: #666;
+  font-size: 14px;
+}
+
+.scheduling-date-range-item {
+  background-color: #f8f9fa;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+}
+
+.scheduling-date-range-separator {
+  color: #666;
+}
+
+/* ✅ 修改：操作按鈕 - 靠左對齊 */
+.scheduling-action-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.scheduling-action-button {
+  padding: 8px 15px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: 2px solid;
+}
+
+.scheduling-action-button.publish {
+  background-color: #3a75b5;
+  color: white;
+  border-color: #3a75b5;
+}
+
+.scheduling-action-button.publish.inactive {
+  background-color: white;
+  color: #3a75b5;
+  border-color: #3a75b5;
+}
+
+.scheduling-action-button.draft {
+  background-color: #3a75b5;
+  color: white;
+  border-color: #3a75b5;
+}
+
+.scheduling-action-button.draft.inactive {
+  background-color: white;
+  color: #3a75b5;
+  border-color: #3a75b5;
+}
+
+.scheduling-action-button.draft.disabled {
+  color: #999;
+  border-color: #ddd;
+  cursor: not-allowed;
+}
+
+.scheduling-action-button.pdf {
+  background-color: #3a75b5;
+  color: white;
+  border-color: #3a75b5;
+}
+
+.scheduling-action-button.pdf.inactive {
+  background-color: white;
+  color: #3a75b5;
+  border-color: #3a75b5;
+}
+
+.scheduling-action-button:hover.inactive {
+  background-color: rgba(74, 134, 232, 0.1);
+}
+
+.scheduling-action-button:hover.draft.disabled {
+  background-color: white;
+}
+
+.scheduling-pending-count {
+  margin-left: 6px;
+  border-radius: 10px;
+  padding: 2px 6px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.scheduling-pending-count.active {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: white;
+}
+
+.scheduling-pending-count.inactive {
+  background-color: #3a75b5;
+  color: white;
+}
+
+/* 班別設定區 */
+.scheduling-shift-settings {
+  background-color: white;
+  padding: 15px 20px;
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin: 0 20px 0 20px;
+  margin-bottom: 0;
+}
+
+.scheduling-shift-settings-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.scheduling-shift-settings-label {
+  font-size: 14px;
+  color: #666;
+  margin-right: 15px;
+}
+
+.scheduling-shift-settings-description {
+  font-size: 14px;
+  color: #999;
+}
+
+.scheduling-pending-changes-notice {
+  margin-left: 15px;
+  font-size: 12px;
+  color: #856404;
+  background-color: #fff3cd;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid #ffeaa7;
+}
+
+.scheduling-shift-types-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* 班別按鈕 */
+.scheduling-shift-type-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  background-color: transparent;
+  border: 2px solid;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  position: relative;
+  min-height: 36px;
+  gap: 8px;
+}
+
+.scheduling-shift-type-button.selected {
+  color: #fff;
+}
+
+.scheduling-shift-type-button.deleted {
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
+.scheduling-shift-type-button:hover:not(.selected):not(.deleted) {
+  background-color: rgba(0, 0, 0, 0.05);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.scheduling-shift-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  color: white;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.scheduling-shift-badge.new {
+  background-color: #28a745;
+}
+
+.scheduling-shift-badge.deleted {
+  background-color: #dc3545;
+}
+
+.scheduling-shift-name {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.scheduling-shift-time-range {
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.scheduling-shift-time-range.selected {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.scheduling-shift-time-range.unselected {
+  color: #999;
+}
+
+.scheduling-shift-frequency-badge {
+  font-size: 10px;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-weight: normal;
+}
+
+.scheduling-shift-frequency-badge.selected {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.scheduling-shift-frequency-badge.unselected {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #666;
+}
+
+.scheduling-shift-delete-button {
+  margin-left: 4px;
+  padding: 2px 6px;
+  background-color: transparent;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s ease;
+}
+
+.scheduling-shift-delete-button.selected {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.scheduling-shift-delete-button.unselected {
+  color: #999;
+}
+
+.scheduling-shift-delete-button:hover.selected {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.scheduling-shift-delete-button:hover.unselected {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: #dc3545;
+}
+
+/* 訊息顯示區 */
+.scheduling-message-section {
+  padding: 10px 20px;
+  background-color: white;
+}
+
+.scheduling-success-message {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  border: 1px solid #c3e6cb;
+}
+
+.scheduling-error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  border: 1px solid #f5c6cb;
+}
+
+/* 主要排班表區域 */
+.scheduling-schedule-container {
+  flex: 1;
+  background-color: #F8F8F8;
+  overflow: auto;
+  position: relative;
+  padding: 20px;
+  user-select: none;
+}
+
+.scheduling-loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: white;
+}
+
+.scheduling-loading-content {
+  text-align: center;
+  color: #666;
+}
+
+.scheduling-loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3a75b5;
+  border-radius: 50%;
+  margin: 0 auto 10px;
+  animation: scheduling-spin 2s linear infinite;
+}
+
+@keyframes scheduling-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.scheduling-schedule-table {
+  background-color: transparent;
+  border-radius: 0;
+  border: none;
+  overflow: visible;
+}
+
+.scheduling-no-employees {
+  padding: 40px;
+  text-align: center;
+  color: #6c757d;
+  font-size: 16px;
+}
+
+/* ✅ 週分隔線 */
+.scheduling-week-separator {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 2px;
+  width: 100%;
+  height: 2px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  background-color: #dee2e6;
+  margin: 20px 0;
+  border: none;
+}
+
+/* ✅ 日期行 - 使用 grid 佈局與員工行對齊 */
+.scheduling-date-row {
+  display: grid;
+  grid-template-columns: 150px repeat(7, 1fr);
+  border-bottom: none !important;
+  min-height: 27px;
+  gap: 10px;
+  padding: 0 40px;
+  background-color: #f8f9fa;
+  align-items: center;
+  /* ✅ 新增：確保 grid 項目對齊 */
+  justify-items: center;
+}
+
+.scheduling-date-row-left {
+  width: 150px;
+  padding: 10px;
+  background-color: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* ✅ 新增：確保在 grid 中正確對齊 */
+  justify-self: stretch;
+}
+
+.scheduling-date-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* ✅ 移除固定寬度，讓它自適應 grid */
+  /* min-width: 120px; */
+  height: 27px;
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.2;
+  border-radius: 4px;
+  padding: 0 8px;
+  text-align: center;
+  /* ✅ 新增：確保填滿 grid 格子 */
+  width: 100%;
+  justify-self: stretch;
+}
+
+.scheduling-date-cell.weekend {
+  color: #495057;
+}
+
+.scheduling-date-cell.weekday {
+  color: #495057;
+}
+
+.scheduling-date-cell.current-month {
+  background-color: #f8f9fa;
+}
+
+.scheduling-date-cell.other-month {
+  background-color: #e9ecef;
+}
+
+/* ✅ 空日期格子樣式 - 完全透明且隱藏 */
+.scheduling-date-cell.empty-date {
+  background-color: transparent !important;
+  border: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+/* ✅ 員工排班行 */
+.scheduling-employee-row {
+  display: grid;
+  grid-template-columns: 150px repeat(7, 1fr);
+  border-bottom: none !important;
+  min-height: 60px;
+  gap: 10px;
+  padding: 0 40px;
+  /* ✅ 新增：確保 grid 項目對齊 */
+  justify-items: center;
+}
+
+/* ✅ 修改員工信息卡片佈局 */
+.scheduling-schedule-employee-card {
+  width: 150px;
+  min-height: 70px;
+  background: #FFFFFF;
+  border-radius: 10px;
+  /* ✅ 完全移除外框 - 不設定任何 border 屬性 */
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  /* ✅ 強制所有內容靠左對齊 */
+  align-items: flex-start;
+}
+
+/* ✅ 修改員工頭部 - 姓名靠左，工時靠右 */
+.scheduling-employee-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  /* ✅ 確保不會影響子元素的對齊 */
+  align-self: stretch;
+}
+
+/* ✅ 員工姓名 - 靠最左邊 */
+.scheduling-employee-name {
+  font-family: 'Microsoft JhengHei';
+  font-weight: 700;
+  font-size: 18px;
+  color: #1F1F1F;
+  line-height: 1.2;
+  flex: 1;
+  text-align: left !important;
+  /* ✅ 強制靠左對齊 */
+  align-self: flex-start;
+}
+
+/* ✅ 工時區域 - 靠最右邊 */
+.scheduling-employee-hours {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.scheduling-employee-hours-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.scheduling-employee-hours-text {
+  font-family: 'Microsoft JhengHei';
+  font-size: 14px;
+  color: rgba(58, 108, 166, 0.5);
+}
+
+/* ✅ 部門名稱 - 強制靠最左邊 */
+.scheduling-employee-department {
+  font-family: 'Microsoft JhengHei';
+  font-size: 14px;
+  color: #919191;
+  line-height: 1;
+  /* ✅ 強制靠左對齊的所有屬性 */
+  text-align: left !important;
+  align-self: flex-start !important;
+  justify-self: flex-start !important;
+  margin-top: 2px;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  /* ✅ 確保寬度不會導致居中 */
+  width: auto;
+  display: block;
+}
+
+.scheduling-schedule-cell {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 10px;
+  /* ✅ 固定高度，不受內容影響 */
+  height: 69px !important;
+  max-height: 69px !important;
+  min-height: 69px !important;
+  border-radius: 10px;
+  flex: 1;
+  order: 0;
+  position: relative;
+  transition: all 0.2s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  border: 1px solid #c0c0c0 !important;
+  background-color: #fafafa !important;
+  width: 100%;
+  justify-self: stretch;
+  /* ✅ 防止內容溢出 */
+  overflow: hidden;
+}
+
+/* ✅ 有排班時的樣式 */
+.scheduling-schedule-cell.has-schedule {
+  border: 1px solid #c0c0c0 !important;
+  background-color: #fafafa !important;
+}
+
+/* ✅ 拖拉時的樣式 */
+.scheduling-schedule-cell.dragging {
+  border: 2px solid #2196f3 !important;
+  background-color: #bbdefb !important;
+}
+
+.scheduling-schedule-cell.can-schedule {
+  cursor: crosshair;
+}
+
+.scheduling-schedule-cell.can-schedule.no-shift {
+  cursor: pointer;
+}
+
+.scheduling-schedule-cell.cannot-schedule {
+  cursor: default;
+}
+
+.scheduling-schedule-cell.other-month {
+  opacity: 0.6;
+}
+
+/* ✅ 只有真正的空日期才隱藏（月份外的日期） */
+.scheduling-schedule-cell.empty-date {
+  background-color: transparent !important;
+  border: none !important;
+  cursor: default;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+/* 有排班的格子 */
+.scheduling-schedule-content {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0px;
+  gap: 0px;
+  width: 100%;
+  height: 100%;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.scheduling-schedule-delete-button {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 16px;
+  height: 16px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  color: #dc3545;
+  z-index: 10;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(220, 53, 69, 0.3);
+}
+
+.scheduling-schedule-delete-button:hover {
+  background-color: #dc3545;
+  color: white;
+  transform: scale(1.1);
+}
+
+.scheduling-shift-block-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  order: 0;
+  flex-grow: 1;
+}
+
+.scheduling-shift-block-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: stretch;
+  padding: 0px;
+  gap: 0px;
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 1;
+}
+
+/* ✅ 修改班別區塊 - 填滿可用寬度 */
+.scheduling-shift-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 6px;
+  gap: 2px;
+  width: 100%;
+  min-width: unset;
+  /* ✅ 固定高度比例 */
+  height: calc(70% + 3px);
+  max-height: calc(70% + 3px);
+  border-radius: 8px;
+  flex: 1;
+  order: 0;
+  flex-grow: 1;
+  /* ✅ 防止內容溢出 */
+  overflow: hidden;
+}
+
+.scheduling-shift-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 5px;
+  /* ✅ 移除固定寬度，改為自適應 */
+  width: 100%;
+  max-width: 100%;
+  height: 24px;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  /* ✅ 防止內容溢出 */
+  overflow: hidden;
+}
+
+.scheduling-shift-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 4px;
+  flex: 1;
+  height: 100%;
+  order: 0;
+  flex-grow: 1;
+  /* ✅ 防止內容溢出 */
+  min-width: 0;
+  overflow: hidden;
+}
+
+.scheduling-shift-name-text {
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  color: #FFFFFF;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  /* ✅ 改為動態寬度 */
+  max-width: 50%;
+}
+
+.scheduling-shift-time-text {
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  color: #E9E9E9;
+  flex: 1;
+  order: 1;
+  flex-grow: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* ✅ 確保不會撐大格子 */
+  min-width: 0;
+}
+
+.scheduling-shift-menu-icon {
+  width: 16px;
+  height: 16px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scheduling-menu-line {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  border: 1px solid rgba(204, 204, 204, 0.5);
+  border-radius: 1px;
+}
+
+.scheduling-menu-line-1 {
+  top: 25%;
+  bottom: 65%;
+}
+
+.scheduling-menu-line-2 {
+  top: 45%;
+  bottom: 45%;
+}
+
+.scheduling-menu-line-3 {
+  top: 65%;
+  bottom: 25%;
+}
+
+.scheduling-work-hours-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2px 8px;
+  gap: 6px;
+  width: 100%;
+  height: auto;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin-bottom: 4px;
+}
+
+.scheduling-work-hours-icon {
+  width: 16px;
+  height: 16px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  position: relative;
+}
+
+/* ✅ 修正工時文字 */
+.scheduling-work-hours-text {
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.2;
+  color: rgba(58, 108, 166, 0.5);
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin-top: 3px; 
+}
+
+/* 無排班的格子 */
+.scheduling-empty-schedule {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ccc;
+  font-size: 12px;
+}
+
+.scheduling-drag-preview {
+  color: #2196f3;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* ✅ 確保 + 號可以顯示 */
+.scheduling-add-schedule-hint {
+  color: #ddd;
+  font-size: 24px;
+  font-weight: 300;
+  display: block !important;
+  visibility: visible !important;
+}
+
+/* 彈窗樣式 */
+.scheduling-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scheduling-modal-content {
+  background-color: white;
+  border-radius: 12px;
+  padding: 24px;
+  min-width: 400px;
+  max-width: 500px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.scheduling-modal-content.wide {
+  min-width: 450px;
+}
+
+.scheduling-modal-title {
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  color: #333;
+  text-align: center;
+}
+
+.scheduling-modal-field {
+  margin-bottom: 16px;
+}
+
+.scheduling-modal-field.flex {
+  display: flex;
+  gap: 12px;
+}
+
+.scheduling-modal-field.flex > div {
+  flex: 1;
+}
+
+.scheduling-modal-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555;
+}
+
+.scheduling-modal-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.scheduling-modal-select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.scheduling-modal-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.scheduling-modal-button {
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  border: none;
+}
+
+.scheduling-modal-button.cancel {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  border: 1px solid #dee2e6;
+}
+
+.scheduling-modal-button.confirm {
+  background-color: #007bff;
+  color: white;
+}
+
+.scheduling-modal-button.confirm.loading {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.scheduling-modal-button.add {
+  background-color: #28a745;
+  color: white;
+}
+
+/* 標題編輯 icon */
+.scheduling-title-edit-icon {
+  width: 20px;
+  height: 20px;
+  margin-left: 8px;
+  vertical-align: middle;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.scheduling-title-edit-icon:hover {
+  opacity: 1;
+}
+
+/* 響應式設計 */
+@media (max-width: 1200px) {
+  .scheduling-main-content {
+    margin-left: 20px;
+  }
+  
+  .scheduling-date-row {
+    padding: 0 20px;
+  }
+  
+  .scheduling-employee-row {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .scheduling-system {
+    flex-direction: column;
+  }
+  
+  .scheduling-main-content {
+    margin: 10px;
+    margin-left: 10px;
+  }
+  
+  /* ✅ 修改：手機版響應式調整 */
+  .scheduling-header-first-row {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  
+  .scheduling-header-second-row {
+    justify-content: flex-start; /* 手機版按鈕也靠左 */
+  }
+  
+  .scheduling-action-buttons {
+    flex-wrap: wrap;
+  }
+  
+  .scheduling-shift-types-container {
+    justify-content: center;
+  }
+  
+  .scheduling-date-row {
+    padding: 0 10px;
+  }
+  
+  .scheduling-employee-row {
+    padding: 0 10px;
+    gap: 5px;
+  }
+  
+  .scheduling-schedule-cell {
+    min-width: 80px;
+  }
+  
+  .scheduling-schedule-employee-card {
+    width: 120px;
+  }
+}

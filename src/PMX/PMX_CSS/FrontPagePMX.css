@@ -1,0 +1,601 @@
+/* FrontPage.css - 響應式設計 */
+
+/* 全局樣式 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: "Microsoft JhengHei", Arial, sans-serif;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+/* 容器樣式 - 支援全螢幕 */
+.front-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  height: 100vh;
+  background-color: #f5f7fa;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.front-app-wrapper {
+  width: 100%;
+  max-width: 100%;
+  height: 100vh;
+  background-color: white;
+  font-family: "Microsoft JhengHei", Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 頭部樣式 */
+.front-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3a75b5;
+  color: white;
+  padding: 0 20px;
+  height: 93px !important;
+  min-height: 50px;
+  width: 100%;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.front-home-icon {
+  width: 6vw;
+  height: 6vw;
+  min-width: 30px;
+  min-height: 30px;
+  max-width: 40px;
+  max-height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.home-icon {
+  width: 4vw;
+  height: 4vw;
+  min-width: 20px;
+  min-height: 20px;
+  max-width: 25px;
+  max-height: 25px;
+  object-fit: contain;
+}
+
+.front-page-title {
+  font-size: 4vw;
+  min-font-size: 16px;
+  max-font-size: 20px;
+  font-weight: normal;
+  color: #FFFFFF;
+  text-align: center;
+  flex: 1;
+  padding-top: 24px;
+  padding-right: 130px; /* 為兩個語言按鈕留出空間 */
+}
+
+/* 首頁專用的語言切換器樣式調整 */
+.front-page-language-switch {
+  /* 如果需要特殊調整可以在這裡添加 */
+}
+
+/* 內容區域 */
+.front-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  height: calc(100vh - 93px);
+}
+
+/* 個人資料卡片 */
+.front-profile-card {
+  padding: 4vw;
+  background-color: #fff;
+  border-radius: 2vw;
+  margin: 4vw;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+  flex-shrink: 0;
+}
+
+.front-profile-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.front-company-name {
+  font-size: 4vw;
+  min-font-size: 16px;
+  max-font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 2vw;
+}
+
+.front-department-info {
+  font-size: 3.5vw;
+  min-font-size: 14px;
+  max-font-size: 16px;
+  color: #666;
+  margin-bottom: 2vw;
+  white-space: pre-line;
+  line-height: 1.4;
+}
+
+.front-user-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2vw;
+}
+
+.front-user-name {
+  font-size: 5vw;
+  min-font-size: 18px;
+  max-font-size: 22px;
+  font-weight: bold;
+  color: #333;
+}
+
+.front-user-number {
+  font-size: 4.5vw;
+  min-font-size: 16px;
+  max-font-size: 20px;
+  color: #333;
+}
+
+/* 佔位圖像 */
+.front-placeholder-image {
+  width: 100%;
+  height: 25vh;
+  min-height: 120px;
+  max-height: 200px;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2vh 0;
+  flex-shrink: 0;
+}
+
+.front-cross-line {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.front-line1 {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 100%;
+  background-color: #ddd;
+  transform: rotate(45deg);
+  transform-origin: top;
+}
+
+.front-line2 {
+  position: absolute;
+  top: 0;
+  right: 50%;
+  width: 1px;
+  height: 100%;
+  background-color: #ddd;
+  transform: rotate(-45deg);
+  transform-origin: top;
+}
+
+/* 功能按鈕網格 */
+.front-functions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background-color: #eee;
+  border-top: 1px solid #eee;
+  flex: 1;
+  min-height: 0;
+  padding: 10px;
+}
+
+.front-function-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3vh 2vw;
+  min-height: 15vh;
+  background-color: #fff;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s;
+}
+
+.front-function-button:hover {
+  background-color: #f9f9f9;
+}
+
+.front-function-button:active {
+  background-color: #f0f0f0;
+}
+
+.front-function-icon {
+  width: 12vw;
+  height: 12vw;
+  min-width: 50px;
+  min-height: 50px;
+  max-width: 80px;
+  max-height: 80px;
+  color: #3a75b5;
+  margin-bottom: 2vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* 圖標圖片樣式 */
+.front-icon-image {
+  width: 78px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.front-function-text {
+  font-size: 20px !important;
+  margin-top: 10px;
+  color: #909090;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+.front-notification-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #ff4d4f;
+  color: white;
+  font-size: 2.5vw;
+  min-font-size: 10px;
+  max-font-size: 12px;
+  width: 4vw;
+  height: 4vw;
+  min-width: 16px;
+  min-height: 16px;
+  max-width: 20px;
+  max-height: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 響應式斷點 */
+
+/* 小型手機 (320px - 480px) */
+@media screen and (max-width: 480px) {
+  .front-header {
+    height: 60px;
+    padding: 0 16px;
+  }
+  
+  .front-page-title {
+    font-size: 16px;
+    padding-right: 120px; /* 調整為兩個按鈕的空間 */
+    padding-top: 16px;
+  }
+  
+  .front-content {
+    height: calc(100vh - 60px);
+  }
+  
+  .front-profile-card {
+    margin: 16px;
+    padding: 16px;
+    border-radius: 8px;
+  }
+  
+  .front-company-name {
+    font-size: 16px;
+  }
+  
+  .front-department-info {
+    font-size: 14px;
+  }
+  
+  .front-user-name {
+    font-size: 18px;
+  }
+  
+  .front-user-number {
+    font-size: 16px;
+  }
+  
+  .front-placeholder-image {
+    height: 120px;
+  }
+  
+  .front-function-button {
+    padding: 16px 8px;
+    min-height: 120px;
+  }
+  
+  .front-function-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 8px;
+  }
+  
+  .front-icon-image {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .front-function-text {
+    font-size: 12px !important;
+  }
+}
+
+/* 中型手機 (481px - 768px) */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .front-header {
+    height: 70px;
+    padding: 0 20px;
+  }
+  
+  .front-page-title {
+    font-size: 18px;
+    padding-right: 130px;
+    padding-top: 20px;
+  }
+  
+  .front-content {
+    height: calc(100vh - 70px);
+  }
+  
+  .front-profile-card {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .front-company-name {
+    font-size: 18px;
+  }
+  
+  .front-department-info {
+    font-size: 15px;
+  }
+  
+  .front-user-name {
+    font-size: 20px;
+  }
+  
+  .front-user-number {
+    font-size: 18px;
+  }
+  
+  .front-placeholder-image {
+    height: 160px;
+  }
+  
+  .front-function-button {
+    padding: 20px 12px;
+    min-height: 140px;
+  }
+  
+  .front-function-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+  }
+  
+  .front-icon-image {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .front-function-text {
+    font-size: 13px !important;
+  }
+}
+
+/* 平板 (769px - 1024px) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .front-container {
+    justify-content: center;
+  }
+  
+  .front-app-wrapper {
+    max-width: 500px;
+  }
+  
+  .front-header {
+    height: 80px;
+    padding: 0 24px;
+  }
+  
+  .front-page-title {
+    font-size: 20px;
+    padding-right: 140px;
+    padding-top: 22px;
+  }
+  
+  .front-content {
+    height: calc(100vh - 80px);
+  }
+  
+  .front-profile-card {
+    margin: 24px;
+    padding: 24px;
+    border-radius: 12px;
+  }
+  
+  .front-company-name {
+    font-size: 20px;
+  }
+  
+  .front-department-info {
+    font-size: 16px;
+  }
+  
+  .front-user-name {
+    font-size: 22px;
+  }
+  
+  .front-user-number {
+    font-size: 20px;
+  }
+  
+  .front-placeholder-image {
+    height: 200px;
+  }
+  
+  .front-function-button {
+    padding: 24px 16px;
+    min-height: 160px;
+  }
+  
+  .front-function-icon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 12px;
+  }
+  
+  .front-icon-image {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .front-function-text {
+    font-size: 14px !important;
+  }
+}
+
+/* 桌面 (1025px+) */
+@media screen and (min-width: 1025px) {
+  .front-container {
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .front-app-wrapper {
+    max-width: 400px;
+    height: 90vh;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  }
+  
+  .front-header {
+    border-radius: 20px 20px 0 0;
+  }
+}
+
+/* 橫向模式調整 */
+@media screen and (orientation: landscape) and (max-height: 600px) {
+  .front-placeholder-image {
+    height: 80px;
+  }
+  
+  .front-function-button {
+    min-height: 80px;
+    padding: 12px 8px;
+  }
+  
+  .front-function-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 4px;
+  }
+  
+  .front-icon-image {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .front-profile-card {
+    padding: 12px;
+    margin: 12px;
+  }
+}
+
+/* 加載狀態 */
+.front-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.front-loading-spinner {
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #3a75b5;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: front-spin 1s linear infinite;
+}
+
+@keyframes front-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 觸控優化 */
+@media (hover: none) and (pointer: coarse) {
+  .front-function-button:hover {
+    background-color: #fff;
+  }
+  
+  .front-function-button:active {
+    background-color: #f0f0f0;
+    transform: scale(0.98);
+  }
+  
+  .front-profile-card:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  .front-profile-card:active {
+    transform: scale(0.98);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+}
+
+/* 高對比度模式支援 */
+@media (prefers-contrast: high) {
+  .front-function-button {
+    border: 1px solid #ccc;
+  }
+}
+
+/* 減少動畫模式支援 */
+@media (prefers-reduced-motion: reduce) {
+  .front-function-button {
+    transition: none;
+  }
+  
+  .front-profile-card {
+    transition: none;
+  }
+}

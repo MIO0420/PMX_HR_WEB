@@ -1,0 +1,987 @@
+/* 全局防護樣式 */
+html, body {
+  touch-action: manipulation;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* 全局按鈕重置 */
+button,
+input[type="button"], 
+input[type="submit"], 
+input[type="reset"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* 防止所有元素的意外變形 */
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  box-sizing: border-box;
+}
+
+*:active, *:focus, *:hover {
+  transform: none !important;
+  -webkit-transform: none !important;
+  transition: none !important;
+  -webkit-transition: none !important;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #FFFFFF; /* 修改：統一為白色 */
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.appWrapper {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  background-color: white;
+  font-family: "Microsoft JhengHei", Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  
+  /* 防止整個應用變形 */
+  transform: translate3d(0, 0, 0) !important;
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  will-change: auto;
+}
+
+/* 🎯 Header 樣式 - 統一所有頁面的標題欄 */
+.header,
+.fullScreenHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3A6CA6;
+  color: white;
+  padding: 0 16px;
+  height: 96px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  
+  /* 固定標題欄 */
+  min-height: 96px;
+  max-height: 96px;
+  flex-shrink: 0;
+  margin: 0;
+}
+
+/* 🎯 房子圖標樣式 - 確保所有頁面一致 */
+.homeIcon,
+.returnIcon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 20px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.homeIcon:hover,
+.returnIcon:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.pageTitle {
+  font-size: 24px;
+  font-weight: 400;
+  color: #FFFFFF;
+  text-align: center;
+  flex: 1;
+  margin-top: 20px;
+}
+
+/* 🎯 內容容器 - 與加班頁面結構一致 */
+.contentContainer {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 20px;
+  background-color: #FFFFFF; /* 新增：統一背景色 */
+  
+  /* 防止內容區域變化 */
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  max-width: 390px;
+  margin: 0 auto;
+}
+
+/* 🎯 標籤容器 - 完全對齊 Figma 設計 */
+.tabContainer {
+  width: 351px;
+  display: flex;
+  height: 37px;
+  margin-bottom: 20px;
+  justify-content: space-between;
+  gap: 8px;
+  box-sizing: border-box;
+}
+
+.tab {
+  width: 112px;
+  height: 37px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFFFFF;
+  color: #3A6CA6;
+  font-weight: 700;
+  font-size: 20px;
+  cursor: pointer;
+  border: 1px solid #E9E9E9;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  box-sizing: border-box;
+}
+
+.tabActive {
+  background-color: #3A6CA6;
+  color: #FFFFFF;
+  border: none;
+}
+
+/* ✅ 新增：公告列表外框容器 - 對應 Figma 的 Frame 464 */
+.announcementListContainer {
+  width: 350px;
+  height: 592px;
+  border: 1px solid #E9E9E9;
+  border-radius: 10px;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background-color: #FFFFFF;
+  position: relative;
+}
+
+/* 🎯 公告列表樣式調整 - 內部容器 */
+.announcementList {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 0px;
+  width: 100%;
+  height: 100%;
+  flex-grow: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* ✅ 公告項目樣式 - 對應 Figma 的通知列 */
+.announcementItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px 10px 0px;
+  gap: 10px;
+  position: relative;
+  cursor: pointer;
+  width: 350px;
+  min-height: 43px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #E9E9E9;
+}
+
+/* ✅ 有附件的公告項目 */
+.announcementItem.hasAttachment {
+  min-height: 79px;
+  padding: 10px;
+  gap: 5px;
+  align-items: center;
+}
+
+/* ✅ 公告項目頭部容器 */
+.announcementHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  width: 330px;
+  height: 20px;
+  position: relative;
+}
+
+/* ✅ 左側容器：紅點 + 標題 */
+.announcementLeft {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0; /* 允許文字截斷 */
+}
+
+/* ✅ 右側容器：圖標 + 日期 */
+.announcementRight {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0; /* 防止壓縮 */
+}
+
+/* ✅ 日曆圖標樣式 */
+.calendarIcon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+/* ✅ 公告標題樣式調整 */
+.announcementText {
+  font-family: 'Microsoft JhengHei UI';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  color: #3A6CA6;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 200px; /* 限制標題最大寬度 */
+}
+
+/* ✅ 已讀公告標題樣式 */
+.announcementText.read {
+  font-weight: 400;
+}
+
+/* ✅ 日期樣式調整 */
+.announcementDate {
+  font-family: 'Microsoft JhengHei UI';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #909090;
+  white-space: nowrap;
+}
+
+/* ✅ 未讀紅點樣式調整 */
+.redDot {
+  width: 6px;
+  height: 6px;
+  background: #F44336;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ✅ 移除不需要的樣式 */
+.announcementInfo {
+  display: none;
+}
+
+.announcementTime {
+  display: none;
+}
+
+/* ✅ 附件下載區域 */
+.attachmentArea {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 5px;
+  width: 166.77px;
+  height: 37px;
+}
+
+.attachmentItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 2px;
+  width: 167.82px;
+  height: 16px;
+  font-family: 'Microsoft JhengHei UI';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #1F1F1F;
+  cursor: pointer;
+}
+
+.attachmentIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.downloadIcon {
+  width: 15px;
+  height: 15px;
+}
+
+/* ✅ 分頁控制樣式 - 對應 Figma */
+.pagination {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 3px;
+  width: 140px;
+  height: 21px;
+  justify-content: center;
+  margin: 20px auto 0;
+}
+
+.pageButton {
+  width: 18px;
+  height: 21px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Microsoft JhengHei UI';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #919191;
+  position: relative;
+}
+
+.activePageButton {
+  color: #FFFFFF;
+}
+
+.activePageButton::before {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: #C4D4E8;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.arrowButton {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.disabledArrowButton {
+  color: #E9E9E9;
+  cursor: not-allowed;
+}
+
+/* ✅ 載入和錯誤狀態樣式 */
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+  color: #666;
+}
+
+.errorMessage {
+  color: red;
+  text-align: center;
+  padding: 20px;
+}
+
+.noAnnouncements {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.retryButton {
+  padding: 8px 16px;
+  font-size: 14px;
+  background-color: #3A6CA6;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 10px auto;
+  display: block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* 錯誤容器 */
+.errorContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  flex-direction: column;
+  padding: 20px;
+  text-align: center;
+}
+
+.errorContainer button {
+  margin: 10px;
+  padding: 10px 20px;
+  background: #3A6CA6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* ==================== 全螢幕詳情頁面樣式 ==================== */
+
+/* 全螢幕容器 */
+.fullScreenContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #FFFFFF; /* 修改：統一為白色 */
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+}
+
+/* 全螢幕包裝器 */
+.fullScreenWrapper {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  background-color: white;
+  font-family: "Microsoft JhengHei", Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* 🎯 全螢幕標題欄 - 與列表頁面完全相同 */
+.fullScreenHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3A6CA6;
+  color: white;
+  padding: 0 16px;
+  height: 96px;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  min-height: 96px;
+  max-height: 96px;
+  flex-shrink: 0;
+  margin: 0;
+}
+
+/* ✅ 返回按鈕樣式 - 與審核頁面完全一致 */
+.backLink {
+  font-size: 14px;
+  color: #666;
+  padding: 10px 16px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 新增：讓內容居中 */
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  width: 100%; /* 修改：讓容器佔滿寬度 */
+  margin: 8px 0 0 0;
+  gap: 8px;
+  text-align: center; /* 新增：文字居中 */
+}
+
+.backLink:hover {
+  color: #3A6CA6;
+}
+
+.backLink .backIcon {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.backLink span {
+  font-family: 'Microsoft JhengHei UI';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: inherit;
+}
+
+/* 全螢幕內容區域 */
+.fullScreenContent {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #FFFFFF;
+  padding-bottom: 0; /* 新增：移除底部內邊距 */
+}
+/* 公告詳情卡片 - 全螢幕版本 */
+.announcementDetailCard {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 800px;
+  flex: 1; /* 新增：讓卡片佔滿剩餘空間 */
+  background: #FFFFFF;
+  border: 1px solid #E9E9E9;
+  border-radius: 10px;
+  box-shadow: none; 
+  box-sizing: border-box;
+  margin-bottom: 0; /* 修改：移除底部間距 */
+}
+.announcementDetailContent {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 20px;
+  flex: 1; /* 新增：讓內容區域佔滿空間 */
+}
+
+
+/* 公告標題區域 - 全螢幕版本 */
+.announcementTitleSection {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+.announcementDetailHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.announcementDetailTitle {
+  font-family: 'Microsoft JhengHei UI';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  color: #3A6CA6;
+  margin: 0;
+  flex: 1;
+  min-width: 200px;
+}
+
+.announcementDetailDate {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.announcementDetailDate .calendarIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.announcementDetailDate span {
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: #909090;
+  white-space: nowrap;
+}
+
+/* 公告內容 - 全螢幕版本 */
+.announcementContent {
+  width: 100%;
+  margin-top: 10px;
+  flex: 1; /* 新增：讓內容區域佔滿剩餘空間 */
+  overflow-y: auto; /* 新增：允許滾動 */
+}
+
+
+.announcementContent pre {
+  font-family: 'Microsoft JhengHei UI';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #1F1F1F;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin: 0;
+  background-color: #FFFFFF;
+  padding: 15px;
+  border-radius: 8px;
+  border: none;
+  min-height: 100%; /* 新增：確保內容至少佔滿容器 */
+}
+
+/* 附件區域 - 全螢幕版本 */
+.attachmentSection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  background: #F1F2F6;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+.attachmentTitle {
+  font-family: 'Microsoft JhengHei UI';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #3A6CA6;
+  margin-bottom: 10px;
+}
+
+.attachmentItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background: #FFFFFF;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border: 1px solid #e0e0e0;
+}
+
+.attachmentItem:hover {
+  background-color: #f0f0f0;
+}
+
+.attachmentInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.attachmentIcon {
+  width: 24px;
+  height: 24px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.attachmentName {
+  font-family: 'Microsoft JhengHei UI';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: #1F1F1F;
+}
+
+.downloadIcon {
+  width: 20px;
+  height: 20px;
+  font-size: 16px;
+  color: #3A6CA6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 已讀區域 - 全螢幕版本 */
+.readSection {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 15px 20px;
+  border-top: 1px solid #E9E9E9;
+  background-color: #FFFFFF; /* 修改：統一為白色 */
+}
+
+.readLabel {
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: #919191;
+}
+
+/* 全螢幕底部區域 */
+.fullScreenFooter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #FFFFFF;
+  border-top: 1px solid #E9E9E9;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.fullScreenFooter .submitButton {
+  width: 100%;
+  max-width: 400px;
+  height: 53px;
+  background: #3A6CA6;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border: none;
+}
+
+.fullScreenFooter .submitButton:hover {
+  background: #2e5a94;
+}
+
+.fullScreenFooter .submitButton span {
+  font-family: 'Microsoft JhengHei UI';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.fullScreenFooter .readButton {
+  width: 100%;
+  max-width: 400px;
+  height: 53px;
+  background: #D1D1D1;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+.fullScreenFooter .readButton span {
+  font-family: 'Microsoft JhengHei UI';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+/* 響應式調整 - 與審核頁面一致 */
+@media (max-width: 768px) {
+  .fullScreenContent {
+    padding: 15px;
+  }
+  
+  .announcementDetailCard {
+    max-width: 100%;
+  }
+  
+  .announcementDetailContent {
+    padding: 15px;
+  }
+  
+  .announcementDetailHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .announcementDetailTitle {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  
+  .announcementContent pre {
+    font-size: 13px;
+    line-height: 18px;
+    padding: 12px;
+  }
+  
+  .fullScreenFooter {
+    padding: 15px;
+  }
+  
+  .backLink {
+    padding: 8px 14px;
+    font-size: 13px;
+    gap: 7px;
+    margin: 6px 0 0 0;
+  }
+  
+  .backLink .backIcon {
+    width: 13px;
+    height: 13px;
+  }
+  
+  .backLink span {
+    font-size: 13px;
+    line-height: 17px;
+  }
+}
+
+@media (max-width: 480px) {
+  .fullScreenHeader,
+  .header {
+    height: 80px;
+  }
+  
+  .headerLeft,
+  .headerRight,
+  .homeIcon,
+  .returnIcon {
+    width: 40px;
+    height: 40px;
+    margin-top: 15px;
+  }
+  
+  .headerCenter {
+    margin-top: 15px;
+  }
+  
+  .pageTitle {
+    font-size: 20px;
+  }
+  
+  .announcementDetailTitle {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  
+  .announcementContent pre {
+    font-size: 12px;
+    line-height: 16px;
+    padding: 10px;
+  }
+  
+  .backLink {
+    padding: 6px 12px;
+    font-size: 12px;
+    gap: 6px;
+    margin: 5px 0 0 0;
+  }
+  
+  .backLink .backIcon {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .backLink span {
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+
+@media (max-width: 360px) {
+  .appWrapper {
+    width: 100%;
+    border: none;
+  }
+  
+  .header,
+  .fullScreenHeader {
+    width: 100vw;
+  }
+  
+  .contentContainer {
+    max-width: 100%;
+    padding: 15px;
+  }
+  
+  .tabContainer {
+    width: 100%;
+  }
+  
+  .announcementListContainer {
+    width: 100%;
+  }
+}
+
+/* 針對 iOS 設備的特殊處理 */
+@supports (-webkit-touch-callout: none) {
+  .appWrapper,
+  .fullScreenWrapper {
+    transform: translate3d(0, 0, 0) !important;
+    -webkit-transform: translate3d(0, 0, 0) !important;
+    will-change: auto;
+  }
+}
+
+/* 防止背景滾動 */
+body.fullscreen-open {
+  overflow: hidden;
+}
+

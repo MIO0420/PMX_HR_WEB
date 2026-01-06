@@ -1,0 +1,1320 @@
+/* 上傳公告主容器 */
+.upload-announcement-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 0px;
+  width: 100vw;
+  min-height: 100vh;
+  background: #F8F8F8;
+  font-family: 'Microsoft JhengHei', Arial, sans-serif;
+}
+
+/* 上傳公告側邊欄包裝器 */
+.upload-announcement-sidebar-wrapper {
+  width: 300px;
+  min-height: 100vh;
+  flex-shrink: 0;
+}
+
+/* 上傳公告功能表 - 修改為與其他系統一致的寬度 */
+.upload-announcement-submenu-wrapper {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0px 0px 50px 0px;
+  gap: 10px;
+  width: 250px;
+  min-height: 100vh;
+  background: rgba(255, 255, 255, 0.2);
+  border-right: 1px solid #E9E9E9;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+  flex-shrink: 0;
+}
+
+/* 上傳公告功能表內容容器 */
+.upload-announcement-submenu-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 0px 0px 0px;
+  gap: 10px;
+  width: 100%;
+}
+
+/* 上傳公告選單項目基本樣式 - 修改為與其他系統一致 */
+.upload-announcement-menu-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 18px 20px;
+  gap: 15px;
+  width: calc(100% - 20px);
+  height: 86px;
+  border-radius: 10px 0px 0px 10px;
+  margin-left: 10px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+/* 上傳公告活躍選單項目 */
+.upload-announcement-menu-item.active {
+  background: #FFFFFF;
+  border: 2px solid rgba(58, 108, 166, 0.2);
+}
+
+/* 上傳公告非活躍選單項目 */
+.upload-announcement-menu-item.inactive {
+  border: 1px solid rgba(248, 248, 248, 0.5);
+}
+
+/* 上傳公告選單圖標 - 修改為與其他系統一致的尺寸 */
+.upload-announcement-menu-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* 上傳公告選單圖標圖片樣式 */
+.upload-announcement-menu-icon-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* 上傳公告非活躍狀態的圖標透明度 */
+.upload-announcement-inactive-icon-image {
+  opacity: 0.5;
+}
+
+/* 上傳公告選單文字 - 修改為與其他系統一致 */
+.upload-announcement-menu-text {
+  font-family: 'Microsoft JhengHei UI';
+  font-style: normal;
+  font-size: 16px;
+  line-height: 20px;
+  flex: 1;
+}
+
+.upload-announcement-menu-text.active {
+  font-weight: 700;
+  color: #616161;
+}
+
+.upload-announcement-menu-text.inactive {
+  font-weight: 400;
+  color: rgba(97, 97, 97, 0.5);
+}
+
+/* 上傳公告主要內容範圍 */
+.upload-announcement-main-content-area {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 5px 10px 10px 10px; /* 🔥 上方內邊距改為 5px */
+  gap: 5px; /* 🔥 進一步減少間距到 5px */
+  flex: 1;
+  min-height: calc(100vh - 30px);
+  max-height: calc(100vh - 30px);
+  background: #F8F8F8;
+  margin: 5px 10px 10px 0px; /* 🔥 上方外邊距改為 5px */
+  border-radius: 10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  max-width: calc(100vw - 300px);
+}
+
+
+/* 上傳公告內容框架 */
+.upload-announcement-content-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px; /* 🔥 確保沒有內邊距 */
+  gap: 15px; /* 🔥 減少間距從 20px 改為 15px */
+  width: 100%;
+  max-width: 1200px;
+  flex: 1;
+  order: 0;
+  align-self: stretch;
+  margin: 0; /* 🔥 確保沒有外邊距 */
+}
+
+/* 上傳公告主編輯區域 */
+.upload-announcement-main-edit-area {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 15px 18px 20px; /* 🔥 減少內邊距 */
+  gap: 10px;
+  isolation: isolate;
+  width: 100%;
+  max-width: 1200px;
+  min-height: 576px;
+  background: #FFFFFF;
+  border: 1.6px solid #E9E9E9;
+  border-radius: 16px;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 0; /* 🔥 確保沒有外邊距 */
+}
+
+
+/* 上傳公告編輯內容容器 */
+.upload-announcement-edit-content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* 🔥 改為 flex-start */
+  padding: 0px;
+  gap: 14px;
+  width: 100%;
+  min-height: 522px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  z-index: 0;
+}
+
+
+/* 上傳公告文字編輯區域 */
+.upload-announcement-text-edit-area {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  width: 100%;
+  height: 383px;
+  min-height: 383px;
+  border: 1px solid #F8F8F8;
+  border-radius: 10px;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+/* 上傳公告標題區域 */
+.upload-announcement-title-frame {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 10px;
+  gap: 20px;
+  width: 100%;
+  height: 45px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+/* 上傳公告標題輸入框 */
+.upload-announcement-title-input {
+  width: 100%; /* 🔥 改為 100% 寬度 */
+  height: 21px;
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.01em;
+  color: #1F1F1F;
+  border: none;
+  outline: none;
+  background: transparent;
+  flex: 1;
+  order: 0;
+  flex-grow: 1;
+  padding: 0 8px; /* 🔥 添加左右內邊距 */
+  box-sizing: border-box;
+}
+
+
+.upload-announcement-title-input::placeholder {
+  color: #CCCCCC;
+}
+
+/* 上傳公告標題字數限制提示 */
+.upload-announcement-title-limit-warning {
+  display: none;
+  width: 132px;
+  height: 21px;
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  text-align: right;
+  letter-spacing: 0.01em;
+  color: #ED1313;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.upload-announcement-title-limit-warning.show {
+  display: flex;
+  align-items: center;
+}
+
+/* 上傳公告內文區域 */
+.upload-announcement-content-text-frame {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 10px;
+  gap: 10px;
+  width: 100%;
+  height: 338px;
+  min-height: 338px;
+  border-top: 1px solid rgba(204, 204, 204, 0.5);
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+/* 上傳公告內文輸入框 */
+.upload-announcement-content-textarea {
+  width: 100%;
+  height: 318px;
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  letter-spacing: 0.01em;
+  color: #1F1F1F;
+  border: none;
+  outline: none;
+  background: transparent;
+  resize: none;
+  flex: 1;
+  order: 0;
+  /* 🔥 新增以下樣式確保文字從左上角開始 */
+  text-align: left;
+  vertical-align: top;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+.upload-announcement-content-textarea::placeholder {
+  color: #CCCCCC;
+}
+
+/* 上傳公告內文字數限制提示 */
+.upload-announcement-content-limit-warning {
+  display: none;
+  width: 126px;
+  height: 21px;
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  text-align: right;
+  letter-spacing: 0.01em;
+  color: #ED1313;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.upload-announcement-content-limit-warning.show {
+  display: flex;
+  align-items: center;
+}
+
+/* 上傳公告附件上傳區域 */
+.upload-announcement-attachment-area {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 10px;
+  width: 100%;
+  height: 125px;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+/* 上傳公告上傳按鈕基本樣式 */
+.upload-announcement-upload-button {
+  width: 125px;
+  height: 125px;
+  position: relative;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  padding: 0;
+  flex: none;
+  flex-grow: 0;
+}
+
+.upload-announcement-upload-button:nth-child(1) {
+  order: 0;
+}
+
+.upload-announcement-upload-button:nth-child(2) {
+  order: 1;
+}
+
+/* 上傳公告上傳按鈕邊框 */
+.upload-announcement-upload-border {
+  box-sizing: border-box;
+  position: absolute;
+  width: 125px;
+  height: 125px;
+  left: 0px;
+  top: 0px;
+  opacity: 0.4;
+  border: 1px dashed #909090;
+  border-radius: 10px;
+}
+
+/* 上傳公告上傳圖標 */
+.upload-announcement-upload-icon {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  left: 17px;
+  top: 7px;
+}
+
+/* 上傳按鈕圖標圖片樣式 */
+.upload-announcement-upload-icon-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* 移除原本的向量圖標樣式（如果不需要的話） */
+.upload-announcement-upload-icon .upload-announcement-icon-vector {
+  display: none;
+}
+
+/* 上傳公告上傳文字 */
+.upload-announcement-upload-text {
+  position: absolute;
+  width: 65px;
+  height: 21px;
+  left: 29px;
+  top: 97px;
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.01em;
+  color: #919191;
+  text-align: center;
+}
+
+/* 上傳公告已上傳的附件/圖片 */
+.upload-announcement-uploaded-item {
+  box-sizing: border-box;
+  width: 125px;
+  height: 125px;
+  border-radius: 10px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  flex: none;
+  flex-grow: 0;
+}
+
+.upload-announcement-uploaded-item.attachment {
+  border: 1px solid #0FA958;
+  background: #F0F8F4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  order: 2;
+}
+
+.upload-announcement-uploaded-item.image {
+  border: 1px solid #0FA958;
+  order: 4;
+}
+
+/* 上傳公告刪除按鈕 */
+.upload-announcement-delete-button {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 20px;
+  height: 20px;
+  background: #FF4444;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  z-index: 10;
+}
+
+/* 上傳公告附件數量限制提示 */
+.upload-announcement-attachment-limit-warning {
+  position: absolute;
+  display: none;
+  width: 229px;
+  height: 21px;
+  right: 20px;
+  bottom: 20px;
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  text-align: right;
+  letter-spacing: 0.01em;
+  color: #ED1313;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  z-index: 1;
+}
+
+.upload-announcement-attachment-limit-warning.show {
+  display: flex;
+  align-items: center;
+}
+
+/* 上傳公告設定區域 */
+.upload-announcement-settings-area {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 10px;
+  width: 100%;
+  height: auto;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+/* 上傳公告設定項目 */
+.upload-announcement-setting-item {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 15px 22px;
+  gap: 10px;
+  width: 100%;
+  min-height: 75px;
+  background: #FFFFFF;
+  border: 1px solid #E9E9E9;
+  border-radius: 10px;
+  flex: none;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.upload-announcement-setting-item:nth-child(1) {
+  order: 0;
+}
+
+.upload-announcement-setting-item:nth-child(2) {
+  order: 1;
+}
+
+/* 上傳公告設定內容 */
+.upload-announcement-setting-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap; /* 改為不換行 */
+  align-items: flex-start;
+  align-content: flex-start;
+  padding: 0px;
+  gap: 15px;
+  width: 100%;
+  height: 45px;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  justify-content: space-between;
+}
+
+/* 上傳公告設定標題組 */
+.upload-announcement-setting-title-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 2px;
+  width: auto; /* 改為自動寬度 */
+  min-width: 150px; /* 設定最小寬度 */
+  height: 45px;
+  flex: 1; /* 讓它佔用可用空間 */
+  order: 0;
+  flex-grow: 1; /* 允許成長 */
+}
+
+/* 上傳公告設定主標題 */
+.upload-announcement-setting-title {
+  width: 100%; /* 改為100%寬度 */
+  height: 24px;
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.01em;
+  color: #3A6CA6;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  white-space: nowrap; /* 防止換行 */
+  overflow: hidden; /* 隱藏溢出 */
+  text-overflow: ellipsis; /* 顯示省略號 */
+}
+
+/* 上傳公告設定副標題 */
+.upload-announcement-setting-subtitle {
+  width: 100%; /* 改為100%寬度 */
+  height: 19px;
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  text-align: left; /* 改為靠左對齊 */
+  letter-spacing: 0.01em;
+  color: #909090;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+  white-space: nowrap; /* 防止換行 */
+  overflow: hidden; /* 隱藏溢出 */
+  text-overflow: ellipsis; /* 顯示省略號 */
+}
+/* 上傳公告切換開關 */
+.upload-announcement-toggle-switch {
+  width: 50px;
+  height: 25px;
+  background: rgba(196, 212, 232, 0.2);
+  border-radius: 100px;
+  position: relative;
+  cursor: pointer;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+/* 上傳公告開關圓點 */
+.upload-announcement-toggle-circle {
+  position: absolute;
+  width: 23px;
+  height: 23px;
+  top: 1px;
+  background: #B2B2B2;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.upload-announcement-toggle-circle.inactive {
+  left: 2px;
+}
+
+.upload-announcement-toggle-circle.active {
+  left: 25px;
+  background: #3A6CA6;
+  visibility: visible;
+}
+
+/* 上傳公告時間選擇器 */
+.upload-announcement-datetime-picker {
+  display: none;
+  width: 100%;
+  height: 54px;
+  align-items: center;
+  padding: 0px;
+  gap: 0px;
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+  position: relative;
+}
+
+.upload-announcement-datetime-picker.show {
+  display: flex;
+}
+
+/* 時間選擇器容器 */
+.upload-announcement-datetime-container {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  width: 100%;
+  height: 54px;
+}
+
+/* 時間選擇器區段 */
+.upload-announcement-datetime-section {
+  box-sizing: border-box;
+  width: 50%;
+  height: 54px;
+  border: 1px solid rgba(233, 233, 233, 0.5);
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  gap: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.upload-announcement-datetime-section:hover {
+  background-color: rgba(58, 108, 166, 0.05);
+}
+
+.upload-announcement-datetime-section:first-child {
+  border-radius: 10px 0px 0px 10px;
+  border-right: none;
+}
+
+.upload-announcement-datetime-section:last-child {
+  border-radius: 0px 10px 10px 0px;
+}
+
+/* 時間選擇器圖標 */
+.upload-announcement-datetime-icon {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* 時間顯示區域 - 靠左對齊 */
+.upload-announcement-datetime-display {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-family: 'Microsoft JhengHei';
+  font-size: 18px;
+  line-height: 100%;
+  color: #1F1F1F;
+  flex: 1;
+  justify-content: flex-start; /* 靠左對齊 */
+}
+
+.upload-announcement-year,
+.upload-announcement-month,
+.upload-announcement-day,
+.upload-announcement-hour,
+.upload-announcement-minute {
+  font-weight: 400;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.upload-announcement-year {
+  width: 43px;
+}
+
+.upload-announcement-month,
+.upload-announcement-day {
+  width: 22px;
+}
+
+.upload-announcement-hour,
+.upload-announcement-minute {
+  width: 22px;
+}
+
+.upload-announcement-unit,
+.upload-announcement-separator,
+.upload-announcement-period {
+  font-weight: 400;
+  color: #1F1F1F;
+  flex-shrink: 0;
+}
+
+.upload-announcement-unit {
+  width: 18px;
+}
+
+.upload-announcement-separator {
+  width: 5px;
+}
+
+.upload-announcement-period {
+  width: 29px;
+}
+
+/* 隱藏原生時間輸入框 */
+.upload-announcement-datetime-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* 上傳公告動作按鈕區域 */
+.upload-announcement-action-area {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 21px 0px;
+  gap: 10px;
+  position: relative;
+  width: 100%;
+  height: 107px;
+  background: #FFFFFF;
+  margin-top: 20px;
+  border-top: 1px solid #E9E9E9;
+  flex-shrink: 0;
+  order: 2;
+}
+
+/* 上傳公告按鈕組 */
+.upload-announcement-button-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  gap: 20px;
+  width: 100%;
+  height: 65px;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+/* 上傳公告取消按鈕 */
+.upload-announcement-cancel-button {
+  box-sizing: border-box;
+  margin: 0 auto;
+  width: 152px;
+  height: 65px;
+  background: #FFFFFF;
+  border: 1px solid rgba(178, 178, 178, 0.5);
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.upload-announcement-cancel-button-main-text {
+  position: absolute;
+  width: 37px;
+  height: 24px;
+  left: calc(50% - 37px/2 - 0.5px);
+  top: calc(50% - 24px/2 - 11.02px);
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #909090;
+}
+
+.upload-announcement-cancel-button-sub-text {
+  position: absolute;
+  width: 57px;
+  height: 19px;
+  left: calc(50% - 57px/2);
+  top: calc(50% - 19px/2 + 12.52px);
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #909090;
+}
+
+/* 上傳公告發布按鈕組 */
+.upload-announcement-publish-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 10px;
+  margin: 0 auto;
+  width: 370px;
+  height: 65px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.upload-announcement-publish-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 10px;
+  width: 370px;
+  height: 65px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+/* 上傳公告儲存草稿按鈕 */
+.upload-announcement-save-draft-button {
+  box-sizing: border-box;
+  width: 180px;
+  height: 65px;
+  background: #FFFFFF;
+  border: 1px solid #3A6CA6;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.upload-announcement-save-draft-text {
+  position: absolute;
+  width: 73px;
+  height: 24px;
+  left: calc(50% - 73px/2 - 0.5px);
+  top: calc(50% - 24px/2 + 0.5px);
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #3A6CA6;
+}
+
+/* 上傳公告發布按鈕 */
+.upload-announcement-publish-button {
+  width: 180px;
+  height: 65px;
+  background: #3A6CA6;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.upload-announcement-publish-button-main-text {
+  position: absolute;
+  width: 37px;
+  height: 24px;
+  left: calc(50% - 37px/2 - 0.5px);
+  top: calc(50% - 24px/2 - 11.02px);
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #FFFFFF;
+}
+
+.upload-announcement-publish-button-sub-text {
+  position: absolute;
+  width: 99px;
+  height: 19px;
+  left: calc(50% - 99px/2);
+  top: calc(50% - 19px/2 + 12.52px);
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #FFFFFF;
+}
+
+/* 上傳公告隱藏的文件輸入 */
+.upload-announcement-hidden-file-input {
+  display: none;
+}
+
+/* 上傳公告開發中訊息 */
+.upload-announcement-development-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  margin-top: 40px;
+  padding: 60px 20px;
+  background: #F9F9F9;
+  border-radius: 10px;
+  border: 1px solid #E9E9E9;
+}
+
+.upload-announcement-development-icon {
+  font-size: 48px;
+  color: #C0C0C0;
+}
+
+.upload-announcement-development-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #919191;
+  font-family: 'Microsoft JhengHei';
+}
+
+.upload-announcement-development-text {
+  margin: 0;
+  font-size: 16px;
+  color: #919191;
+  font-family: 'Microsoft JhengHei';
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* 響應式設計 */
+@media (max-width: 1200px) {
+  .upload-announcement-main-content-area {
+    width: calc(100vw - 300px);
+  }
+  
+  .upload-announcement-content-frame {
+    width: 100%;
+  }
+  
+  .upload-announcement-main-edit-area,
+  .upload-announcement-settings-area,
+  .upload-announcement-action-area {
+    width: 100%;
+  }
+}
+
+/* 🔥 新增：隱藏的日期輸入樣式 */
+.upload-announcement-date-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* 🔥 新增：時間區段特殊樣式 */
+.upload-announcement-datetime-section-time {
+  box-sizing: border-box;
+  width: 50%;
+  height: 54px;
+  border: 1px solid rgba(233, 233, 233, 0.5);
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  gap: 10px;
+  cursor: default;
+  transition: background-color 0.2s ease;
+  border-radius: 0px 10px 10px 0px;
+}
+
+/* 🔥 修改：確保時鐘選擇器有足夠的 z-index */
+.upload-announcement-datetime-section .upload-announcement-datetime-display > div,
+.upload-announcement-datetime-section-time .upload-announcement-datetime-display > div {
+  z-index: 1000;
+}
+
+/* 🔥 新增：日期區段點擊效果 */
+.upload-announcement-datetime-section:first-child:hover {
+  background-color: rgba(58, 108, 166, 0.05);
+}
+
+/* 🔥 修改：時間區段不需要點擊效果（由時鐘選擇器處理） */
+.upload-announcement-datetime-section-time:hover {
+  background-color: transparent;
+}
+
+/* 🔥 新增：日曆選擇器防飄移樣式 */
+.calendar-day-fixed {
+  transition: none !important;
+  transform: none !important;
+  box-shadow: none !important;
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+  margin: 0 !important;
+  padding: 12px 8px !important;
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  max-width: 44px !important;
+  min-height: 44px !important;
+  max-height: 44px !important;
+  box-sizing: border-box !important;
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+  border: none !important;
+  outline: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.calendar-day-fixed:hover,
+.calendar-day-fixed:focus,
+.calendar-day-fixed:active,
+.calendar-day-fixed:visited {
+  transition: none !important;
+  transform: none !important;
+  box-shadow: none !important;
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+  margin: 0 !important;
+  padding: 12px 8px !important;
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  max-width: 44px !important;
+  min-height: 44px !important;
+  max-height: 44px !important;
+  box-sizing: border-box !important;
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+  border: none !important;
+  outline: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* 🔥 新增：覆蓋所有可能的全域樣式 */
+* .calendar-day-fixed,
+*:hover .calendar-day-fixed,
+*:focus .calendar-day-fixed,
+*:active .calendar-day-fixed {
+  transition: none !important;
+  transform: none !important;
+  box-shadow: none !important;
+  position: relative !important;
+  margin: 0 !important;
+  width: 44px !important;
+  height: 44px !important;
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+}
+/* 🔥 新增：已上傳項目的圖標樣式 */
+.upload-announcement-uploaded-icon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px auto 5px auto;
+}
+
+.upload-announcement-uploaded-icon-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* 🔥 新增：已上傳項目的名稱樣式 */
+.upload-announcement-uploaded-name {
+  font-size: 12px;
+  text-align: center;
+  padding: 0 5px;
+  color: #616161;
+  word-break: break-all;
+  line-height: 1.2;
+  max-height: 30px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* 🔥 修改：刪除按鈕使用圖標 */
+.upload-announcement-delete-button {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 24px;
+  height: 24px;
+  background: #FFFFFF;
+  border: 1px solid #E9E9E9;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  z-index: 10;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.upload-announcement-delete-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+/* 🔥 修改：已上傳項目樣式調整 */
+.upload-announcement-uploaded-item.attachment {
+  border: 1px solid #0FA958;
+  background: #F0F8F4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  order: 2;
+  padding: 10px 5px;
+}
+
+.upload-announcement-uploaded-item.image {
+  border: 1px solid #0FA958;
+  background: #F0F8F4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  order: 4;
+  padding: 10px 5px;
+}
+/* 🔥 新增：已上傳項目的圖標樣式 */
+.upload-announcement-uploaded-icon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px auto 5px auto;
+}
+
+.upload-announcement-uploaded-icon-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* 🔥 新增：已上傳項目的名稱樣式 */
+.upload-announcement-uploaded-name {
+  font-size: 12px;
+  text-align: center;
+  padding: 0 5px;
+  color: #616161;
+  word-break: break-all;
+  line-height: 1.2;
+  max-height: 30px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* 🔥 修改：刪除按鈕使用圖標 */
+.upload-announcement-delete-button {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 30px;
+  height: 30px;
+  background: #FFFFFF;
+  border: 1px solid #E9E9E9;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  z-index: 10;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.upload-announcement-delete-icon {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+/* 🔥 修改：已上傳項目樣式調整 */
+.upload-announcement-uploaded-item.attachment {
+  border: 1px solid #0FA958;
+  background: #F0F8F4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  order: 2;
+  padding: 10px 5px;
+  position: relative;
+}
+
+.upload-announcement-uploaded-item.image {
+  border: 1px solid #0FA958;
+  background: #F0F8F4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  order: 4;
+  padding: 10px 5px;
+  position: relative;
+}
+
+/* 🔥 確保已上傳項目有正確的定位 */
+.upload-announcement-uploaded-item {
+  box-sizing: border-box;
+  width: 125px;
+  height: 125px;
+  border-radius: 10px;
+  position: relative;
+  flex: none;
+  flex-grow: 0;
+}
+
+

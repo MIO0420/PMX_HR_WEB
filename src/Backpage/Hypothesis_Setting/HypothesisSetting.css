@@ -1,0 +1,1370 @@
+/* 主容器 */
+.hypothesis-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 0px;
+  width: 100vw;
+  min-height: 100vh;
+  background: #F8F8F8;
+  font-family: 'Microsoft JhengHei', Arial, sans-serif;
+}
+
+/* 側邊欄包裝器 */
+.sidebar-wrapper {
+  width: 300px;
+  min-height: 100vh;
+  flex-shrink: 0;
+}
+
+/* 子功能表包裝器 */
+.submenu-wrapper {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0px 0px 50px 0px;
+  gap: 10px;
+  width: 250px;
+  min-height: 100vh;
+  background: rgba(255, 255, 255, 0.2);
+  border-right: 1px solid #E9E9E9;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+  flex-shrink: 0;
+}
+
+/* 子功能表內容 */
+.submenu-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 0px 0px 0px;
+  gap: 10px;
+  width: 100%;
+}
+
+/* 選單項目基本樣式 */
+.menu-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 18px 20px;
+  gap: 15px;
+  width: calc(100% - 20px);
+  height: 86px;
+  border-radius: 10px 0px 0px 10px;
+  margin-left: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+/* 活躍選單項目 */
+.menu-item.active {
+  background: #FFFFFF;
+  border: 2px solid rgba(58, 108, 166, 0.2);
+}
+
+/* 非活躍選單項目 */
+.menu-item.inactive {
+  border: 1px solid rgba(248, 248, 248, 0.5);
+}
+
+/* 選單圖標基本樣式 */
+.menu-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 活躍圖標 */
+.active-icon {
+  background: #4ECB71;
+  border-radius: 50%;
+}
+
+/* 非活躍圖標 */
+.inactive-icon {
+  border: 3px solid rgba(217, 155, 255, 0.5);
+  border-radius: 4px;
+}
+
+/* 報表圖標 */
+.report-icon {
+  position: relative;
+}
+
+/* 報表線條 */
+.report-line {
+  position: absolute;
+  left: 30%;
+  right: 10%;
+  height: 3px;
+  background: rgba(105, 155, 247, 0.5);
+}
+
+.line-1 { top: 15%; }
+.line-2 { top: 35%; }
+.line-3 { top: 55%; }
+.line-4 { top: 75%; }
+
+/* 報表圓點 */
+.report-dot {
+  position: absolute;
+  left: 10%;
+  width: 6px;
+  height: 6px;
+  background: rgba(105, 155, 247, 0.5);
+  border-radius: 50%;
+}
+
+.dot-1 { top: 10%; }
+.dot-2 { top: 30%; }
+.dot-3 { top: 50%; }
+.dot-4 { top: 70%; }
+
+/* 選單文字基本樣式 */
+.menu-text {
+  font-family: 'Microsoft JhengHei UI';
+  font-style: normal;
+  font-size: 16px;
+  line-height: 20px;
+  flex: 1;
+}
+
+/* 活躍文字 */
+.active-text {
+  font-weight: 700;
+  color: #616161;
+}
+
+/* 非活躍文字 */
+.inactive-text {
+  font-weight: 400;
+  color: rgba(97, 97, 97, 0.5);
+}
+
+/* 選單圖標圖片樣式 */
+.menu-icon-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+/* 非活躍狀態的圖標透明度 */
+.inactive-icon-image {
+  opacity: 0.5;
+}
+
+/* 主內容區 */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 35px 40px 50px 40px;
+  gap: 30px;
+  flex: 1;
+  min-height: calc(100vh - 30px);
+  max-height: calc(100vh - 30px);
+  background: #FFFFFF;
+  margin: 15px 15px 15px 0px;
+  border-radius: 10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* 主內容區域 - 修改為響應式 */
+.main-content-area {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 40px;
+  gap: 34px;
+  flex: 1;
+  min-height: calc(100vh - 30px);
+  max-height: calc(100vh - 30px);
+  background: #FFFFFF;
+  margin: 15px 15px 15px 0px;
+  border-radius: 10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* 頁面標題 */
+.page-title {
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 35px;
+  letter-spacing: 0.01em;
+  color: #919191;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+/* 設定區域 */
+.settings-area {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+/* 功能按鈕 */
+.function-button {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px 26px;
+  width: 100%;
+  height: 70px;
+  background: #FFFFFF;
+  border: 1px solid #E9E9E9;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.function-button:hover {
+  background: #F8F9FA;
+}
+
+/* 功能標題 */
+.function-title {
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 27px;
+  color: #1F1F1F;
+}
+
+/* 內容區域 */
+.content-area {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  padding: 20px;
+  background: #F9F9F9;
+  border-radius: 10px;
+  border: 1px solid #E9E9E9;
+}
+
+/* 開發中訊息 */
+.development-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  margin-top: 40px;
+  padding: 60px 20px;
+  background: #F9F9F9;
+  border-radius: 10px;
+  border: 1px solid #E9E9E9;
+}
+
+.development-icon {
+  font-size: 48px;
+  color: #C0C0C0;
+}
+
+.development-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #919191;
+  font-family: 'Microsoft JhengHei';
+}
+
+.development-text {
+  margin: 0;
+  font-size: 16px;
+  color: #919191;
+  font-family: 'Microsoft JhengHei';
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* 載入狀態樣式 */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}
+
+.loading-spinner {
+  font-size: 18px;
+  color: #666;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+/* 錯誤狀態樣式 */
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}
+
+.error-message {
+  text-align: center;
+  color: #d32f2f;
+}
+
+.error-message p {
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.retry-button {
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.retry-button:hover {
+  background-color: #1565c0;
+}
+
+/* 無資料狀態樣式 */
+.no-data-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}
+
+.no-data-message {
+  text-align: center;
+  color: #666;
+}
+
+.no-data-message p {
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.refresh-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.refresh-button:hover {
+  background-color: #45a049;
+}
+
+/* 假別內容容器 */
+.leave-content-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* 假別類型切換按鈕容器 - 編輯模式下與表格形成完整藍色區塊 */
+.leave-type-toggle {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 25px 25px 15px 25px;
+  width: calc(100% + 80px);
+  min-height: 90px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0 -40px 0 -40px;
+  margin-bottom: 0px;
+  background: rgba(196, 212, 232, 0.3);
+  border-radius: 15px 15px 0 0;
+}
+
+/* 切換按鈕框架 - 完全按照您的設計規格 */
+.leave-type-frame {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  width: 300px;
+  height: 50px;
+  border: 1px solid #C4D4E8;
+  border-radius: 10px;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 1;
+  background: transparent;
+}
+
+/* 切換選項基本樣式 - 按照您的設計規格 */
+.toggle-option {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 9px 8px;
+  gap: 10px;
+  width: 150px;
+  height: 50px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: none;
+  align-self: stretch;
+  flex-grow: 1;
+}
+
+/* 活躍的切換選項 - 一般假別樣式 */
+.toggle-option.active {
+  background: #3A6CA6;
+}
+
+/* 非活躍的切換選項 - 特別休假樣式 */
+.toggle-option.inactive {
+  background: transparent;
+}
+
+/* 切換選項文字 - 活躍狀態（一般假別） */
+.toggle-option.active .toggle-text {
+  width: 134px;
+  height: 32px;
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 27px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #FFFFFF;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 1;
+}
+
+/* 切換選項文字 - 非活躍狀態（特別休假） */
+.toggle-option.inactive .toggle-text {
+  width: 130px;
+  height: 27px;
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 27px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #919191;
+  flex: none;
+  order: 0;
+  flex-grow: 1;
+}
+
+/* 編輯按鈕容器 */
+.edit-button-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* 編輯按鈕 */
+.edit-button {
+  position: relative;
+  width: 101px;
+  height: 42px;
+  background: #C4D4E8;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  outline: none;
+  transition: all 0.3s ease;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+/* 編輯按鈕 hover 效果 */
+.edit-button:hover {
+  background: #B0C4DD;
+}
+
+/* 編輯按鈕圖標 */
+.edit-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* 編輯按鈕文字 */
+.edit-button span {
+  font-family: 'Microsoft JhengHei UI';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  color: #FFFFFF;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+/* 表格容器 */
+.table-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 14px;
+  width: 100%;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+/* 編輯模式下的表格容器 - 調整圓角讓它與上方切換按鈕形成完整區塊 */
+.table-container.editing-mode {
+  background: rgba(196, 212, 232, 0.3);
+  border-radius: 0 0 15px 15px;
+  padding: 15px 25px 59px 25px;
+  border: none;
+  box-shadow: none;
+  transition: all 0.3s ease;
+  margin: 0 -40px -34px -40px;
+  width: calc(100% + 80px);
+}
+
+/* 表頭 */
+.table-header {
+  width: 100%;
+}
+
+/* 編輯模式下的表頭 */
+.table-container.editing-mode .table-header {
+  background: transparent;
+  border: none;
+  padding: 10px 0;
+  margin-bottom: 10px;
+}
+
+/* 🔸 修正表頭行 - 使用與內容行相同的結構 */
+.header-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 15px;
+  width: 100%;
+  height: 27px;
+  box-sizing: border-box;
+}
+
+/* 🔸 修正表頭左側群組 - 固定寬度與內容行對齊 */
+.header-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 80px;
+  width: 220px; /* 🔸 固定寬度 */
+  flex-shrink: 0;
+}
+
+/* 🔸 修正表頭中間群組 - 與內容行保持一致 */
+.header-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; /* 🔸 改為 space-between */
+  flex: 1;
+  margin: 0 20px;
+  min-width: 340px; /* 🔸 設定最小寬度 */
+}
+
+/* 🔸 修正表頭右側群組 - 固定寬度與內容行對齊 */
+.header-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px; /* 🔸 固定間距 */
+  width: 180px; /* 🔸 固定寬度 */
+  flex-shrink: 0;
+}
+
+/* 表頭單元格統一樣式 */
+.header-cell {
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 27px;
+  display: flex;
+  align-items: center;
+  color: #919191;
+  text-align: center;
+  justify-content: center;
+}
+
+/* 🔸 修正表頭單元格寬度 - 精確對齊 */
+.header-cell.leave-type {
+  width: 140px;
+  justify-content: flex-start;
+  flex-shrink: 0; /* 🔸 防止收縮 */
+}
+
+.header-cell.condition {
+  width: 80px;
+  justify-content: center;
+  flex-shrink: 0; /* 🔸 防止收縮 */
+}
+
+.header-cell.days {
+  width: 100px;
+  justify-content: center;
+  flex-shrink: 0; /* 🔸 防止收縮 */
+}
+
+.header-cell.period {
+  width: 60px;
+  justify-content: center;
+  flex-shrink: 0; /* 🔸 防止收縮 */
+}
+
+.header-cell.gender {
+  width: 80px;
+  justify-content: center;
+  flex-shrink: 0; /* 🔸 防止收縮 */
+}
+
+.header-cell.salary {
+  width: 80px;
+  justify-content: center;
+  flex-shrink: 0; /* 🔸 防止收縮 */
+}
+
+.header-cell.hourly {
+  width: 100px;
+  justify-content: center;
+  flex-shrink: 0; /* 🔸 防止收縮 */
+}
+
+/* 表格內容 */
+.table-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  width: 100%;
+  overflow: visible;
+  position: relative;
+}
+
+/* 表格行 */
+.table-row {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  width: 100%;
+  height: 70px;
+  overflow: visible;
+  position: relative;
+}
+
+.table-row.highlighted {
+  border-bottom: 1px solid #E9E9E9;
+}
+
+/* 編輯模式下移除高亮行的底邊框 */
+.table-container.editing-mode .table-row.highlighted {
+  border-bottom: none;
+}
+
+/* 🔸 修正行內容 - 與表頭保持一致的結構 */
+.row-content {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 15px;
+  width: 100%;
+  height: 70px;
+  border-radius: 5px;
+  overflow: visible;
+  position: relative;
+}
+
+/* 編輯模式下的表格行 */
+.table-container.editing-mode .table-row {
+  background: transparent;
+  border: none;
+  margin-bottom: 5px;
+  padding: 0;
+}
+
+.table-container.editing-mode .row-content {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+/* 🔸 修正左側單元格組 - 與表頭保持一致 */
+.cell-group-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 80px;
+  width: 220px; /* 🔸 固定寬度，與表頭一致 */
+  flex-shrink: 0;
+  overflow: visible;
+  position: relative;
+}
+
+/* 🔸 修正中間輸入框組 - 與表頭保持一致 */
+.cell-inputs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; /* 🔸 改為 space-between */
+  flex: 1;
+  margin: 0 20px;
+  min-width: 340px; /* 🔸 設定最小寬度 */
+}
+
+/* 🔸 修正右側單元格組 - 與表頭保持一致 */
+.cell-group-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px; /* 🔸 固定間距 */
+  width: 180px; /* 🔸 固定寬度 */
+  flex-shrink: 0;
+}
+
+/* 🔸 修正假別標題 - 與表頭寬度一致 */
+.leave-title {
+  width: 140px;
+  height: 29px;
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 29px;
+  letter-spacing: 0.01em;
+  color: #3A6CA6;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0; /* 🔸 防止收縮 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 🔸 修正條件文字 - 與表頭寬度一致 */
+.condition-text {
+  width: 80px;
+  height: 40px;
+  padding: 8px 5px;
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #1F1F1F;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+  flex-shrink: 0; /* 🔸 防止收縮 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: help;
+  position: relative;
+}
+
+/* 移除原本的喪假特殊樣式，統一使用相同大小 */
+.condition-text.funeral-leave {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+/* 簡化的 tooltip 效果 */
+.condition-text::after {
+  content: attr(data-full-text);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  pointer-events: none;
+  max-width: 200px;
+}
+
+.condition-text::before {
+  content: '';
+  position: absolute;
+  bottom: calc(100% + 2px);
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  pointer-events: none;
+}
+
+.condition-text:hover::after,
+.condition-text:hover::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 下拉選單統一樣式 */
+.dropdown {
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #E9E9E9;
+  padding: 8px 5px;
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  color: #1F1F1F;
+  background: #FFFFFF;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+/* 編輯模式下移除下拉選單邊框 */
+.table-container.editing-mode .dropdown {
+  border: none;
+  background: transparent;
+}
+
+/* 🔸 修正下拉選單寬度 - 與表頭一致 */
+.days-dropdown {
+  width: 100px;
+  flex-shrink: 0; /* 🔸 防止收縮 */
+}
+
+.period-dropdown {
+  width: 60px;
+  flex-shrink: 0; /* 🔸 防止收縮 */
+}
+
+.gender-dropdown {
+  width: 80px;
+  flex-shrink: 0; /* 🔸 防止收縮 */
+}
+
+/* 條件下拉選單寬度 */
+.condition-dropdown {
+  width: 200px;
+  font-size: 16px;
+  line-height: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 0; /* 🔸 防止收縮 */
+}
+
+/* 編輯模式下的條件下拉選單 */
+.table-container.editing-mode .condition-dropdown {
+  border: 1px solid #E9E9E9;
+  background: #FFFFFF;
+  border-radius: 5px;
+}
+
+/* 編輯模式下的條件下拉選單選項 */
+.condition-dropdown option {
+  font-size: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 🔸 編輯模式下調整左側群組 */
+.table-container.editing-mode .header-left {
+  width: 340px; /* 🔸 編輯模式下增加寬度以容納更寬的條件下拉選單 */
+  gap: 60px; /* 🔸 調整間距 */
+}
+
+.table-container.editing-mode .cell-group-left {
+  width: 340px; /* 🔸 編輯模式下增加寬度以容納更寬的條件下拉選單 */
+  gap: 60px; /* 🔸 調整間距 */
+}
+
+.table-container.editing-mode .header-cell.condition {
+  width: 200px; /* 🔸 編輯模式下條件欄位更寬 */
+}
+
+/* 🔸 編輯模式下的表頭中間群組調整 */
+.table-container.editing-mode .header-group {
+  justify-content: space-between;
+  margin: 0 20px;
+  min-width: 420px; /* 🔸 編輯模式下增加最小寬度 */
+}
+
+.table-container.editing-mode .cell-inputs {
+  justify-content: space-between;
+  margin: 0 20px;
+  min-width: 420px; /* 🔸 編輯模式下增加最小寬度 */
+}
+
+/* 薪資輸入組 */
+.salary-input-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  width: 80px;
+  height: 38px;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.salary-input {
+  width: 50px;
+  height: 38px;
+  border-radius: 5px;
+  border: 1px solid #E9E9E9;
+  padding: 7px 5px;
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.01em;
+  color: #1F1F1F;
+  background: #FFFFFF;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* 編輯模式下移除薪資輸入框邊框 */
+.table-container.editing-mode .salary-input {
+  border: none;
+  background: transparent;
+}
+
+.percentage {
+  width: 20px;
+  height: 24px;
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.01em;
+  color: #1F1F1F;
+}
+
+/* 開關容器 */
+.toggle-switch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  flex-shrink: 0;
+}
+
+.switch {
+  position: relative;
+  width: 50px;
+  height: 25px;
+  background: rgba(196, 212, 232, 0.2);
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.switch.active {
+  background: rgba(196, 212, 232, 0.2);
+}
+
+.switch-handle {
+  position: absolute;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  top: 1px;
+  transition: left 0.3s;
+  background: #B2B2B2;
+}
+
+.switch.active .switch-handle {
+  left: 25px;
+  background: #3A6CA6;
+}
+
+.switch:not(.active) .switch-handle {
+  left: 2px;
+}
+
+/* 編輯操作按鈕行 */
+.edit-actions-row {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 15px;
+  width: 100%;
+  height: 90px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+/* 取消按鈕 */
+.cancel-button {
+  box-sizing: border-box;
+  width: 152px;
+  height: 65px;
+  background: #FFFFFF;
+  border: 1px solid rgba(178, 178, 178, 0.5);
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+/* 取消按鈕文字 */
+.cancel-button-text {
+  position: absolute;
+  width: 37px;
+  height: 24px;
+  left: calc(50% - 37px/2 - 0.5px);
+  top: calc(50% - 24px/2 - 11.02px);
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #909090;
+}
+
+/* 捨棄編輯文字 */
+.cancel-subtext {
+  position: absolute;
+  width: 57px;
+  height: 19px;
+  left: calc(50% - 57px/2);
+  top: calc(50% - 19px/2 + 12.52px);
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #909090;
+}
+
+/* 完成按鈕組 */
+.complete-button-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 10px;
+  width: 180px;
+  height: 65px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+/* 完成按鈕 */
+.complete-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 74px;
+  gap: 10px;
+  width: 180px;
+  height: 65px;
+  background: #3A6CA6;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+/* 完成按鈕文字 */
+.complete-button-text {
+  width: 32px;
+  height: 16px;
+  font-family: 'Microsoft JhengHei UI';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 100%;
+  text-align: center;
+  color: #FFFFFF;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+/* 編輯模式下隱藏可小時請假欄位 */
+.table-container.editing-mode .header-cell.hourly,
+.table-container.editing-mode .cell-group-right .toggle-switch {
+  display: none;
+}
+
+/* 編輯模式下調整表頭布局 */
+.table-container.editing-mode .header-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  margin: 0 20px;
+}
+
+/* 編輯模式下調整表頭右側群組 */
+.table-container.editing-mode .header-right {
+  display: none;
+}
+
+/* 編輯模式下調整中間輸入框組 */
+.table-container.editing-mode .cell-inputs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  margin: 0 20px;
+}
+
+/* 編輯模式下調整右側單元格組 */
+.table-container.editing-mode .cell-group-right {
+  display: none;
+}
+
+/* 響應式設計 */
+@media (max-width: 1400px) {
+  .main-content-area {
+    padding: 20px;
+    gap: 20px;
+  }
+  
+  .header-left,
+  .cell-group-left {
+    gap: 70px;
+  }
+  
+  .header-group,
+  .cell-inputs {
+    margin: 0 15px;
+  }
+  
+  .edit-actions-row {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .hypothesis-container {
+    width: 100%;
+  }
+  
+  .submenu-wrapper {
+    width: 250px;
+  }
+  
+  .leave-title {
+    width: 120px;
+    font-size: 18px;
+  }
+  
+  .header-cell {
+    font-size: 16px;
+  }
+  
+  .header-cell.leave-type {
+    width: 120px;
+  }
+  
+  .condition-text {
+    width: 70px;
+    font-size: 16px;
+  }
+  
+  .condition-text.funeral-leave {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  
+  .days-dropdown {
+    width: 80px;
+  }
+  
+  .period-dropdown {
+    width: 50px;
+  }
+  
+  .gender-dropdown {
+    width: 60px;
+  }
+  
+  .header-left,
+  .cell-group-left {
+    gap: 60px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .main-content-area {
+    padding: 15px;
+  }
+  
+  .row-content {
+    flex-direction: column;
+    height: auto;
+    gap: 10px;
+  }
+  
+  .cell-group-left,
+  .cell-inputs,
+  .cell-group-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 768px) {
+  .hypothesis-container {
+    flex-direction: column;
+  }
+  
+  .sidebar-wrapper,
+  .submenu-wrapper {
+    width: 100%;
+    min-height: auto;
+  }
+  
+  .main-content,
+  .main-content-area {
+    margin: 10px;
+    padding: 20px;
+  }
+  
+  .edit-actions-row {
+    flex-direction: column;
+    gap: 20px;
+    height: auto;
+    padding: 20px;
+  }
+  
+  .cancel-button,
+  .complete-button-group {
+    margin: 0;
+  }
+}
+/* 固定條件假別樣式 */
+.condition-text.fixed-condition {
+  background: #f5f5f5;
+  color: #666;
+  font-style: italic;
+  border-radius: 4px;
+  padding: 8px 5px;
+  text-align: center;
+}
+
+/* 載入指示器 */
+.loading-spinner-small {
+  width: 12px;
+  height: 12px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #3A6CA6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: auto;
+}
+
+.switch-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

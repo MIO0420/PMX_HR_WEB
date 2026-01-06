@@ -1,0 +1,642 @@
+.attendance-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  height: 100vh;
+  background-color: #f5f7fa;
+}
+
+.attendance-app-wrapper {
+  width: 100%; /* 改為 100% 而非固定的 360px */
+  max-width: 100%; /* 確保不會超出螢幕 */
+  height: 100%;
+  background-color: white;
+  font-family: "Microsoft JhengHei", Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+
+.attendance-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3a75b5;
+  color: white;
+  padding: 0 16px;
+  height: 90px; /* 調整高度，使其與截圖更接近 */
+  width: 100%; /* 確保寬度填滿父元素 */
+  box-sizing: border-box; /* 確保padding不會增加元素總寬度 */
+}
+
+.attendance-home-icon {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 28px
+}
+
+/* 調整標題文字的樣式 */
+.attendance-page-title {
+  font-size: 18px;
+  font-weight: normal;
+  margin: 0; /* 移除可能的預設margin */
+  padding: 0; /* 移除可能的預設padding */
+  padding-top: 28px;
+}
+
+.attendance-time-display {
+  font-size: 16px;
+}
+
+.attendance-filter-section {
+  padding: 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.attendance-filter-group {
+  margin-bottom: 16px;
+}
+
+.attendance-filter-label {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+  font-weight: normal;
+}
+
+.attendance-select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+  color: #3a75b5;
+  font-weight: bold;
+}
+
+/* 新增的狀態選擇器樣式 */
+.attendance-status-selector {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+  color: #3a75b5;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.attendance-status-value {
+  flex: 1;
+}
+
+.attendance-dropdown-arrow {
+  font-size: 12px;
+  color: #666;
+}
+
+.attendance-button-group {
+  display: flex;
+  gap: 8px;
+}
+
+.attendance-button {
+  padding: 10px 0;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+  color: #3a75b5;
+  font-weight: bold;
+  flex: 1;
+  text-align: center;
+  cursor: pointer;
+  padding: 7.5px 0;
+}
+
+.attendance-button.active {
+  background-color: #3a75b5;
+  color: white;
+}
+
+.attendance-retry-button {
+  padding: 8px 16px;
+  font-size: 14px;
+  background-color: #3a75b5;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 10px auto;
+  display: block;
+}
+
+.attendance-loading-text {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+}
+
+.attendance-error-text {
+  text-align: center;
+  padding: 20px;
+  color: red;
+}
+
+.attendance-month-display {
+  text-align: center;
+  padding: 10px;
+  background-color: #f5f7fa;
+  font-size: 16px;
+  font-weight: bold;
+  color: #3a75b5;
+}
+
+.attendance-table-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 10px;
+}
+
+/* 修改表格結構以支持間距和圓角 */
+.attendance-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px; /* 減少行間距 */
+  font-size: 14px;
+}
+
+.attendance-date-column {
+  width: 80px;
+  padding: 6px; /* 縮小上下內部間距 */
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  color: #666;
+  font-weight: normal;
+}
+
+.attendance-time-column {
+  padding: 6px; /* 縮小上下內部間距 */
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  color: #666;
+  font-weight: normal;
+}
+
+/* 修改表格行樣式 */
+.attendance-table-row {
+  background-color: #f5f5f5; /* 灰色底色 */
+  border-radius: 8px; /* 圓角 */
+  margin: 2px 0; /* 減少行間距 */
+  height: 36px; /* 控制行高 */
+}
+
+/* 移除原有的偶數行背景色設定 */
+.attendance-table-row:nth-child(even) {
+  background-color: #f5f5f5; /* 保持灰色背景 */
+}
+
+.attendance-date-cell {
+  padding: 4px; /* 縮小上下內部間距 */
+  text-align: center;
+  vertical-align: middle;
+}
+
+.attendance-time-cell {
+  padding: 4px; /* 縮小上下內部間距 */
+  text-align: center;
+  vertical-align: middle;
+  font-size: 20px; /* 減小字體大小 */
+  position: relative;
+}
+
+/* 為表格行添加圓角 */
+.attendance-table-row td:first-child {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.attendance-table-row td:last-child {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+/* 遲到、早退標籤樣式 */
+.attendance-status-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ff4d4f;
+  color: white;
+  font-size: 13px; /* 減小字體大小 */
+  padding: 1px 3px; /* 縮小內部間距 */
+  border-radius: 4px;
+  margin-right: 4px;
+  height: 16px; /* 減少高度 */
+  line-height: 1;
+  position: relative; /* 添加相對定位 */
+  top: -3px; /* 向上移動標籤，可以根據需要調整數值 */
+}
+/* 特別針對曠職標籤的調整 */
+.attendance-absent-row .attendance-status-tag {
+  top: -1px; /* 調整曠職標籤的垂直位置，數值可以根據需要調整 */
+}
+
+/* 異常時間樣式 */
+.attendance-abnormal-time {
+  color: #333;
+}
+
+.attendance-abnormal-label {
+  margin-left: 4px;
+  font-size: 13px; /* 減小字體大小 */
+  color: #3a75b5;
+  text-decoration: underline;
+  position: relative; /* 添加相對定位 */
+  top: -3px; /* 向上移動文字，可以根據需要調整數值 */
+}
+
+
+.attendance-date-block {
+  width: 38px; /* 縮小寬度 */
+  height: 38px; /* 縮小高度 */
+  margin: 0 auto 0 0; /* 修改為左對齊，移除右側自動間距 */
+  margin-left: 10px; /* 添加左側間距，可根據需要調整數值 */
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+
+.attendance-date-number {
+  background-color: white;
+  color: #333;
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px; /* 減小字體大小 */
+  font-weight: bold;
+  border-bottom: 1px solid #eee;
+}
+
+.attendance-day-of-week {
+  background-color: #3a75b5;
+  color: white;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px; /* 減小字體大小 */
+}
+
+.attendance-employee-info {
+  padding: 10px 16px;
+  background-color: #f0f8ff;
+  font-size: 14px;
+  color: #333;
+  border-bottom: 1px solid #eee;
+}
+
+.attendance-api-info {
+  padding: 5px 10px;
+  background-color: #f0f8ff;
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+.attendance-user-info {
+  padding: 5px 10px;
+  background-color: #f8fff0;
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+/* 載入中覆蓋層 */
+.attendance-loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.attendance-loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3a75b5;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 錯誤訊息樣式 */
+.attendance-error-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2000;
+  padding: 16px;
+}
+
+.attendance-error-message {
+  background-color: #ffebee;
+  border: 1px solid #f44336;
+  border-radius: 4px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.attendance-error-icon {
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+.attendance-error-text {
+  flex: 1;
+  color: #d32f2f;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+}
+
+.attendance-error-close {
+  background: none;
+  border: none;
+  color: #d32f2f;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px;
+  margin-left: 8px;
+}
+
+/* 狀態選擇器彈出視窗樣式 */
+.attendance-picker-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 1500;
+}
+
+.attendance-picker-container {
+  width: 100%;
+  max-width: 360px;
+  background-color: white;
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.attendance-picker-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.attendance-picker-title {
+  font-size: 14px;
+  font-weight: normal;
+  color: #666;  /* 標題「出勤狀態」保持灰色 */
+  text-align: center;
+  flex: 1;
+}
+
+.attendance-picker-close {
+  display: none;
+}
+
+.attendance-picker-options {
+  padding: 0;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.attendance-picker-option {
+  padding: 18px 20px;
+  font-size: 16px;
+  color: #3a75b5;  /* 所有選項都是藍色 */
+  font-weight: normal;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-bottom: 1px solid #f0f0f0;
+  position: relative;
+}
+
+.attendance-picker-option:last-child {
+  border-bottom: none;
+}
+
+.attendance-picker-option:hover {
+  background-color: #f8f9fa;
+}
+
+.attendance-picker-option.selected {
+  background-color: white;
+  color: #3a75b5;  /* 選中狀態也保持藍色 */
+  font-weight: normal;
+}
+
+.attendance-picker-option.selected::after {
+  display: none;
+}
+
+/* 響應式設計 */
+@media (max-width: 360px) {
+  .attendance-app-wrapper {
+    width: 100%;
+    border: none;
+  }
+  
+  .attendance-picker-container {
+    border-radius: 0;
+  }
+}
+
+/* 特別為異常打卡記錄添加的樣式 */
+/* 移除原有的異常行樣式 */
+.attendance-abnormal-row td {
+  /* 移除這個樣式，使用更具體的樣式替代 */
+}
+
+/* 遲到、早退等異常記錄使用紅色背景 */
+.attendance-late-row td {
+  background-color: #ffeeee !important; /* 紅色底色 */
+}
+
+/* 曠職記錄使用灰色背景 */
+.attendance-absent-row td {
+  background-color: #f5f5f5 !important; /* 灰色底色，與普通記錄相同 */
+}
+
+/* 確保圓角顯示正確 */
+.attendance-late-row td:first-child,
+.attendance-absent-row td:first-child {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.attendance-late-row td:last-child,
+.attendance-absent-row td:last-child {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+/* 遲到打卡時間背景 */
+.attendance-late-cell {
+  background-color: #ffeeee;
+  border-radius: 4px;
+  padding: 2px 6px; /* 縮小內部間距 */
+}
+/* 隱藏所有滾動條 */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* 確保整個頁面不會滾動 */
+html, body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* 修改表格容器，使用自定義滾動而不顯示滾動條 */
+.attendance-table-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 10px;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* 確保表格內容可以滾動但不顯示滾動條 */
+.attendance-table-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* 匯出按鈕區域 */
+.attendance-export-section {
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.attendance-export-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #3a75b5;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.attendance-export-button:hover {
+  background-color: #2c5c8f;
+}
+
+.attendance-export-button.disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+/* 語言切換按鈕在出勤頁面中的樣式 */
+.attendance-language-switch {
+  margin-top: 28px;
+}
+
+/* 針對越南語文字較長的情況進行調整 */
+[data-language="vi-VN"] .attendance-page-title {
+  font-size: 16px;
+}
+
+[data-language="vi-VN"] .attendance-filter-label {
+  font-size: 13px;
+}
+
+[data-language="vi-VN"] .attendance-button {
+  font-size: 14px;
+  padding: 8px 0;
+}
+
+[data-language="vi-VN"] .attendance-time-column {
+  font-size: 12px;
+}
+
+[data-language="vi-VN"] .attendance-picker-title {
+  font-size: 13px;
+}
+
+[data-language="vi-VN"] .attendance-picker-option {
+  font-size: 15px;
+  padding: 16px 20px;
+}
+
+/* 響應式設計 - 小螢幕優化 */
+@media (max-width: 360px) {
+  [data-language="vi-VN"] .attendance-page-title {
+    font-size: 14px;
+  }
+  
+  [data-language="vi-VN"] .attendance-filter-label {
+    font-size: 12px;
+  }
+  
+  [data-language="vi-VN"] .attendance-button {
+    font-size: 13px;
+  }
+}

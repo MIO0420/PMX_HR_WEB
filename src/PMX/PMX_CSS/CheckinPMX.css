@@ -1,0 +1,935 @@
+/* 全局防護樣式 - 放在最頂部 */
+html, body {
+  touch-action: manipulation;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* 全局按鈕重置 */
+button,
+input[type="button"], 
+input[type="submit"], 
+input[type="reset"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* 防止所有元素的意外變形 */
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  box-sizing: border-box;
+}
+
+*:active, *:focus, *:hover {
+  transform: none !important;
+  -webkit-transform: none !important;
+  transition: none !important;
+  -webkit-transition: none !important;
+}
+
+.checkin-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f7fa;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.checkin-app-wrapper {
+  width: 100%;
+  max-width: 100%; /* 修改：移除最大寬度限制 */
+  height: 100%;
+  background-color: white;
+  font-family: "Microsoft JhengHei", Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  
+  /* 防止整個應用變形 */
+  transform: translate3d(0, 0, 0) !important;
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  will-change: auto;
+}
+
+.checkin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2b6cb0;
+  color: white;
+  padding: 0 16px;
+  height: 92px;
+  width: 100vw; /* 修改：使用視窗寬度 */
+  max-width: 100vw; /* 修改：確保最大寬度也是視窗寬度 */
+  box-sizing: border-box;
+  position: relative; /* 修改：添加相對定位 */
+  left: 0; /* 修改：確保左對齊 */
+  right: 0; /* 修改：確保右對齊 */
+  
+  /* 固定標題欄 */
+  min-height: 70px;
+  max-height: 100px;
+  flex-shrink: 0;
+  margin: 0; /* 修改：確保無邊距 */
+}
+
+.checkin-home-icon {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.checkin-time-display {
+  font-size: 16px;
+  color: #FFFFFF;
+}
+
+.checkin-page-title {
+  font-size: 18px;
+  font-weight: normal;
+  color: #FFFFFF;
+  text-align: center;
+  flex: 1;
+  margin-top: 20px; /* 添加：向下移動標題 */
+}
+
+.checkin-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: 70px;
+  
+  /* 防止內容區域變化 */
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  max-width: 360px; /* 修改：內容區域保持原有寬度 */
+  margin: 0 auto; /* 修改：內容區域居中 */
+}
+
+/* 重點修改：打卡卡片，完全防止變大 */
+.checkin-punch-card {
+  background-color: #2b6cb0;
+  border-radius: 10px;
+  padding: 16px;
+  color: white;
+  
+  /* 固定卡片尺寸 */
+  width: 100%;
+  min-height: 200px;
+  max-height: 250px;
+  box-sizing: border-box;
+  
+  /* 防止變形的核心樣式 */
+  transform: translate3d(0, 0, 0) !important;
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  will-change: auto;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  
+  /* 禁用所有可能導致大小變化的效果 */
+  transition: none !important;
+  -webkit-transition: none !important;
+  animation: none !important;
+  -webkit-animation: none !important;
+  scale: 1 !important;
+  -webkit-scale: 1 !important;
+  zoom: 1 !important;
+  
+  /* 防止觸控反饋 */
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  
+  /* 防止內容溢出導致的尺寸變化 */
+  overflow: hidden;
+  position: relative;
+}
+
+/* 卡片的所有狀態都不變形 */
+.checkin-punch-card:active,
+.checkin-punch-card:hover,
+.checkin-punch-card:focus {
+  transform: translate3d(0, 0, 0) !important;
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  scale: 1 !important;
+  -webkit-scale: 1 !important;
+}
+
+.checkin-date-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  height: 20px;
+  min-height: 20px;
+  max-height: 20px;
+}
+
+.checkin-date {
+  font-size: 14px;
+  font-weight: normal;
+  color: #c4d4e8;
+}
+
+.checkin-status {
+  font-size: 16px;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+.checkin-time-section {
+  margin-bottom: 5px;
+}
+
+.checkin-time-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #c4d4e8;
+  margin-bottom: 5px;
+  padding: 0 35px;
+  height: 15px;
+  min-height: 15px;
+  max-height: 15px;
+}
+
+/* 修改時間顯示區塊，固定高度 */
+.checkin-time-values {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  height: 80px;
+  min-height: 80px;
+  max-height: 80px;
+  position: relative;
+  overflow: visible;
+}
+
+/* 時間容器，固定尺寸 */
+.checkin-time-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+  position: relative;
+  width: 100px;
+  min-width: 100px;
+  max-width: 100px;
+}
+
+/* 固定時間數字的尺寸 */
+.checkin-time-value,
+.checkin-time-value-out {
+  font-size: 36px !important;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 1;
+  height: 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 25px;
+  
+  /* 防止字體大小變化 */
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  min-height: 40px;
+  max-height: 40px;
+}
+
+/* 箭頭樣式，固定位置 */
+.checkin-time-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  max-width: 40px;
+  min-height: 40px;
+  max-height: 40px;
+  margin: 0 15px;
+  font-size: 50px;
+  font-weight: 300;
+  position: relative;
+  top: -10px;
+  flex-shrink: 0;
+}
+
+/* 準時/遲到標籤，固定位置 */
+.checkin-late-tag {
+  display: block;
+  color: white;
+  font-size: 14px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  min-width: 55px;
+  text-align: center;
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 20px;
+  line-height: 16px;
+}
+
+/* 舊版標籤樣式 - 保持向後兼容 */
+.checkin-late-tag.late {
+  background-color: #ff4d4f;
+}
+
+.checkin-late-tag.ontime {
+  background-color: #52c41a;
+}
+
+.checkin-late-tag.overtime {
+  background-color: #ff4d4f;
+}
+
+.checkin-late-tag.early {
+  background-color: #ff4d4f;
+}
+
+.checkin-late-tag.stay {
+  background-color: #ff4d4f;
+}
+
+/* 新版狀態標籤顏色樣式 - 根據 JavaScript 中的類別名稱 */
+.checkin-late-tag.status-ontime {
+  background-color: #52c41a; /* 綠色 - 準時 */
+}
+
+.checkin-late-tag.status-late {
+  background-color: #ff4d4f; /* 紅色 - 遲到 */
+}
+
+.checkin-late-tag.status-early {
+  background-color: #ff4d4f; /* 紅色 - 早退 */
+}
+
+.checkin-late-tag.status-overtime {
+  background-color: #ff4d4f; /* 紅色 - 加班 */
+}
+
+.checkin-late-tag.status-stay {
+  background-color: #ff4d4f; /* 紅色 - 滯留 */
+}
+
+.checkin-late-tag.status-absent {
+  background-color: #ff4d4f; /* 紅色 - 曠職 */
+}
+
+.checkin-late-tag.status-leave {
+  background-color: #ffa500; /* 橙色 - 請假 */
+}
+
+.checkin-late-tag.status-abnormal {
+  background-color: #ff4d4f; /* 紅色 - 異常 */
+}
+
+.checkin-late-tag.status-not-punched {
+  background-color: #999999; /* 灰色 - 未打卡 */
+}
+
+.checkin-late-tag.status-clocked-in {
+  background-color: #52c41a; /* 綠色 - 已上班 */
+}
+
+.checkin-late-tag.status-clocked-out {
+  background-color: #52c41a; /* 綠色 - 已下班 */
+}
+
+.checkin-late-tag.status-default {
+  background-color: #999999; /* 灰色 - 預設 */
+}
+
+.checkin-duration-info {
+  font-size: 12px;
+  color: #c4d4e8;
+  text-align: right;
+  margin-bottom: 10px;
+  margin-top: 15px;
+  height: 15px;
+  min-height: 15px;
+  max-height: 15px;
+}
+
+.checkin-wifi-error {
+  font-size: 12px;
+  color: #ffccc7;
+  text-align: center;
+  margin-bottom: 10px;
+  padding: 5px;
+  background-color: rgba(255, 77, 79, 0.2);
+  border-radius: 4px;
+  min-height: 30px;
+}
+
+/* 按鈕區域，固定高度和位置 */
+.checkin-button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  height: 44px;
+  min-height: 44px;
+  max-height: 44px;
+  width: 100%;
+  position: relative;
+  
+  /* 防止按鈕組變形 */
+  transform: translate3d(0, 0, 0) !important;
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  box-sizing: border-box;
+}
+
+/* 按鈕樣式，完全防止變形和位移 */
+.checkin-button {
+  width: 48%;
+  height: 44px !important;
+  min-height: 44px !important;
+  max-height: 44px !important;
+  padding: 0;
+  border-radius: 5px;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  position: relative;
+  
+  /* 固定尺寸和位置 */
+  box-sizing: border-box;
+  flex-shrink: 0;
+  flex-grow: 0;
+  flex-basis: 48%;
+  
+  /* 禁用所有可能導致變形的效果 */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  touch-action: manipulation;
+  
+  /* 防止變形和位移 */
+  transform: translate3d(0, 0, 0) !important;
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  
+  /* 禁用所有過渡和動畫效果 */
+  transition: none !important;
+  -webkit-transition: none !important;
+  animation: none !important;
+  -webkit-animation: none !important;
+  
+  /* 防止縮放 */
+  scale: 1 !important;
+  -webkit-scale: 1 !important;
+  zoom: 1 !important;
+  
+  /* 防止位移 */
+  top: 0 !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  margin: 0 !important;
+}
+
+/* 按鈕所有狀態都不變形不位移 */
+.checkin-button:active,
+.checkin-button:hover,
+.checkin-button:focus,
+.checkin-button:visited,
+.checkin-button:target {
+  transform: translate3d(0, 0, 0) !important;
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  scale: 1 !important;
+  -webkit-scale: 1 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  animation: none !important;
+  -webkit-animation: none !important;
+  transition: none !important;
+  -webkit-transition: none !important;
+  
+  /* 防止位移 */
+  top: 0 !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  margin: 0 !important;
+  position: relative !important;
+}
+
+/* 上班按鈕樣式 */
+.checkin-clock-in-button {
+  background-color: #c5c5c5;
+  color: #919191;
+}
+
+.checkin-clock-in-button:not(:disabled) {
+  background-color: #FFFFFF;
+  color: #2b6cb0;
+}
+
+/* 下班按鈕樣式 - 特別加強防位移 */
+.checkin-clock-out-button {
+  background-color: #FFFFFF;
+  color: #2b6cb0;
+  
+  /* 額外的位置固定 */
+  position: relative !important;
+  transform: translate3d(0, 0, 0) !important;
+  -webkit-transform: translate3d(0, 0, 0) !important;
+}
+
+/* 下班按鈕的所有狀態 */
+.checkin-clock-out-button:active,
+.checkin-clock-out-button:hover,
+.checkin-clock-out-button:focus {
+  transform: translate3d(0, 0, 0) !important;
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  position: relative !important;
+  top: 0 !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+}
+
+/* 針對 iOS 設備的特殊處理 */
+@supports (-webkit-touch-callout: none) {
+  .checkin-button {
+    transform: translate3d(0, 0, 0) !important;
+    -webkit-transform: translate3d(0, 0, 0) !important;
+    position: relative !important;
+  }
+  
+  .checkin-button:active {
+    transform: translate3d(0, 0, 0) !important;
+    -webkit-transform: translate3d(0, 0, 0) !important;
+    position: relative !important;
+  }
+  
+  .checkin-punch-card {
+    transform: translate3d(0, 0, 0) !important;
+    -webkit-transform: translate3d(0, 0, 0) !important;
+    will-change: auto;
+  }
+  
+  .checkin-punch-card:active {
+    transform: translate3d(0, 0, 0) !important;
+    -webkit-transform: translate3d(0, 0, 0) !important;
+  }
+  
+  /* iOS 特別處理下班按鈕 */
+  .checkin-clock-out-button {
+    transform: translate3d(0, 0, 0) !important;
+    -webkit-transform: translate3d(0, 0, 0) !important;
+    position: relative !important;
+  }
+  
+  .checkin-clock-out-button:active {
+    transform: translate3d(0, 0, 0) !important;
+    -webkit-transform: translate3d(0, 0, 0) !important;
+    position: relative !important;
+  }
+}
+
+.checkin-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.checkin-button.loading {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.checkin-attendance-section {
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  padding: 16px;
+  border: 1px solid #E9E9E9;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+}
+
+.checkin-section-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 12px;
+}
+
+.checkin-attendance-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkin-attendance-item {
+  font-size: 14px;
+  color: #1F1F1F;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #E9E9E9;
+  margin-bottom: 8px;
+}
+
+/* 查詢按鈕，防止變形 */
+.checkin-query-button {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  padding: 12px;
+  background-color: #FFFFFF;
+  border: 1px solid #C4D4E8;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #2b6cb0;
+  text-align: center;
+  cursor: pointer;
+  
+  /* 防止查詢按鈕也變大 */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transform: translateX(-50%) !important;
+  -webkit-transform: translateX(-50%) !important;
+  transition: none !important;
+  -webkit-transition: none !important;
+  height: 48px;
+  min-height: 48px;
+  max-height: 48px;
+  box-sizing: border-box;
+}
+
+.checkin-query-button:active,
+.checkin-query-button:hover,
+.checkin-query-button:focus {
+  transform: translateX(-50%) !important;
+  -webkit-transform: translateX(-50%) !important;
+  scale: 1 !important;
+  -webkit-scale: 1 !important;
+}
+
+.checkin-loading-hint {
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+  margin-top: 10px;
+  height: 20px;
+  min-height: 20px;
+}
+
+.checkin-error-message {
+  min-height: 20px;
+  color: #ff4d4f;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.checkin-loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkin-loading-text {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* 添加到您的 CSS 文件末尾 */
+.checkin-loading-spinner {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: checkin-spin 1s linear infinite;
+  vertical-align: middle;
+}
+
+@keyframes checkin-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.checkin-loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* 語言選擇器樣式 */
+.checkin-language-selector {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.checkin-language-select {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  color: white;
+  padding: 4px 8px;
+  font-size: 12px;
+  min-width: 80px;
+  cursor: pointer;
+  outline: none;
+  
+  /* 防止變形 */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  
+  /* 固定尺寸 */
+  height: 28px;
+  min-height: 28px;
+  max-height: 28px;
+  box-sizing: border-box;
+}
+
+.checkin-language-select:focus {
+  border-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.checkin-language-select option {
+  background-color: #2b6cb0;
+  color: white;
+  padding: 4px 8px;
+}
+
+/* 針對小螢幕的語言選擇器調整 */
+.checkin-app-wrapper.small-screen .checkin-language-select {
+  font-size: 11px;
+  min-width: 70px;
+  padding: 3px 6px;
+  height: 26px;
+  min-height: 26px;
+  max-height: 26px;
+}
+
+/* 修改標題欄佈局以容納語言選擇器 */
+.checkin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* 改為頂部對齊 */
+  background-color: #2b6cb0;
+  color: white;
+  padding: 0 16px;
+  height: 92px;
+  width: 100vw;
+  max-width: 100vw;
+  box-sizing: border-box;
+  position: relative;
+  left: 0;
+  right: 0;
+  min-height: 70px;
+  max-height: 100px;
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.checkin-page-title {
+  font-size: 18px;
+  font-weight: normal;
+  color: #FFFFFF;
+  text-align: center;
+  flex: 1;
+  margin-top: 20px;
+  padding: 0 10px; /* 添加左右內距以避免與語言選擇器重疊 */
+}
+
+/* 確保在小螢幕上標題不會被擠壓 */
+.checkin-app-wrapper.small-screen .checkin-page-title {
+  font-size: 16px;
+  padding: 0 5px;
+}
+
+/* 考勤狀態信息的多語言樣式調整 */
+.checkin-attendance-status {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin: 8px 0;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.checkin-attendance-status.late {
+  background-color: rgba(255, 82, 82, 0.2);
+  border: 1px solid rgba(255, 82, 82, 0.3);
+}
+
+.checkin-attendance-status.ssid-error {
+  background-color: rgba(255, 152, 0, 0.2);
+  border: 1px solid rgba(255, 152, 0, 0.3);
+}
+
+.checkin-attendance-status.early-leave {
+  background-color: rgba(255, 152, 0, 0.2);
+  border: 1px solid rgba(255, 152, 0, 0.3);
+}
+
+.checkin-attendance-status.overtime {
+  background-color: rgba(76, 175, 80, 0.2);
+  border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.checkin-status-icon {
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.checkin-status-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.checkin-status-message {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+/* 針對越南語文字較長的情況進行調整 */
+[data-language="vi-VN"] .checkin-time-header {
+  font-size: 11px;
+  padding: 0 20px;
+}
+
+[data-language="vi-VN"] .checkin-page-title {
+  font-size: 16px;
+}
+
+[data-language="vi-VN"] .checkin-query-button {
+  font-size: 14px;
+  padding: 10px;
+}
+
+[data-language="vi-VN"] .checkin-button {
+  font-size: 13px;
+}
+
+/* 響應式設計 - 小螢幕優化 */
+@media (max-width: 360px) {
+  .checkin-language-select {
+    font-size: 10px;
+    min-width: 60px;
+    padding: 2px 4px;
+    height: 24px;
+    min-height: 24px;
+    max-height: 24px;
+  }
+  
+  .checkin-page-title {
+    font-size: 15px;
+  }
+  
+  .checkin-time-header {
+    font-size: 10px;
+    padding: 0 15px;
+  }
+}
+
+/* 打卡頁面專用的語言切換器樣式調整 */
+.checkin-language-switch {
+  /* 如果需要特殊調整可以在這裡添加 */
+}
+
+/* 調整標題的右邊距，為語言切換器留空間 */
+.checkin-page-title {
+  font-size: 18px;
+  font-weight: normal;
+  color: #FFFFFF;
+  text-align: center;
+  flex: 1;
+  margin-top: 20px;
+  padding-right: 130px; /* 為兩個語言按鈕留出空間 */
+}
+
+/* 響應式調整 */
+@media (max-width: 480px) {
+  .checkin-page-title {
+    font-size: 16px;
+    padding-right: 120px;
+  }
+}
+
+@media (max-width: 360px) {
+  .checkin-page-title {
+    font-size: 15px;
+    padding-right: 110px;
+  }
+}

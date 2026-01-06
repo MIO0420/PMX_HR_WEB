@@ -1,0 +1,1133 @@
+/* 全局防護樣式 - 放在最頂部 */
+html, body {
+  touch-action: manipulation;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* 全局按鈕重置 */
+button,
+input[type="button"], 
+input[type="submit"], 
+input[type="reset"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* 防止所有元素的意外變形 */
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  box-sizing: border-box;
+}
+
+*:active, *:focus, *:hover {
+  transform: none !important;
+  -webkit-transform: none !important;
+  transition: none !important;
+  -webkit-transition: none !important;
+}
+
+/* 基本容器樣式 - 修改為與其他頁面一致 */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f7fa;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+
+.app-wrapper {
+  width: 100% !important; /* 修改：從 360px 改為 100% */
+  max-width: 100% !important; /* 修改：移除最大寬度限制 */
+  height: 100%;
+  background-color: white;
+  font-family: "Microsoft JhengHei", Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+  
+  /* 防止整個應用變形 */
+  transform: translate3d(0, 0, 0) !important;
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  will-change: auto;
+}
+
+/* 頂部導航樣式 - 修改為與其他頁面一致 */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2b6cb0; /* 修改：統一為 #2b6cb0 */
+  color: white;
+  padding: 0 16px;
+  height: 92px; /* 修改：統一高度為 92px */
+  width: 100vw !important; /* 修改：設為全視窗寬度 */
+  max-width: 100vw !important;
+  box-sizing: border-box;
+  position: relative;
+  left: 0;
+  right: 0;
+  
+  /* 固定標題欄 */
+  min-height: 92px;
+  max-height: 100px;
+  flex-shrink: 0;
+  margin: 0;
+  
+  /* 防止被父元素限制寬度 */
+  overflow: visible !important;
+  transform: none !important;
+}
+
+.home-icon {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 20px; /* 修改：與其他頁面一致 */
+}
+
+.time-display {
+  font-size: 16px;
+  color: #FFFFFF;
+  margin-top: 20px; /* 修改：與其他頁面一致 */
+}
+
+.page-title {
+  font-size: 18px !important; /* 修改：統一字體大小 */
+  font-weight: normal !important; /* 修改：統一字體粗細 */
+  color: #FFFFFF !important;
+  text-align: center;
+  flex: 1;
+  margin-top: 20px !important; /* 修改：與其他頁面一致 */
+  font-family: "Microsoft JhengHei", Arial, sans-serif !important;
+}
+
+/* 內容容器樣式 - 修改為響應式 */
+.content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 9px;
+  gap: 10px;
+  width: 100%;
+  margin-top: 45px;
+  height: calc(100vh - 90px);
+  position: relative;
+  box-sizing: border-box;
+  
+  /* 修改：限制最大寬度並居中 */
+  max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 主標籤樣式 - 修改為響應式 */
+.tab-container {
+  width: 100%; /* 修改：改為100% */
+  max-width: 342px; /* 修改：設置最大寬度 */
+  height: 36px;
+  position: relative; /* 修改：從 fixed 改為 relative */
+  top: auto; /* 修改：移除固定定位 */
+  display: flex;
+  z-index: 900;
+  padding: 0 2px;
+  gap: 2px;
+  margin: 0 auto; /* 修改：居中對齊 */
+}
+
+.tab {
+  flex: 1 1 0%;
+  min-width: 0;
+  height: 36px;
+  background-color: #FFFFFF;
+  border: 1px solid #E9E9E9;
+  border-radius: 0px 5px 5px 0px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3A6CA6;
+  font-weight: 700;
+  font-size: 16px;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tab:first-child {
+  border-radius: 5px 0px 0px 5px;
+}
+
+.tab.active {
+  background-color: #3A6CA6;
+  border: none;
+  color: #FFFFFF;
+}
+
+.leave-content-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 15px;
+  width: 100%; /* 修改：改為100% */
+  max-width: 342px; /* 修改：設置最大寬度 */
+  margin-top: 20px; /* 修改：調整頂部間距 */
+  margin-bottom: 70px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: calc(100vh - 206px);
+  position: relative;
+  margin-left: auto; /* 修改：居中對齊 */
+  margin-right: auto;
+}
+
+/* 假別類別區塊樣式 */
+.category-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 5px;
+  width: 100%; /* 修改：改為100% */
+  flex-shrink: 0;
+}
+
+.category-header {
+  width: 100%; /* 修改：改為100% */
+  height: 19px;
+  font-family: "Microsoft JhengHei";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  letter-spacing: 0.01em;
+  color: #909090;
+}
+
+/* 假別卡片網格樣式 */
+.leave-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+  padding: 0px;
+  gap: 6px;
+  width: 100%; /* 修改：改為100% */
+}
+
+.leave-card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+  gap: 5px;
+  width: calc((100% - 12px) / 3); /* 修改：響應式寬度計算 */
+  min-width: 100px; /* 修改：設置最小寬度 */
+  height: 62px;
+  background-color: #FFFFFF;
+  border: 1px solid #E9E9E9;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.leave-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 2px;
+  width: 100%; /* 修改：改為100% */
+  height: 42px;
+}
+
+.leave-name {
+  width: 100%; /* 修改：改為100% */
+  height: 20px;
+  font-family: "Microsoft JhengHei";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  color: #3A6CA6;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.remaining-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  padding: 0px;
+  gap: 2px;
+  width: 100%; /* 修改：改為100% */
+  height: 16px;
+  overflow: hidden;
+}
+
+.remaining-label {
+  width: 24px;
+  height: 16px;
+  font-family: "Microsoft JhengHei";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: right;
+  color: #909090;
+  flex-shrink: 0;
+}
+
+.days-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 1px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.days-container.hidden {
+  display: none;
+}
+
+.days-value {
+  height: 16px;
+  font-family: "Microsoft JhengHei";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: right;
+  color: #909090;
+  flex-shrink: 0;
+}
+
+.days-unit {
+  height: 16px;
+  font-family: "Microsoft JhengHei";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #909090;
+  flex-shrink: 0;
+}
+
+.hours-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 1px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.hours-value {
+  height: 16px;
+  font-family: "Microsoft JhengHei";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: right;
+  color: #909090;
+  flex-shrink: 0;
+}
+
+.hours-unit {
+  height: 16px;
+  font-family: "Microsoft JhengHei";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #909090;
+  flex-shrink: 0;
+}
+
+/* 空白訊息樣式 */
+.empty-message {
+  padding: 20px 0;
+  text-align: center;
+  color: #666;
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sub-tab-container {
+  display: flex;
+  width: 100%; /* 修改：改為100% */
+  max-width: 342px; /* 修改：設置最大寬度 */
+  height: 36px;
+  margin-bottom: 15px;
+  gap: 2px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background-color: white;
+  padding: 5px 0;
+  margin-left: auto; /* 修改：居中對齊 */
+  margin-right: auto;
+}
+
+/* 狀態圓圈基本樣式 */
+.status-circle {
+  box-sizing: border-box;
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  left: 28.11px;
+  top: 43px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  border: 2px solid;
+}
+
+/* 已通過狀態 */
+.status-circle.approved {
+  border-color: #4CAF50;
+}
+
+.status-circle.approved .leave-type-text {
+  color: #4CAF50;
+}
+
+/* 未通過狀態 */
+.status-circle.rejected {
+  border-color: #FF4D4F;
+}
+
+.status-circle.rejected .leave-type-text {
+  color: #FF4D4F;
+}
+
+/* 簽核中狀態 */
+.status-circle.pending {
+  border-color: #909090;
+}
+
+.status-circle.pending .leave-type-text {
+  color: #909090;
+}
+
+.sub-tab {
+  flex: 1 1 0%;
+  min-width: 0;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: #333333;
+  font-weight: 400;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sub-tab.active {
+  background-color: #3a75b5;
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+.first-sub-tab {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.last-sub-tab {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.sub-tab-spacer {
+  height: 36px;
+}
+
+.bottom-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: fixed; /* 改回 fixed 定位 */
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  padding: 0 20px; /* 添加左右內邊距 */
+  box-sizing: border-box;
+}
+
+.new-leave-request-button {
+  width: 100%;
+  max-width: 342px; /* 限制最大寬度 */
+  height: 40px;
+  background-color: #FFFFFF;
+  border: 1px solid #3A6CA6;
+  border-radius: 5px;
+  color: #3A6CA6;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* 防止按鈕變形 */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transform: none !important;
+  -webkit-transform: none !important;
+  transition: background-color 0.2s ease, color 0.2s ease; /* 只保留顏色過渡 */
+  min-height: 40px;
+  max-height: 40px;
+  box-sizing: border-box;
+  margin: 0 auto; /* 確保居中 */
+}
+
+/* 移除所有可能導致按鈕移動的效果 */
+.new-leave-request-button:active,
+.new-leave-request-button:hover,
+.new-leave-request-button:focus {
+  transform: none !important;
+  -webkit-transform: none !important;
+  scale: 1 !important;
+  -webkit-scale: 1 !important;
+  position: relative !important; /* 確保不會被其他樣式影響 */
+}
+
+.new-leave-request-button:hover {
+  background-color: #3A6CA6;
+  color: #FFFFFF;
+}
+
+/* 確保在小螢幕上的適配 */
+@media (max-width: 375px) {
+  .bottom-button {
+    padding: 0 15px;
+  }
+  
+  .new-leave-request-button {
+    max-width: calc(100% - 10px);
+  }
+}
+
+.new-leave-request-button:active,
+.new-leave-request-button:hover,
+.new-leave-request-button:focus {
+  transform: none !important;
+  -webkit-transform: none !important;
+  scale: 1 !important;
+  -webkit-scale: 1 !important;
+}
+
+/* 請假申請卡片樣式 */
+.request-card {
+  box-sizing: border-box;
+  width: 100%; /* 修改：改為100% */
+  max-width: 342px; /* 修改：設置最大寬度 */
+  height: 144px;
+  background-color: #F8F8F8;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  position: relative;
+  margin: 0 auto 10px auto;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.request-id {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  font-family: "Microsoft JhengHei UI";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.01em;
+  color: #3A6CA6;
+}
+
+.submit-time {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  font-family: "Microsoft JhengHei UI";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: #919191;
+  white-space: nowrap;
+}
+
+.divider {
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 21.53%;
+  bottom: 78.47%;
+  border: 1px solid #E9E9E9;
+}
+
+/* 請假類型圓圈樣式 */
+.leave-type-circle {
+  box-sizing: border-box;
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  left: 28.11px;
+  top: 43px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  border: 2px solid;
+}
+
+.leave-type-circle[style*="borderColor: #4CAF50"] {
+  border-color: #4CAF50;
+  background-color: #FFFFFF;
+}
+
+.leave-type-text[style*="color: #4CAF50"] {
+  color: #FFFFFF !important;
+}
+
+.leave-type-text {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  left: 28.11px;
+  top: 43px;
+  font-family: "Microsoft JhengHei UI";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.05em;
+}
+
+.leave-type-text.small-text {
+  font-size: 20px;
+  letter-spacing: 0;
+}
+
+.leave-type-label {
+  position: absolute;
+  width: 99px;
+  height: 18px;
+  left: calc(50% - 99px/2 - 8.5px);
+  top: 41px;
+  font-family: "Microsoft JhengHei UI";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.01em;
+  color: #000000;
+}
+
+.leave-time-range {
+  position: absolute;
+  width: 190px;
+  height: 18px;
+  left: calc(50% - 190px/2 + 37px);
+  top: 64px;
+  font-family: "Microsoft JhengHei UI";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.01em;
+  color: #000000;
+}
+
+.leave-time-end {
+  position: absolute;
+  width: 119px;
+  height: 18px;
+  left: calc(50% - 119px/2 + 71.5px);
+  top: 85px;
+  font-family: "Microsoft JhengHei UI";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: right;
+  letter-spacing: 0.01em;
+  color: #000000;
+}
+
+.leave-duration {
+  position: absolute;
+  width: 174px;
+  height: 18px;
+  left: calc(50% - 174px/2 + 29px);
+  top: 112.25px;
+  font-family: "Microsoft JhengHei UI";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.01em;
+  color: #000000;
+}
+
+/* 狀態徽章樣式 */
+.status-badge {
+  position: absolute;
+  width: 70px;
+  height: 35px;
+  left: 24px;
+  top: 100px;
+  border-radius: 5px;
+}
+
+.status-text {
+  position: absolute;
+  width: 70px;
+  height: 35px;
+  left: 24px;
+  top: 100px;
+  font-family: "Microsoft JhengHei UI";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #FFFFFF;
+  white-space: nowrap;
+}
+
+/* 彈出視窗樣式 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.modal-content {
+  width: 100%;
+  max-width: 320px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  font-family: "Microsoft JhengHei", Arial, sans-serif;
+  position: relative;
+}
+
+.modal-header {
+  background-color: transparent;
+  color: #3a75b5;
+  padding: 15px 20px 5px;
+  text-align: center;
+  position: relative;
+  font-size: 18px;
+  font-weight: bold;
+  border-bottom: none;
+}
+
+.modal-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #3a75b5;
+}
+
+.close-button {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #999;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.close-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.modal-body {
+  padding: 0 20px 10px;
+}
+
+.modal-info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modal-row {
+  display: flex;
+  align-items: flex-start;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.modal-label {
+  color: #333;
+  font-weight: 500;
+  min-width: 80px;
+  flex-shrink: 0;
+}
+
+.modal-value {
+  flex: 1;
+  font-weight: 500;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20px;
+  background-color: transparent;
+  gap: 10px;
+}
+
+.cancel-request-button {
+  flex: 1;
+  padding: 12px 20px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.cancel-request-button:hover {
+  background-color: #c82333;
+}
+
+.close-modal-button {
+  flex: 1;
+  padding: 12px 20px;
+  background-color: #3a75b5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.close-modal-button:hover {
+  background-color: #2c5d94;
+}
+
+.full-width {
+  width: 100%;
+}
+
+/* 撤銷訊息樣式 */
+.cancel-message {
+  padding: 10px 20px;
+  text-align: center;
+  color: #ff4d4f;
+  background-color: rgba(255, 77, 79, 0.1);
+  margin: 0 20px 15px;
+  border-radius: 4px;
+}
+
+/* 載入中樣式 */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+}
+
+.loading-text {
+  margin-top: 10px;
+  color: #666;
+}
+
+/* 錯誤樣式 */
+.error-container {
+  padding: 20px;
+  color: #ff4d4f;
+  text-align: center;
+}
+
+/* 統一的語言切換器樣式 */
+.leave-language-switch {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.leave-language-switch-component {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 12px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.leave-language-switch-component:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.leave-language-container {
+  position: relative;
+}
+
+/* 響應式設計 - 修改為更好的響應式支援 */
+@media (max-width: 375px) {
+  .content-container {
+    padding: 0 5px;
+    max-width: 100%;
+  }
+  
+  .tab-container {
+    max-width: calc(100% - 10px);
+  }
+  
+  .leave-content-frame {
+    max-width: calc(100% - 10px);
+  }
+  
+  .sub-tab-container {
+    max-width: calc(100% - 10px);
+  }
+  
+  .new-leave-request-button {
+    width: calc(100% - 20px);
+    max-width: calc(100% - 20px);
+  }
+  
+  .request-card {
+    max-width: calc(100% - 10px);
+  }
+  
+  .leave-card {
+    width: calc((100% - 12px) / 3);
+    min-width: 90px;
+  }
+}
+
+/* 滾動條樣式 */
+.leave-content-frame::-webkit-scrollbar {
+  width: 6px;
+}
+
+.leave-content-frame::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.leave-content-frame::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+/* 針對審核進度頁面的特殊樣式調整 */
+.content-container:has(.sub-tab-container) .leave-content-frame {
+  margin-top: 10px;
+  height: calc(100vh - 180px);
+  background-color: transparent;
+  padding-top: 0;
+}
+
+/* 申請單列表容器 */
+.requests-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+/* 確保 sticky 定位在 iOS Safari 中正常工作 */
+.sub-tab-container {
+  -webkit-position: sticky;
+  position: sticky;
+}
+
+/* 針對 iOS 設備的特殊處理 */
+@supports (-webkit-touch-callout: none) {
+  .new-leave-request-button {
+    transform: none !important;
+    -webkit-transform: none !important;
+    position: absolute !important;
+  }
+  
+  .new-leave-request-button:active {
+    transform: none !important;
+    -webkit-transform: none !important;
+    position: absolute !important;
+  }
+  
+  .app-wrapper {
+    transform: translate3d(0, 0, 0) !important;
+    -webkit-transform: translate3d(0, 0, 0) !important;
+    will-change: auto;
+  }
+}
+
+/* 確保彈窗按鈕的觸控體驗 */
+.cancel-request-button,
+.close-modal-button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  min-height: 44px;
+}
+
+/* 優化觸控設備上的交互體驗 */
+@media (hover: none) and (pointer: coarse) {
+  .request-card:hover {
+    transform: none;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+  }
+  
+  .new-leave-request-button:hover {
+    background-color: #FFFFFF;
+    color: #3A6CA6;
+  }
+}
+
+/* Loading 動畫 */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-container::before {
+  content: '';
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3A6CA6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+/* 防止文字選取 */
+.tab, .sub-tab, .request-card, .leave-card {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* 確保按鈕在觸控設備上的點擊區域 */
+.tab, .sub-tab, .new-leave-request-button, .request-card, .leave-card {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* 卡片過渡效果 */
+.request-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.request-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* 按鈕過渡效果 */
+.tab, .sub-tab, .new-leave-request-button {
+  transition: all 0.3s ease;
+}
+
+.new-leave-request-button:hover {
+  background-color: #3A6CA6;
+  color: #FFFFFF;
+}
+
+.new-leave-request-button:active {
+  transform: translateY(1px);
+}
+
+/* 處理中狀態的按鈕樣式 */
+.cancel-request-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+

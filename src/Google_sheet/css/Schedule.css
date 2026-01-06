@@ -1,0 +1,525 @@
+/* 全局防護樣式 */
+html, body {
+  touch-action: manipulation;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* 全局按鈕重置 */
+button,
+input[type="button"], 
+input[type="submit"], 
+input[type="reset"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* 防止所有元素的意外變形 */
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  box-sizing: border-box;
+}
+
+*:active, *:focus, *:hover {
+  transform: none !important;
+  -webkit-transform: none !important;
+  transition: none !important;
+  -webkit-transition: none !important;
+}
+
+/* 🎯 修改：使用 Announcement 的容器樣式 */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #FFFFFF;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.appWrapper {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  background-color: white;
+  font-family: "Microsoft JhengHei", Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  
+  /* 防止整個應用變形 */
+  transform: translate3d(0, 0, 0) !important;
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  will-change: auto;
+}
+
+/* 🎯 修改：使用 Announcement 的 Header 樣式 */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3A6CA6;
+  color: white;
+  padding: 0 16px;
+  height: 96px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  
+  /* 固定標題欄 */
+  min-height: 96px;
+  max-height: 96px;
+  flex-shrink: 0;
+  margin: 0;
+}
+
+/* 🎯 修改：使用 Announcement 的房子圖標樣式 */
+.homeIcon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 20px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.homeIcon:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.pageTitle {
+  font-size: 24px;
+  font-weight: 400;
+  color: #FFFFFF;
+  text-align: center;
+  flex: 1;
+  margin-top: 20px;
+}
+
+.headerSpacer {
+  width: 50px;
+  height: 50px;
+}
+
+/* 🎯 修改：內容容器，填滿剩餘空間 */
+.contentContainer {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #FFFFFF;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* 🎯 修正：月份選擇器 - 像第二張圖片的樣式 */
+.tabContainer {
+  display: flex;
+  justify-content: flex-start; /* 改為靠左對齊 */
+  align-items: center;
+  gap: 0;
+  padding: 8px 16px; /* 減少上下 padding */
+  background-color: #fff;
+  flex-shrink: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.tab {
+  padding: 8px 24px; /* 調整 padding */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e5f0fc;
+  color: #3A6CA6;
+  font-weight: 500;
+  font-size: 14px; /* 調整字體大小 */
+  cursor: pointer;
+  border: none;
+  border-radius: 0;
+  transition: background-color 0.3s;
+  min-width: 60px;
+}
+
+/* 第一個按鈕左側圓角 */
+.tab:first-child {
+  border-radius: 8px 0 0 8px;
+}
+
+/* 最後一個按鈕右側圓角 */
+.tab:last-child {
+  border-radius: 0 8px 8px 0;
+}
+
+.tab:hover {
+  background-color: #d0e7ff;
+}
+
+.tabActive {
+  background-color: #3A6CA6 !important;
+  color: #FFFFFF !important;
+}
+
+/* 🎯 修正：排班容器 - 緊湊樣式 */
+.schedule-app-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 8px 16px; /* 調整 padding */
+  gap: 4px; /* 減少間距 */
+  
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  
+  background: #FFFFFF;
+  
+  flex: 1;
+  box-sizing: border-box;
+}
+
+/* 🎯 修正：月份顯示 - 緊湊樣式 */
+.schedule-month-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 0px; /* 減少 padding */
+  gap: 10px;
+  
+  width: 100%;
+  height: 32px; /* 減少高度 */
+  
+  background: #FFFFFF;
+  
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.schedule-month-display {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* 改為 center */
+  padding: 0px;
+  gap: 2px; /* 減少間距 */
+  height: 20px; /* 減少高度 */
+  
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.schedule-year {
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px; /* 減少字體大小 */
+  line-height: 20px;
+  color: #1A1A1A;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.schedule-year-label {
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px; /* 減少字體大小 */
+  line-height: 20px;
+  color: #1A1A1A;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.schedule-month {
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px; /* 減少字體大小 */
+  line-height: 20px;
+  color: #1A1A1A;
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+}
+
+.schedule-month-label {
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px; /* 減少字體大小 */
+  line-height: 20px;
+  color: #1A1A1A;
+  flex: none;
+  order: 3;
+  flex-grow: 0;
+}
+
+/* 🎯 修正：星期標題 - 緊湊樣式 */
+.schedule-weekdays {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 4px 0; /* 減少 padding */
+  
+  width: 100%;
+  height: 28px; /* 減少高度 */
+  
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.schedule-weekday {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 0; /* 減少 padding */
+  
+  flex: 1; /* 改為 flex: 1 讓每個星期等寬 */
+  height: 28px;
+  
+  background: #FFFFFF;
+}
+
+.schedule-weekday-text {
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px; /* 減少字體大小 */
+  line-height: 16px;
+  color: #666666; /* 改為灰色 */
+  text-align: center;
+}
+
+/* 🎯 修正：日曆內容 - 緊湊樣式 */
+.schedule-calendar-content {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0px;
+  
+  width: 100%;
+  flex: 1;
+  
+  order: 2;
+  align-self: stretch;
+  flex-grow: 1;
+}
+
+.schedule-calendar-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0px;
+  gap: 2px; /* 減少間距 */
+  
+  width: 100%;
+  flex: 1;
+  
+  order: 0;
+  flex-grow: 1;
+}
+
+/* 🎯 修正：週行 - 緊湊樣式 */
+.schedule-week-row {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  padding: 0px;
+  
+  width: 100%;
+  height: 60px; /* 減少高度 */
+  
+  flex: none;
+  flex-grow: 0;
+}
+
+/* 🎯 修正：日期格子 - 像第二張圖片的樣式 */
+.schedule-date-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 4px 2px; /* 調整 padding */
+  
+  flex: 1; /* 改為 flex: 1 讓每個格子等寬 */
+  height: 60px;
+  
+  background: #FFFFFF;
+  border-right: 1px solid #f0f0f0; /* 添加分隔線 */
+  
+  align-self: stretch;
+}
+
+.schedule-date-cell:last-child {
+  border-right: none; /* 最後一個格子不要右邊框 */
+}
+
+.schedule-date-number {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  
+  width: 24px; /* 減少寬度 */
+  height: 24px; /* 減少高度 */
+  
+  border-radius: 50%; /* 改為圓形 */
+  margin-bottom: 2px; /* 添加下邊距 */
+  
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.schedule-date-text {
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px; /* 調整字體大小 */
+  line-height: 20px;
+  color: #1A1A1A;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+/* 🎯 修正：班別標籤 - 像第二張圖片的樣式 */
+.schedule-shift-tag {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 6px; /* 調整 padding */
+  
+  min-width: 28px; /* 設定最小寬度 */
+  height: 18px; /* 減少高度 */
+  
+  border-radius: 10px; /* 調整圓角 */
+  
+  flex: none;
+  flex-grow: 0;
+}
+
+.schedule-shift-text {
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 11px; /* 減少字體大小 */
+  line-height: 14px;
+  color: #FFFFFF;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+/* 班別顏色 - 調整為更柔和的顏色 */
+.schedule-shift-opening {
+  background: #4CAF50; /* 綠色 */
+}
+
+.schedule-shift-morning {
+  background: #4CAF50; /* 綠色 */
+}
+
+.schedule-shift-afternoon {
+  background: #FF9800; /* 橙色 */
+}
+
+.schedule-shift-evening {
+  background: #E91E63; /* 粉紅色 */
+}
+
+.schedule-shift-night {
+  background: #9C27B0; /* 紫色 */
+}
+
+.schedule-shift-closing {
+  background: #9C27B0; /* 紫色 */
+}
+
+.schedule-shift-off {
+  background: #9E9E9E; /* 灰色 */
+}
+
+.schedule-shift-substitute {
+  background: #FFC107; /* 黃色 */
+}
+
+/* 隱藏狀態 */
+.schedule-hidden {
+  display: none;
+}
+
+/* 響應式設計 */
+@media (max-width: 375px) {
+  .schedule-app-wrapper {
+    padding: 4px 8px;
+  }
+  
+  .schedule-date-cell {
+    padding: 2px 1px;
+  }
+  
+  .schedule-shift-tag {
+    min-width: 24px;
+    height: 16px;
+    padding: 1px 4px;
+  }
+  
+  .schedule-shift-text {
+    font-size: 10px;
+    line-height: 12px;
+  }
+}
+
+/* 互動效果 */
+.schedule-date-cell:hover {
+  background: #f8f9fa;
+}
+
+.schedule-shift-tag:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+/* 當前日期高亮 */
+.schedule-date-cell.current-date .schedule-date-number {
+  background: #3A6CA6;
+  color: #FFFFFF;
+}
+
+/* 🎯 新增：空白格子樣式 */
+.schedule-date-cell:empty {
+  background: transparent;
+  border-right: 1px solid #f0f0f0;
+}

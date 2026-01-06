@@ -1,0 +1,825 @@
+/* WorkOvertime.css */
+
+/* 全局防護樣式 - 放在最頂部 */
+html, body {
+  touch-action: manipulation;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* 全局按鈕重置 */
+button,
+input[type="button"], 
+input[type="submit"], 
+input[type="reset"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* 防止所有元素的意外變形 */
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  box-sizing: border-box;
+}
+
+*:active, *:focus, *:hover {
+  transform: none !important;
+  -webkit-transform: none !important;
+  transition: none !important;
+  -webkit-transition: none !important;
+}
+
+/* 容器樣式 */
+.work-overtime-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f7fa;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.work-overtime-app-wrapper {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  background-color: white;
+  font-family: "Microsoft JhengHei", Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  
+  /* 防止整個應用變形 */
+  transform: translate3d(0, 0, 0) !important;
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  will-change: auto;
+}
+
+/* 頭部樣式 */
+.work-overtime-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2b6cb0;
+  color: white;
+  padding: 0 16px;
+  height: 92px;
+  width: 100vw;
+  max-width: 100vw;
+  box-sizing: border-box;
+  position: relative;
+  left: 0;
+  right: 0;
+  
+  /* 固定標題欄 */
+  min-height: 70px;
+  max-height: 100px;
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.work-overtime-home-icon {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.work-overtime-time-display {
+  font-size: 16px;
+  color: #FFFFFF;
+  margin-top: 20px;
+}
+
+.work-overtime-page-title {
+  font-size: 18px;
+  font-weight: normal;
+  color: #FFFFFF;
+  text-align: center;
+  flex: 1;
+  margin-top: 20px;
+}
+
+/* API 和用戶資訊 */
+.work-overtime-api-info {
+  padding: 5px 10px;
+  background-color: #f0f8ff;
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+.work-overtime-user-info {
+  padding: 5px 10px;
+  background-color: #FFFFFF;
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+/* 內容容器 */
+.work-overtime-content-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: 70px;
+  
+  /* 防止內容區域變化 */
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  max-width: 370px;
+  margin: 0 auto;
+}
+
+/* 標籤容器 */
+.work-overtime-tab-container {
+  width: 100%;
+  display: flex;
+  height: 36px;
+  margin-bottom: 5px;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.work-overtime-tab {
+  flex: 1;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFFFFF;
+  color: #3A6CA6;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  border: 1px solid #E9E9E9;
+  border-radius: 4px;
+  margin: 0 2px;
+}
+
+.work-overtime-tab-active {
+  background-color: #3A6CA6;
+  color: #FFFFFF;
+  border: none;
+}
+
+/* 內容框架 */
+.work-overtime-content-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 5px;
+  width: 100%;
+  flex-grow: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  padding-bottom: 70px; /* 為底部按鈕留出空間 */
+}
+
+/* 空消息 */
+.work-overtime-empty-message {
+  padding: 20px 0;
+  text-align: center;
+  color: #666;
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* 請求卡片 */
+.work-overtime-requests-container {
+  width: 100%;
+}
+
+.work-overtime-request-card {
+  position: relative;
+  width: 100%;
+  height: 130px;
+  background-color: #F8F8F8;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: 15px;
+}
+
+.work-overtime-request-id {
+  position: absolute;
+  left: 14px;
+  top: 8px;
+  font-family: "Microsoft JhengHei UI";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.01em;
+  color: #3A6CA6;
+}
+
+.work-overtime-submit-time {
+  position: absolute;
+  right: 14px;
+  top: 8px;
+  font-family: "Microsoft JhengHei UI";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.01em;
+  color: #919191;
+}
+
+.work-overtime-request-line {
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 31px;
+  border-bottom: 1px solid #E9E9E9;
+}
+
+.work-overtime-status-badge {
+  position: absolute;
+  left: 14px;
+  top: 54px;
+  width: 75px;
+  height: 35px;
+  background-color: #919191;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.work-overtime-status-approved {
+  background-color: #3AA672;
+}
+
+.work-overtime-status-rejected {
+  background-color: #F44336;
+}
+
+.work-overtime-status-text {
+  font-family: "Microsoft JhengHei UI";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 25px;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+/* 加班時間容器樣式 - 參考請假審核的時間顯示方式 */
+.work-overtime-time-container {
+  position: absolute;
+  left: 100px;
+  top: 54px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: calc(100% - 100px - 14px);
+}
+
+.work-overtime-time-row {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.work-overtime-time-label {
+  font-family: "Microsoft JhengHei UI";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.01em;
+  color: #666; /* 灰色標籤，與請假審核一致 */
+  min-width: fit-content;
+  margin-right: 0;
+}
+
+.work-overtime-time-value {
+  font-family: "Microsoft JhengHei UI";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.01em;
+  color: #333; /* 深灰色內容，與請假審核一致 */
+}
+
+.work-overtime-hours {
+  font-family: "Microsoft JhengHei UI";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.01em;
+  color: #000000;
+  margin-top: 4px;
+}
+
+/* 新增加班申請按鈕 */
+.work-overtime-new-request-button {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  padding: 12px;
+  background-color: #FFFFFF;
+  border: 1px solid #C4D4E8;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #2b6cb0;
+  text-align: center;
+  cursor: pointer;
+  
+  /* 防止按鈕變大 */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transform: translateX(-50%) !important;
+  -webkit-transform: translateX(-50%) !important;
+  transition: none !important;
+  -webkit-transition: none !important;
+  height: 48px;
+  min-height: 48px;
+  max-height: 48px;
+  box-sizing: border-box;
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
+.work-overtime-new-request-button:active,
+.work-overtime-new-request-button:hover,
+.work-overtime-new-request-button:focus {
+  transform: translateX(-50%) !important;
+  -webkit-transform: translateX(-50%) !important;
+  scale: 1 !important;
+  -webkit-scale: 1 !important;
+}
+
+/* 加載容器 */
+.work-overtime-loading-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.work-overtime-loading-spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3A75B5;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.work-overtime-loading-text {
+  font-size: 14px;
+  color: #666;
+}
+
+/* 錯誤容器 */
+.work-overtime-error-container {
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  color: #F44336;
+  font-size: 14px;
+}
+
+/* 模態視窗 - 極度密集化 */
+.work-overtime-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.work-overtime-modal-content {
+  width: 90%;
+  max-width: 360px;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh; /* 增加最大高度 */
+}
+
+.work-overtime-modal-header {
+  padding: 16px;
+  background-color: #3A75B5;
+  color: white;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.work-overtime-close-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 10px;
+  line-height: 1;
+}
+
+.work-overtime-modal-title {
+  font-size: 16px;
+  font-weight: 700;
+  flex: 1;
+  text-align: center;
+}
+
+/* 新的模態視窗標題樣式 - 極度壓縮 */
+.work-overtime-modal-header-new {
+  padding: 8px 16px; /* 大幅減少 padding */
+  background-color: white;
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-bottom: 1px solid #E9E9E9;
+  min-height: 36px; /* 設定最小高度 */
+}
+
+.work-overtime-close-button-new {
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 20px; /* 稍微縮小 */
+  cursor: pointer;
+  padding: 0;
+  position: absolute;
+  right: 16px;
+  top: 8px; /* 調整位置 */
+  line-height: 1;
+}
+
+.work-overtime-modal-title-new {
+  font-size: 15px; /* 稍微縮小 */
+  font-weight: 700;
+  flex: 1;
+  text-align: center;
+  color: #3A75B5;
+}
+
+.work-overtime-modal-body {
+  padding: 8px 16px; /* 大幅減少 padding */
+  overflow-y: auto;
+  flex: 1;
+}
+
+.work-overtime-modal-info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px; /* 大幅減少間距 */
+}
+
+.work-overtime-modal-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px; /* 減少間距 */
+}
+
+/* 水平排列的行樣式 - 極度壓縮 */
+.work-overtime-modal-row-horizontal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 4px; /* 大幅減少底部間距 */
+  line-height: 1.2; /* 減少行高 */
+}
+
+.work-overtime-modal-row-horizontal .work-overtime-modal-label {
+  font-size: 12px; /* 進一步減小字體 */
+  color: #666;
+  min-width: 80px; /* 減少最小寬度 */
+  flex-shrink: 0;
+  line-height: 1.2;
+}
+
+.work-overtime-modal-row-horizontal .work-overtime-modal-value {
+  font-size: 12px; /* 進一步減小字體 */
+  color: #333;
+  word-break: break-word;
+  line-height: 1.2;
+}
+
+.work-overtime-modal-label {
+  font-size: 12px; /* 進一步減小字體 */
+  color: #666;
+  line-height: 1.2;
+}
+
+.work-overtime-modal-value {
+  font-size: 12px; /* 進一步減小字體 */
+  color: #333;
+  word-break: break-word;
+  line-height: 1.2;
+}
+
+.work-overtime-modal-id {
+  font-weight: 700;
+  color: #3A75B5;
+}
+
+.work-overtime-modal-status-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px; /* 減少間距 */
+  margin-bottom: 4px;
+}
+
+.work-overtime-modal-status-badge {
+  padding: 2px 6px; /* 大幅減少 padding */
+  border-radius: 3px;
+  font-size: 10px; /* 進一步減小字體 */
+  font-weight: 500;
+  color: white;
+  background: #919191;
+  line-height: 1.2;
+}
+
+.work-overtime-modal-status-approved {
+  background: #3AA672;
+}
+
+.work-overtime-modal-status-rejected {
+  background: #F44336;
+}
+
+.work-overtime-modal-status-pending {
+  background: #919191;
+}
+
+.work-overtime-modal-time-range {
+  display: flex;
+  flex-direction: column;
+  gap: 1px; /* 極小間距 */
+}
+
+/* 時間範圍的水平排列樣式 */
+.work-overtime-modal-time-range-horizontal {
+  display: flex;
+  flex-direction: column;
+}
+
+.work-overtime-modal-time-range-horizontal .work-overtime-modal-value:first-child {
+  margin-bottom: 1px; /* 極小間距 */
+}
+
+.work-overtime-modal-footer {
+  padding: 8px 16px; /* 大幅減少 padding */
+  display: flex;
+  gap: 8px;
+  border-top: 1px solid #E9E9E9;
+}
+
+.work-overtime-cancel-button {
+  flex: 1;
+  height: 32px; /* 進一步減小高度 */
+  background: #F44336;
+  border: none;
+  border-radius: 4px;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 13px; /* 減小字體 */
+  cursor: pointer;
+}
+
+.work-overtime-close-modal-button {
+  flex: 1;
+  height: 32px; /* 進一步減小高度 */
+  background: #3A75B5;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-weight: 700;
+  font-size: 13px; /* 減小字體 */
+  cursor: pointer;
+}
+
+.work-overtime-full-width {
+  width: 100%;
+}
+
+/* 針對 iOS 設備的特殊處理 */
+@supports (-webkit-touch-callout: none) {
+  .work-overtime-new-request-button {
+    transform: translateX(-50%) !important;
+    -webkit-transform: translateX(-50%) !important;
+    position: fixed !important;
+  }
+  
+  .work-overtime-new-request-button:active {
+    transform: translateX(-50%) !important;
+    -webkit-transform: translateX(-50%) !important;
+    position: fixed !important;
+  }
+  
+  .work-overtime-app-wrapper {
+    transform: translate3d(0, 0, 0) !important;
+    -webkit-transform: translate3d(0, 0, 0) !important;
+    will-change: auto;
+  }
+}
+
+/* 響應式調整 */
+@media (max-width: 360px) {
+  .work-overtime-app-wrapper {
+    width: 100%;
+    border: none;
+  }
+  
+  .work-overtime-modal-content {
+    max-width: calc(100vw - 20px); /* 減少邊距 */
+  }
+}
+
+/* 針對小螢幕的額外調整 - 極度密集化 */
+@media (max-height: 600px) {
+  .work-overtime-modal-content {
+    max-height: calc(100vh - 20px); /* 減少邊距 */
+    overflow-y: auto;
+  }
+  
+  .work-overtime-modal-header-new {
+    padding: 6px 16px; /* 極小 padding */
+    min-height: 32px;
+  }
+  
+  .work-overtime-modal-body {
+    padding: 6px 16px; /* 極小 padding */
+  }
+  
+  .work-overtime-modal-footer {
+    padding: 6px 16px; /* 極小 padding */
+  }
+  
+  .work-overtime-modal-info-section {
+    gap: 3px; /* 極小間距 */
+  }
+  
+  .work-overtime-modal-row-horizontal {
+    margin-bottom: 3px; /* 極小間距 */
+  }
+  
+  .work-overtime-close-button-new {
+    font-size: 18px;
+    top: 6px;
+  }
+  
+  .work-overtime-modal-title-new {
+    font-size: 14px;
+  }
+  
+  .work-overtime-modal-row-horizontal .work-overtime-modal-label,
+  .work-overtime-modal-row-horizontal .work-overtime-modal-value,
+  .work-overtime-modal-label,
+  .work-overtime-modal-value {
+    font-size: 11px; /* 極小字體 */
+    line-height: 1.1;
+  }
+  
+  .work-overtime-modal-status-badge {
+    font-size: 9px;
+    padding: 1px 4px;
+  }
+  
+  .work-overtime-cancel-button,
+  .work-overtime-close-modal-button {
+    height: 28px;
+    font-size: 12px;
+  }
+}
+
+/* 針對極小螢幕的特殊處理 */
+@media (max-height: 500px) {
+  .work-overtime-modal-content {
+    max-height: calc(100vh - 10px);
+  }
+  
+  .work-overtime-modal-header-new {
+    padding: 4px 16px;
+    min-height: 28px;
+  }
+  
+  .work-overtime-modal-body {
+    padding: 4px 16px;
+  }
+  
+  .work-overtime-modal-footer {
+    padding: 4px 16px;
+  }
+  
+  .work-overtime-modal-info-section {
+    gap: 2px;
+  }
+  
+  .work-overtime-modal-row-horizontal {
+    margin-bottom: 2px;
+  }
+}
+
+/* 添加加載旋轉器樣式 */
+.work-overtime-loading-spinner {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: work-overtime-spin 1s linear infinite;
+  vertical-align: middle;
+}
+
+@keyframes work-overtime-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.work-overtime-loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.work-overtime-loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+}

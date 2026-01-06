@@ -1,0 +1,610 @@
+/* 薪資結構容器 */
+.salary-structure-container {
+  width: 100%;
+  height: auto;
+  min-height: 727px;
+  background: rgba(196, 212, 232, 0.15);
+  border: 1px solid #F8F8F8;
+  border-radius: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px 15px;
+  gap: 10px;
+}
+
+.salary-structure-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 本薪項目 - 最大框框 */
+.salary-item.base-salary {
+  width: 100%;
+  background: #FFFFFF;
+  border-radius: 10px;
+}
+
+/* 本薪輸入區域 - 特殊樣式 */
+.base-salary-input-area {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+/* 本薪顯示 */
+.base-salary-display {
+  font-family: 'Microsoft JhengHei', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: #333333;
+  width: 200px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 15px;
+  box-sizing: border-box;
+}
+
+/* 本薪輸入框 */
+.base-salary-input {
+  box-sizing: border-box;
+  width: 200px;
+  height: 40px;
+  background: #FFFFFF;
+  border: 1px solid #E9E9E9;
+  border-radius: 5px;
+  font-family: 'Microsoft JhengHei', sans-serif;
+  font-size: 18px;
+  color: #333333;
+  padding: 0 15px;
+  text-align: left;
+}
+
+.base-salary-input:focus {
+  outline: none;
+  border-color: #3A6CA6;
+}
+
+.base-salary-input::placeholder {
+  color: #919191;
+  font-size: 18px;
+  text-align: left;
+}
+
+/* 移除數字輸入框的上下箭頭 */
+.salary-input::-webkit-outer-spin-button,
+.salary-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.salary-input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.addition-amount-input::-webkit-outer-spin-button,
+.addition-amount-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.addition-amount-input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.base-salary-input::-webkit-outer-spin-button,
+.base-salary-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.base-salary-input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* 薪資結構細項容器 - 包含所有有藍色線的項目 */
+.salary-structure-details {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 10px;
+  width: 100%;
+}
+
+/* 藍色垂直線 - 延伸到包含全薪和投保級距 */
+.blue-vertical-line {
+  width: 10px;
+  background: #C4D4E8;
+  align-self: stretch;
+  flex-shrink: 0;
+  min-height: 100%;
+}
+
+/* 薪資結構內容區域 */
+.salary-structure-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 10px;
+  gap: 10px;
+  flex: 1;
+}
+
+/* 伙食津貼和基本加項 - 較小框框，無額外藍色線 */
+.salary-item.sub-item {
+  width: 100%;
+  background: #FFFFFF;
+  border-radius: 10px;
+}
+
+.basic-addition-item {
+  width: 100%;
+  background: #FFFFFF;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* 薪資項目 - 基本樣式 */
+.salary-item {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0px;
+  gap: 2px;
+  box-sizing: border-box;
+}
+
+/* 薪資項目內容 */
+.salary-item-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 26px;
+  width: 100%;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* 薪資標籤區域 - 左對齊 */
+.salary-label-area {
+  display: flex;
+  flex-direction: row;  /* 改為橫向 */
+  align-items: center;  /* 垂直居中 */
+  justify-content: flex-start;
+  gap: 10px;  /* 標籤和描述之間的間距 */
+  flex: 1;
+}
+
+/* 薪資標籤 */
+.salary-label {
+  font-family: 'Microsoft JhengHei', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 29px;
+  letter-spacing: 0.01em;
+  color: #3A6CA6;
+  margin: 0;
+  text-align: left;
+}
+
+/* 本薪標籤特殊樣式 */
+.base-salary .salary-label {
+  color: #1F1F1F;
+}
+
+/* 薪資描述 */
+.salary-description {
+  font-family: 'Microsoft JhengHei', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  color: #919191;
+  margin: 0;
+  text-align: left;
+}
+
+/* 薪資輸入區域 - 右對齊 */
+.salary-input-area {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+  width: 200px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+/* 薪資輸入框 */
+.salary-input {
+  box-sizing: border-box;
+  width: 200px;
+  height: 40px;
+  background: #FFFFFF;
+  border: 1px solid #E9E9E9;
+  border-radius: 5px;
+  font-family: 'Microsoft JhengHei', sans-serif;
+  font-size: 18px;
+  color: #333333;
+  padding: 0 15px;
+  text-align: left;
+}
+
+.salary-input:focus {
+  outline: none;
+  border-color: #3A6CA6;
+}
+
+.salary-input::placeholder {
+  color: #919191;
+  font-size: 18px;
+  text-align: left;
+}
+
+/* 薪資顯示 */
+.salary-display {
+  font-family: 'Microsoft JhengHei', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: #333333;
+  width: 200px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 15px;
+  box-sizing: border-box;
+}
+
+/* 基本加項特殊樣式 */
+.basic-additions-container {
+  width: 100%;
+}
+
+.basic-addition-item {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0px;
+  gap: 2px;
+  box-sizing: border-box;
+}
+
+.basic-addition-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 26px;
+  width: 100%;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* 基本加項標籤區域 - 左對齊 */
+.basic-addition-label-area {
+  display: flex;
+  flex-direction: row;  /* 改為橫向 */
+  align-items: center;  /* 垂直居中 */
+  justify-content: flex-start;
+  gap: 10px;  /* 標籤和描述之間的間距 */
+  flex: 1;
+}
+
+/* 基本加項輸入區域 - 右對齊 */
+.basic-addition-input-area {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 15px;
+  flex-shrink: 0;
+}
+
+/* 加項名稱輸入 */
+.addition-name-input {
+  box-sizing: border-box;
+  width: 150px;
+  height: 40px;
+  background: #FFFFFF;
+  border: 1px solid #E9E9E9;
+  border-radius: 5px;
+  font-family: 'Microsoft JhengHei', sans-serif;
+  font-size: 16px;
+  color: #333333;
+  padding: 0 12px;
+  text-align: left;
+}
+
+.addition-name-input::placeholder {
+  color: #919191;
+  text-align: left;
+}
+
+/* 加項金額輸入 */
+.addition-amount-input {
+  box-sizing: border-box;
+  width: 120px;
+  height: 40px;
+  background: #FFFFFF;
+  border: 1px solid #E9E9E9;
+  border-radius: 5px;
+  font-family: 'Microsoft JhengHei', sans-serif;
+  font-size: 16px;
+  color: #333333;
+  padding: 0 12px;
+  text-align: left;
+}
+
+.addition-amount-input::placeholder {
+  color: #919191;
+  text-align: left;
+}
+
+/* 加項名稱顯示 */
+.addition-name-display {
+  font-family: 'Microsoft JhengHei', sans-serif;
+  font-size: 16px;
+  color: #333333;
+  width: 150px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 12px;
+  box-sizing: border-box;
+}
+
+/* 加項金額顯示 */
+.addition-amount-display {
+  font-family: 'Microsoft JhengHei', sans-serif;
+  font-size: 16px;
+  color: #333333;
+  width: 120px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 12px;
+  box-sizing: border-box;
+}
+
+/* 按鈕區域 */
+.button-area {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  width: 85px;
+  height: 40px;
+}
+
+/* 刪除按鈕 - 修改為使用圖片 */
+.remove-addition-btn {
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.remove-addition-btn:hover {
+  background: rgba(237, 19, 19, 0.1);
+}
+
+/* 新增按鈕 - 修改為使用圖片 */
+.add-addition-btn {
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.add-addition-btn:hover {
+  background: rgba(105, 155, 247, 0.1);
+}
+
+/* 按鈕圖片樣式 */
+.button-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* 空的基本加項容器 */
+.empty-basic-addition {
+  width: 100%;
+  background: #FFFFFF;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* 全薪顯示 - 無背景，在藍色線內 */
+.total-salary {
+  background: transparent !important;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.total-salary .salary-item-content {
+  background: transparent;
+}
+
+.total-salary .salary-label {
+  font-weight: 400;
+  color: #3A6CA6;
+}
+
+.total-salary .salary-display {
+  font-weight: 700;
+  font-size: 22px;
+  color: #3A6CA6;
+  background: transparent;
+}
+
+/* 投保級距 - 無背景，在藍色線內 */
+.insurance-level {
+  background: transparent !important;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.insurance-level .salary-item-content {
+  background: transparent;
+}
+
+.insurance-level .salary-label {
+  font-weight: 400;
+  color: #1F1F1F;
+}
+
+.insurance-level .salary-description {
+  color: #919191;
+}
+
+.insurance-display {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+  width: 250px;
+  height: 29px;
+}
+
+.insurance-amount {
+  font-family: 'Microsoft JhengHei', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 29px;
+  color: #1F1F1F;
+  text-align: right;
+}
+
+.insurance-grade {
+  font-family: 'Microsoft JhengHei', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 29px;
+  color: #1F1F1F;
+  text-align: left;
+}
+
+/* 響應式設計 */
+@media (max-width: 1200px) {
+  .salary-item-content {
+    padding: 20px;
+  }
+  
+  .basic-addition-input-area {
+    gap: 10px;
+  }
+  
+  .addition-name-input {
+    width: 130px;
+  }
+  
+  .addition-amount-input {
+    width: 100px;
+  }
+  
+  .base-salary-input-area {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .salary-structure-container {
+    padding: 15px 10px;
+  }
+  
+  .salary-structure-details {
+    flex-direction: column;
+  }
+  
+  .blue-vertical-line {
+    width: 100%;
+    height: 4px;
+    min-height: 4px;
+  }
+  
+  .salary-structure-inner {
+    padding: 0px;
+  }
+  
+  .salary-item-content,
+  .basic-addition-content {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+    align-items: stretch;
+  }
+  
+  .salary-label-area,
+  .basic-addition-label-area {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .salary-input-area,
+  .basic-addition-input-area,
+  .base-salary-input-area {
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .insurance-display {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+/* 空狀態提示 */
+.empty-additions {
+  text-align: center;
+  padding: 30px;
+  color: #999999;
+  font-style: italic;
+}
+
+/* 錯誤狀態 */
+.salary-input.error,
+.addition-name-input.error,
+.addition-amount-input.error,
+.base-salary-input.error {
+  border-color: #FF4757;
+  background-color: rgba(255, 71, 87, 0.05);
+}

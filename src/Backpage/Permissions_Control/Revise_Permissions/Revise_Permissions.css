@@ -1,0 +1,578 @@
+/* 權限編輯彈窗樣式 - 更小版本 */
+.revise-permissions-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.revise-permissions-modal {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 15px 20px; /* 從 20px 30px 縮小到 15px 20px */
+  position: relative;
+  width: 380px; /* 從 420px 縮小到 380px */
+  height: 650px; /* 從 750px 縮小到 650px */
+  background: #FFFFFF;
+  border: 1px solid #E9E9E9;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 15px; /* 從 20px 縮小到 15px */
+}
+
+.revise-permissions-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 20px; /* 從 25px 縮小到 20px */
+  width: 340px; /* 從 360px 縮小到 340px */
+  height: 620px; /* 從 710px 縮小到 620px */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+/* 標題區域 */
+.revise-permissions-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  gap: 25px; /* 從 30px 縮小到 25px */
+  width: 340px; /* 從 360px 縮小到 340px */
+  height: 20px; /* 從 22px 縮小到 20px */
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.revise-permissions-title-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  gap: 5px;
+  margin: 0 auto;
+  width: 340px; /* 從 360px 縮小到 340px */
+  height: 20px; /* 從 22px 縮小到 20px */
+  flex: none;
+  order: 0;
+  flex-grow: 1;
+}
+
+.revise-permissions-title {
+  margin: 0 auto;
+  width: 180px; /* 從 200px 縮小到 180px */
+  height: 20px; /* 從 22px 縮小到 20px */
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px; /* 從 16px 縮小到 14px */
+  line-height: 20px; /* 從 22px 縮小到 20px */
+  color: #1F1F1F;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.revise-permissions-counter {
+  margin: 0 auto;
+  width: 22px; /* 從 25px 縮小到 22px */
+  height: 20px; /* 從 22px 縮小到 20px */
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px; /* 從 16px 縮小到 14px */
+  line-height: 20px; /* 從 22px 縮小到 20px */
+  color: #1F1F1F;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+/* 主要內容區域 */
+.revise-permissions-main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+  gap: 12px; /* 從 14px 縮小到 12px */
+  width: 340px; /* 從 360px 縮小到 340px */
+  height: 420px; /* 從 480px 縮小到 420px */
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.revise-permissions-employee-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 12px; /* 從 14px 縮小到 12px */
+  width: 340px; /* 從 360px 縮小到 340px */
+  height: 440px; /* 從 500px 縮小到 440px */
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+/* 員工資訊區域 */
+.revise-permissions-employee-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 2px;
+  width: 340px; /* 從 360px 縮小到 340px */
+  height: 42px; /* 從 48px 縮小到 42px */
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.revise-permissions-employee-label {
+  width: 340px; /* 從 360px 縮小到 340px */
+  height: 16px; /* 從 18px 縮小到 16px */
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px; /* 從 13px 縮小到 12px */
+  line-height: 16px; /* 從 18px 縮小到 16px */
+  letter-spacing: 0.01em;
+  color: #919191;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.revise-permissions-employee-name {
+  width: 340px; /* 從 360px 縮小到 340px */
+  height: 22px; /* 從 26px 縮小到 22px */
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px; /* 從 20px 縮小到 18px */
+  line-height: 22px; /* 從 26px 縮小到 22px */
+  letter-spacing: 0.01em;
+  color: #3A6CA6;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+/* 部門職稱區域 */
+.revise-permissions-department-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 2px;
+  width: 340px; /* 從 360px 縮小到 340px */
+  height: 42px; /* 從 48px 縮小到 42px */
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.revise-permissions-department-label {
+  width: 340px; /* 從 360px 縮小到 340px */
+  height: 16px; /* 從 18px 縮小到 16px */
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px; /* 從 13px 縮小到 12px */
+  line-height: 16px; /* 從 18px 縮小到 16px */
+  letter-spacing: 0.01em;
+  color: #919191;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.revise-permissions-department-value {
+  width: 340px; /* 從 360px 縮小到 340px */
+  height: 22px; /* 從 26px 縮小到 22px */
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px; /* 從 20px 縮小到 18px */
+  line-height: 22px; /* 從 26px 縮小到 22px */
+  letter-spacing: 0.01em;
+  color: #3A6CA6;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+/* 後台功能區域 */
+.revise-permissions-backend-functions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 5px; /* 從 6px 縮小到 5px */
+  width: 340px; /* 從 360px 縮小到 340px */
+  flex: none;
+  order: 2;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.revise-permissions-backend-title {
+  width: 70px; /* 從 80px 縮小到 70px */
+  height: 18px; /* 從 20px 縮小到 18px */
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px; /* 從 16px 縮小到 14px */
+  line-height: 18px; /* 從 20px 縮小到 18px */
+  letter-spacing: 0.01em;
+  color: #909090;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.revise-permissions-backend-options {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 5px; /* 從 6px 縮小到 5px */
+  width: 340px; /* 從 360px 縮小到 340px */
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+/* APP功能區域 */
+.revise-permissions-app-functions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 5px; /* 從 6px 縮小到 5px */
+  width: 340px; /* 從 360px 縮小到 340px */
+  flex: none;
+  order: 3;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.revise-permissions-app-title {
+  width: 60px; /* 從 68px 縮小到 60px */
+  height: 16px; /* 從 18px 縮小到 16px */
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px; /* 從 13px 縮小到 12px */
+  line-height: 16px; /* 從 18px 縮小到 16px */
+  letter-spacing: 0.01em;
+  color: #909090;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.revise-permissions-app-options {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 5px; /* 從 6px 縮小到 5px */
+  width: 340px; /* 從 360px 縮小到 340px */
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+/* 權限選項 */
+.revise-permissions-option-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  width: 340px; /* 從 360px 縮小到 340px */
+  height: 26px; /* 從 30px 縮小到 26px */
+  flex: none;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.revise-permissions-option-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 16px; /* 從 20px 縮小到 16px */
+  width: 340px; /* 從 360px 縮小到 340px */
+  height: 26px; /* 從 30px 縮小到 26px */
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+/* 勾選框 */
+.revise-permissions-checkbox {
+  width: 20px; /* 從 22px 縮小到 20px */
+  height: 20px; /* 從 22px 縮小到 20px */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  cursor: pointer;
+}
+
+.revise-permissions-checkbox-unchecked {
+  box-sizing: border-box;
+  width: 20px; /* 從 22px 縮小到 20px */
+  height: 20px; /* 從 22px 縮小到 20px */
+  border: 1px solid rgba(178, 178, 178, 0.5);
+  border-radius: 1px;
+  background: transparent;
+}
+
+.revise-permissions-checkbox-checked {
+  width: 20px; /* 從 22px 縮小到 20px */
+  height: 20px; /* 從 22px 縮小到 20px */
+  background: #699BF7;
+  border-radius: 1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.revise-permissions-checkbox-checked::after {
+  content: '✓';
+  color: #FFFFFF;
+  font-size: 11px; /* 從 12px 縮小到 11px */
+  font-weight: bold;
+}
+
+/* 權限圖示和文字 */
+.revise-permissions-option-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 5px; /* 從 6px 縮小到 5px */
+  height: 26px; /* 從 30px 縮小到 26px */
+  flex: 1;
+  order: 1;
+  flex-grow: 0;
+}
+
+.revise-permissions-option-icon {
+  width: 24px; /* 從 28px 縮小到 24px */
+  height: 24px; /* 從 28px 縮小到 24px */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.revise-permissions-option-text {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 4px 2px; /* 從 5px 3px 縮小到 4px 2px */
+  border-radius: 3px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.revise-permissions-option-name {
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px; /* 從 16px 縮小到 14px */
+  line-height: 18px; /* 從 20px 縮小到 18px */
+  display: flex;
+  align-items: center;
+  color: #1F1F1F;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+/* 按鈕組 */
+.revise-permissions-button-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+  gap: 5px; /* 從 6px 縮小到 5px */
+  width: 340px; /* 從 360px 縮小到 340px */
+  height: 110px; /* 從 115px 縮小到 110px */
+  flex: none;
+  order: 2;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+/* 第一行：取消和確認按鈕 */
+.revise-permissions-top-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px; /* 從 10px 縮小到 8px */
+  width: 100%;
+  height: 45px; /* 從 50px 縮小到 45px */
+}
+
+/* 取消按鈕 */
+.revise-permissions-cancel-button {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 20px; /* 從 10px 25px 縮小到 8px 20px */
+  gap: 6px; /* 從 8px 縮小到 6px */
+  width: 166px; /* 從 175px 縮小到 166px */
+  height: 45px; /* 從 50px 縮小到 45px */
+  background: rgba(58, 108, 166, 0.15);
+  border: 1px solid #3A6CA6;
+  border-radius: 8px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  cursor: pointer;
+}
+
+.revise-permissions-cancel-text {
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px; /* 從 14px 縮小到 13px */
+  line-height: 100%;
+  color: #3A6CA6;
+}
+
+/* 確認按鈕 */
+.revise-permissions-confirm-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 7px 16px; /* 從 8px 18px 縮小到 7px 16px */
+  gap: 2px;
+  width: 166px; /* 從 175px 縮小到 166px */
+  height: 45px; /* 從 50px 縮小到 45px */
+  border-radius: 8px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  cursor: pointer;
+  border: none;
+}
+
+.revise-permissions-confirm-button.enabled {
+  background: #3A6CA6;
+}
+
+.revise-permissions-confirm-button.disabled {
+  background: #CCCCCC;
+  cursor: not-allowed;
+}
+
+.revise-permissions-confirm-main-text {
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px; /* 從 14px 縮小到 13px */
+  line-height: 16px; /* 從 18px 縮小到 16px */
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #FFFFFF;
+}
+
+.revise-permissions-confirm-sub-text {
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 9px; /* 從 10px 縮小到 9px */
+  line-height: 12px; /* 從 14px 縮小到 12px */
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #FFFFFF;
+}
+
+/* 移除所有權限按鈕 */
+.revise-permissions-remove-all-button {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 20px; /* 從 10px 25px 縮小到 8px 20px */
+  gap: 6px; /* 從 8px 縮小到 6px */
+  width: 100%;
+  height: 45px; /* 從 50px 縮小到 45px */
+  background: #FFE8E8;
+  border: 1px solid #ED1313;
+  border-radius: 8px;
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+  cursor: pointer;
+  margin-top: 3px;
+}
+
+.revise-permissions-remove-all-text {
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px; /* 從 14px 縮小到 13px */
+  line-height: 100%;
+  color: #ED1313;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .revise-permissions-modal {
+    width: 90%;
+    height: auto;
+    max-height: 90vh;
+    padding: 15px 20px;
+  }
+  
+  .revise-permissions-content {
+    width: 100%;
+    height: auto;
+  }
+  
+  .revise-permissions-top-buttons {
+    flex-direction: column;
+    gap: 8px;
+    height: auto;
+  }
+  
+  .revise-permissions-cancel-button,
+  .revise-permissions-confirm-button {
+    width: 100%;
+  }
+}

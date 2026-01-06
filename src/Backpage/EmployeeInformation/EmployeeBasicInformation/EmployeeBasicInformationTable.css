@@ -1,0 +1,1636 @@
+/* 🔥 新增：容器樣式，讓側邊欄和內容並排顯示 */
+.employee-detail-container {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* 🔥 修正：ebit 前綴樣式 - 移除 fixed 定位 */
+.ebit-employee-detail-sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 10px;
+  width: 50px;
+  height: 657px;
+  z-index: 1000;
+  background-color: transparent;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.ebit-employee-detail-sidebar-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.ebit-employee-detail-tabs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 3px;
+  width: 50px;
+  height: 555px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.ebit-employee-detail-tab {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 21px 6px;
+  gap: 10px;
+  width: 50px;
+  height: 90px;
+  background: #FFFFFF;
+  border-right: 1px solid #3A6CA6;
+  border-radius: 10px 0px 0px 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex: none;
+  flex-grow: 0;
+}
+
+.ebit-employee-detail-tab:hover {
+  background: #f0f8ff;
+}
+
+.ebit-employee-detail-tab-active {
+  background: #3A6CA6 !important;
+  border-right: 1px solid #3A6CA6;
+}
+
+.ebit-employee-detail-tab-label {
+  width: 37px;
+  height: 48px;
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #3A6CA6;
+  white-space: pre-line;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.ebit-employee-detail-tab-label-active {
+  font-weight: 700;
+  color: #FFFFFF !important;
+}
+
+.ebit-employee-detail-content {
+  padding: 20px;
+  min-height: 100vh;
+  background-color: #ffffff;
+  overflow-x: auto;
+  flex: 1;
+}
+
+/* 🔥 特殊處理：某些標籤的 padding 不同 */
+.ebit-employee-detail-tab:nth-child(2),
+.ebit-employee-detail-tab:nth-child(3) {
+  padding: 5px 6px;
+}
+
+/* 響應式設計 */
+@media (max-width: 1200px) {
+  .ebit-employee-detail-sidebar {
+    width: 45px;
+    gap: 8px;
+  }
+  
+  .ebit-employee-detail-tabs {
+    width: 45px;
+    gap: 2px;
+  }
+  
+  .ebit-employee-detail-tab {
+    width: 45px;
+    height: 80px;
+    padding: 18px 5px;
+  }
+  
+  .ebit-employee-detail-tab:nth-child(2),
+  .ebit-employee-detail-tab:nth-child(3) {
+    padding: 4px 5px;
+  }
+  
+  .ebit-employee-detail-tab-label {
+    width: 33px;
+    height: 44px;
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .employee-detail-container {
+    flex-direction: column;
+  }
+  
+  .ebit-employee-detail-sidebar {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    gap: 0;
+  }
+  
+  .ebit-employee-detail-tabs {
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    gap: 0;
+    overflow-x: auto;
+    padding: 0 10px;
+  }
+  
+  .ebit-employee-detail-tab {
+    min-width: 60px;
+    width: auto;
+    height: 70px;
+    flex-shrink: 0;
+    border-right: none;
+    border-bottom: 1px solid #3A6CA6;
+    border-radius: 10px 10px 0px 0px;
+    padding: 15px 8px;
+  }
+  
+  .ebit-employee-detail-tab:nth-child(2),
+  .ebit-employee-detail-tab:nth-child(3) {
+    padding: 15px 8px;
+  }
+  
+  .ebit-employee-detail-tab-active {
+    border-bottom: 1px solid #3A6CA6;
+  }
+  
+  .ebit-employee-detail-tab-label {
+    width: auto;
+    height: auto;
+    font-size: 14px;
+    line-height: 18px;
+  }
+  
+  .ebit-employee-detail-content {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ebit-employee-detail-tab {
+    min-width: 50px;
+    height: 60px;
+    padding: 12px 6px;
+  }
+  
+  .ebit-employee-detail-tab:nth-child(2),
+  .ebit-employee-detail-tab:nth-child(3) {
+    padding: 12px 6px;
+  }
+  
+  .ebit-employee-detail-tab-label {
+    font-size: 12px;
+    line-height: 16px;
+  }
+  
+  .ebit-employee-detail-content {
+    padding: 10px;
+  }
+}
+
+/* 以下是您原有的所有CSS樣式，完全保持不變 */
+/* 警告訊息 - 保持原字體 */
+.warning-message {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  min-height: 24px;
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  color: #ED1313;
+  margin-bottom: 20px;
+  word-wrap: break-word;
+  padding: 0 10px;
+}
+
+/* 主要表單區域 - 更大的響應式寬度 */
+.main-form-area {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: clamp(15px, 3vw, 40px);
+  width: 100%;
+  max-width: none;
+  height: auto;
+  min-height: auto;
+  position: relative;
+  padding-right: clamp(150px, 12vw, 220px);
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+/* 左側：基本資料 - 更寬的響應式寬度 */
+.left-section {
+  flex: 1.2;
+  min-width: clamp(300px, 40vw, 450px);
+  max-width: clamp(500px, 60vw, 800px);
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow: visible;
+}
+
+/* 基本資料區塊 - 更大的內距 */
+.basic-info-block {
+  width: 100%;
+  height: auto;
+  min-height: auto;
+  background-color: #F8F8F8;
+  border: 1px solid #B2B2B2;
+  border-radius: 10px;
+  padding: clamp(15px, 3vw, 25px);
+  box-sizing: border-box;
+}
+
+.basic-info-content {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 2vw, 18px);
+}
+
+/* 標題 - 保持原字體 */
+.section-title {
+  width: auto;
+  height: auto;
+  min-height: 24px;
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.01em;
+  color: #3A6CA6;
+  margin-bottom: clamp(10px, 2vw, 15px);
+}
+
+/* 員工照片區域 - 更大的響應式佈局 */
+.employee-photo-area {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(15px, 3vw, 30px);
+  width: 100%;
+  height: auto;
+  min-height: clamp(120px, 18vw, 160px);
+  margin-bottom: clamp(15px, 2vw, 25px);
+}
+
+.photo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  width: clamp(120px, 15vw, 160px);
+  height: clamp(120px, 15vw, 160px);
+  flex-shrink: 0;
+}
+
+.photo-wrapper {
+  width: clamp(120px, 15vw, 160px);
+  height: clamp(120px, 15vw, 160px);
+  position: relative;
+}
+
+.employee-photo {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* 基本資料表格 - 更大的響應式間距 */
+.basic-info-table {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(10px, 2vw, 15px);
+  flex: 1;
+  min-width: 0;
+  width: auto;
+  height: auto;
+  min-width: 250px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  min-height: clamp(24px, 3vw, 32px);
+  gap: clamp(12px, 3vw, 25px);
+}
+
+.info-label {
+  font-family: 'Microsoft JhengHei';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.01em;
+  color: #1F1F1F;
+  flex-shrink: 0;
+  white-space: nowrap;
+  min-width: clamp(80px, 12vw, 120px);
+}
+
+.info-value {
+  font-family: 'Microsoft JhengHei';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.01em;
+  color: #1F1F1F;
+  text-align: right;
+  word-wrap: break-word;
+  flex: 1;
+  min-width: 0;
+}
+
+/* 其他資料欄位 - 更大的響應式間距 */
+.other-info-fields {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(10px, 2vw, 15px);
+  width: 100%;
+}
+
+.info-row-wide {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  min-height: clamp(28px, 3.5vw, 36px);
+  gap: clamp(12px, 3vw, 25px);
+}
+
+.birth-info {
+  display: flex;
+  align-items: center;
+  gap: clamp(5px, 1vw, 8px);
+  text-align: right;
+  flex-wrap: wrap;
+}
+
+.info-value.address {
+  text-align: right;
+  max-width: 65%;
+  word-wrap: break-word;
+  flex: 1;
+  min-width: 0;
+}
+
+.password-reset {
+  display: flex;
+  align-items: center;
+  gap: clamp(7px, 1.5vw, 12px);
+  flex-wrap: wrap;
+}
+
+.password-input {
+  width: clamp(120px, 18vw, 180px);
+  min-width: 100px;
+  height: clamp(25px, 3vw, 30px);
+  background: #FFFFFF;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 0 clamp(8px, 1.5vw, 12px);
+  font-family: 'Microsoft JhengHei';
+  font-weight: 400;
+  font-size: 16px;
+  color: #909090;
+  box-sizing: border-box;
+}
+
+.employee-password-complete-btn {
+  height: clamp(25px, 3vw, 30px);
+  font-family: 'Microsoft JhengHei';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  text-decoration: underline;
+  color: #3A6CA6;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  white-space: nowrap;
+}
+
+/* 薪資帳戶區塊 - 更大的內距 */
+.salary-account-block {
+  width: 100%;
+  height: auto;
+  min-height: auto;
+  background-color: #F8F8F8;
+  border: 1px solid #B2B2B2;
+  border-radius: 10px;
+  padding: clamp(15px, 3vw, 25px);
+  box-sizing: border-box;
+}
+
+.salary-account-title {
+  font-family: 'Microsoft JhengHei';
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: 0.01em;
+  color: #3A6CA6;
+  margin-bottom: clamp(10px, 2vw, 15px);
+}
+
+.salary-account-content {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(10px, 2vw, 15px);
+  width: 100%;
+  height: auto;
+}
+
+.salary-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  min-height: clamp(28px, 3.5vw, 36px);
+  gap: clamp(12px, 3vw, 25px);
+}
+
+.bank-info {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 1.5vw, 12px);
+  font-family: 'Microsoft JhengHei';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.01em;
+  color: #1F1F1F;
+}
+
+.account-number {
+  width: auto;
+  max-width: clamp(180px, 30vw, 300px);
+  font-family: 'Microsoft JhengHei';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: right;
+  letter-spacing: 0.01em;
+  color: #1F1F1F;
+  word-wrap: break-word;
+}
+
+/* 右側：職務相關 - 更寬的響應式寬度 */
+.right-section {
+  flex: 1;
+  min-width: clamp(300px, 38vw, 450px);
+  max-width: clamp(450px, 50vw, 700px);
+  width: auto;
+  height: auto;
+  background-color: #F8F8F8;
+  border: 1px solid #B2B2B2;
+  border-radius: 10px;
+  padding: clamp(15px, 3vw, 25px);
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+.job-related-content {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 2vw, 18px);
+}
+
+/* 標題區域 - 更大的響應式佈局 */
+.job-title-area {
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 2vw, 18px);
+  width: 100%;
+  height: auto;
+  min-height: clamp(27px, 3.5vw, 35px);
+  flex-wrap: wrap;
+  margin-bottom: clamp(10px, 2vw, 15px);
+}
+
+.job-title {
+  font-family: 'Microsoft JhengHei';
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: 0.01em;
+  color: #3A6CA6;
+}
+
+.personnel-record-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px clamp(10px, 2vw, 16px);
+  width: auto;
+  min-width: clamp(120px, 18vw, 150px);
+  height: clamp(27px, 3.5vw, 32px);
+  background: #0FA958;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.personnel-record-text {
+  font-family: 'Microsoft JhengHei';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 0.01em;
+  color: #FFFFFF;
+  white-space: nowrap;
+}
+
+/* 職務相關內容 - 更大的響應式間距 */
+.job-content {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 2vw, 18px);
+  width: 100%;
+  height: auto;
+}
+
+.job-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  min-height: clamp(26px, 3vw, 32px);
+  gap: clamp(12px, 3vw, 25px);
+}
+
+.job-label {
+  font-family: 'Microsoft JhengHei';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0.01em;
+  color: #1F1F1F;
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: clamp(80px, 12vw, 120px);
+}
+
+.job-value {
+  font-family: 'Microsoft JhengHei';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #1F1F1F;
+  text-align: right;
+  word-wrap: break-word;
+  flex: 1;
+  min-width: 0;
+}
+
+.supervisor-info {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: clamp(6px, 1.2vw, 10px);
+  flex-wrap: wrap;
+}
+
+.supervisor-value {
+  font-family: 'Microsoft JhengHei';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  color: #1F1F1F;
+}
+
+/* 受訓後管制 - 更大的響應式佈局 */
+.training-control-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  min-height: clamp(28px, 3.5vw, 35px);
+  gap: clamp(12px, 3vw, 25px);
+}
+
+.training-control-left {
+  display: flex;
+  align-items: center;
+  gap: clamp(6px, 1.2vw, 10px);
+  flex-shrink: 0;
+}
+
+.training-control-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: clamp(6px, 1.2vw, 10px);
+  flex: 1;
+}
+
+.training-until {
+  font-family: 'Microsoft JhengHei';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0.01em;
+  color: #1F1F1F;
+  white-space: nowrap;
+}
+
+.training-date {
+  font-family: 'Microsoft JhengHei';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0.01em;
+  color: #1f1f1f;
+}
+/* 年資 - 更大的響應式佈局 */
+.seniority-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  min-height: clamp(26px, 3vw, 32px);
+  gap: clamp(12px, 3vw, 25px);
+}
+
+.seniority-value {
+  font-family: 'Microsoft JhengHei';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0.01em;
+  color: #1F1F1F;
+  text-align: right;
+}
+
+/* 試用期 - 更大的響應式佈局 */
+.probation-info {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: clamp(6px, 1.2vw, 10px);
+  flex-wrap: wrap;
+}
+
+.probation-value {
+  font-family: 'Microsoft JhengHei';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0.01em;
+  color: #1F1F1F;
+}
+
+.probation-until {
+  font-family: 'Microsoft JhengHei';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0.01em;
+  color: #1F1F1F;
+}
+
+/* 免打卡待遇 - 更大的響應式佈局 */
+.clock-free-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  min-height: clamp(28px, 3.5vw, 35px);
+  gap: clamp(12px, 3vw, 25px);
+}
+
+/* 右側按鈕區域 - 更大的響應式定位 */
+.right-buttons {
+  position: fixed;
+  right: clamp(5px, 1vw, 15px);
+  top: clamp(200px, 22vh, 280px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: clamp(12px, 2vw, 20px);
+  width: clamp(150px, 20vw, 200px);
+  height: auto;
+  z-index: 1000;
+}
+
+/* 上方按鈕組 - 更大的響應式調整 */
+.top-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(10px, 1.5vw, 15px);
+  width: 100%;
+  height: auto;
+}
+
+/* 編輯按鈕 - 更大的響應式調整 */
+.edit-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(10px, 1.5vw, 15px) clamp(12px, 2vw, 18px);
+  gap: 2px;
+  width: 80%;
+  height: clamp(44px, 6vw, 55px);
+  background: #3A6CA6;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+/* 編輯按鈕文字樣式 */
+.edit-button-text {
+  font-family: 'Microsoft JhengHei';
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #FFFFFF;
+}
+
+/* 批准編輯按鈕 - 更大的響應式調整 */
+.approve-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding: clamp(10px, 1.5vw, 15px) clamp(15px, 2.5vw, 25px);
+  gap: 2px;
+  width: 80%;
+  height: auto;
+  min-height: clamp(65px, 8vw, 80px);
+  background: #FFFFFF;
+  border: 1px solid #3A6CA6;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.approve-button-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  width: 100%;
+  height: auto;
+}
+
+.approve-button-title {
+  font-family: 'Microsoft JhengHei';
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #3A6CA6;
+}
+
+.approve-button-subtitle {
+  font-family: 'Microsoft JhengHei';
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 19px;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #3A6CA6;
+}
+
+/* 下方按鈕組 - 更大的響應式調整 */
+.bottom-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(10px, 1.5vw, 15px);
+  width: 100%;
+  height: auto;
+}
+
+/* 封存按鈕 - 更大的響應式調整 */
+.archive-button {
+  width: 80%;
+  height: auto;
+  min-height: clamp(67px, 8vw, 82px);
+  background: #FFFFFF;
+  border: 1px solid #ED1313;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(8px, 1.5vw, 12px);
+  box-sizing: border-box;
+}
+
+.archive-button-title {
+  font-family: 'Microsoft JhengHei';
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #ED1313;
+  margin-bottom: 2px;
+}
+
+.archive-button-subtitle {
+  font-family: 'Microsoft JhengHei';
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 19px;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #ED1313;
+}
+
+/* 超大螢幕適配 (2560px 以上) */
+@media (min-width: 2560px) {
+  .main-form-area {
+    max-width: 2200px;
+    margin: 0 auto;
+    gap: 50px;
+  }
+  
+  .left-section {
+    max-width: 900px;
+  }
+  
+  .right-section {
+    max-width: 800px;
+  }
+}
+
+/* 大螢幕適配 (1920px 以上) */
+@media (min-width: 1920px) {
+  .main-form-area {
+    max-width: 1800px;
+    margin: 0 auto;
+    gap: 40px;
+  }
+  
+  .left-section {
+    max-width: 750px;
+  }
+  
+  .right-section {
+    max-width: 650px;
+  }
+}
+
+/* 筆電螢幕適配 (1366x768 等常見解析度) */
+@media (max-width: 1600px) {
+  .main-form-area {
+    padding-right: clamp(140px, 14vw, 200px);
+    gap: clamp(20px, 2.5vw, 35px);
+  }
+  
+  .left-section {
+    max-width: clamp(400px, 50vw, 550px);
+  }
+  
+  .right-section {
+    max-width: clamp(350px, 45vw, 500px);
+  }
+  
+  .right-buttons {
+    right: clamp(2.5px, 0.5vw, 5px);
+    top: clamp(180px, 20vh, 240px);
+    width: clamp(140px, 18vw, 180px);
+  }
+}
+
+/* 平板和小螢幕適配 */
+@media (max-width: 1200px) {
+  .main-form-area {
+    flex-direction: column;
+    gap: 25px;
+    padding-right: 0;
+  }
+  
+  .left-section,
+  .right-section {
+    max-width: 100%;
+    width: 100%;
+    min-width: auto;
+    flex: 0 0 auto;
+  }
+  
+  .right-buttons {
+    position: static;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 25px;
+  }
+  
+  .top-buttons,
+  .bottom-buttons {
+    flex-direction: row;
+    width: auto;
+  }
+  
+  .edit-button,
+  .approve-button,
+  .archive-button {
+    width: 160px;
+  }
+}
+
+/* 手機螢幕適配 */
+@media (max-width: 768px) {
+  .employee-photo-area {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .photo-container,
+  .photo-wrapper {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .basic-info-table {
+    width: 100%;
+  }
+  
+  .info-row,
+  .info-row-wide,
+  .job-info-row,
+  .training-control-row,
+  .seniority-row,
+  .clock-free-row,
+  .salary-info-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .info-label,
+  .job-label {
+    min-width: auto;
+  }
+  
+  .info-value,
+  .info-value.address,
+  .job-value,
+  .account-number {
+    text-align: left;
+    max-width: 100%;
+  }
+  
+  .training-control-right,
+  .supervisor-info,
+  .probation-info {
+    justify-content: flex-start;
+  }
+  
+  .right-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .top-buttons,
+  .bottom-buttons {
+    flex-direction: column;
+    width: 152px;
+  }
+  
+  .edit-button,
+  .approve-button,
+  .archive-button {
+    width: 152px;
+  }
+  
+  /* 手機螢幕上的班別容器調整 */
+  .shift-type-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .shift-type-options {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .fixed-shift-dropdown {
+    width: 100%;
+    max-width: 150px;
+    margin-left: 0;
+  }
+}
+
+/* 超小螢幕適配 */
+@media (max-width: 480px) {
+  .basic-info-block,
+  .salary-account-block,
+  .right-section {
+    padding: 12px 10px;
+  }
+  
+  .password-reset {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .password-input {
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  .photo-container,
+  .photo-wrapper {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .main-form-area {
+    gap: 20px;
+  }
+  
+  .shift-type-option {
+    font-size: 14px;
+  }
+  
+  .fixed-shift-select {
+    font-size: 13px;
+    height: 30px;
+  }
+  
+  .shift-type-container {
+    gap: 8px;
+  }
+}
+
+/* 新增：下方動作按鈕區域 */
+.bottom-action-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  margin-top: 30px;
+  padding: 20px 0;
+  flex-wrap: wrap;
+}
+
+/* 調整按鈕樣式以適應新位置 */
+.bottom-action-buttons .edit-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  gap: 2px;
+  width: 160px;
+  height: auto;
+  min-height: 70px;
+  background: #3A6CA6;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.bottom-action-buttons .edit-button:hover:not(:disabled) {
+  background: #2e5a94;
+  transform: translateY(-1px);
+}
+
+.bottom-action-buttons .edit-button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* 編輯完成狀態的樣式 */
+.bottom-action-buttons .edit-button.editing-complete {
+  background: #0FA958;
+}
+
+.bottom-action-buttons .edit-button.editing-complete:hover:not(:disabled) {
+  background: #0d8a4d;
+}
+
+.bottom-action-buttons .approve-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 20px;
+  gap: 2px;
+  width: 160px;
+  height: auto;
+  min-height: 70px;
+  background: #FFFFFF;
+  border: 1px solid #3A6CA6;
+  border-radius: 10px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.bottom-action-buttons .archive-button {
+  width: 160px;
+  height: auto;
+  min-height: 70px;
+  background: #FFFFFF;
+  border: 1px solid #ED1313;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+/* 班別容器 - 修改為水平佈局 */
+.shift-type-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 15px;
+  width: 100%;
+}
+
+/* 班別選項容器 - 修改為垂直排列 */
+.shift-type-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+/* 單個班別選項 */
+.shift-type-option {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  font-family: 'Microsoft JhengHei';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #1F1F1F;
+  white-space: nowrap;
+}
+
+/* 隱藏原生單選按鈕 */
+.shift-type-radio {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #B2B2B2;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+/* 選中狀態 */
+.shift-type-radio:checked {
+  border-color: #3A6CA6;
+  background-color: #3A6CA6;
+}
+
+/* 選中狀態的內圓點 */
+.shift-type-radio:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+}
+
+/* 班別標籤 */
+.shift-type-label {
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* 固定班制下拉選單容器 - 修改位置 */
+.fixed-shift-dropdown {
+  margin-top: 0;
+  margin-left: 0;
+  width: 120px;
+  align-self: flex-start;
+}
+
+/* 固定班制下拉選單 */
+.fixed-shift-select {
+  width: 100%;
+  height: 32px;
+  background: #FFFFFF;
+  border: 1px solid #B2B2B2;
+  border-radius: 5px;
+  padding: 0 8px;
+  font-family: 'Microsoft JhengHei';
+  font-weight: 400;
+  font-size: 14px;
+  color: #1F1F1F;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.fixed-shift-select:focus {
+  border-color: #3A6CA6;
+}
+
+.fixed-shift-select option {
+  font-family: 'Microsoft JhengHei';
+  font-weight: 400;
+  font-size: 14px;
+  color: #1F1F1F;
+  background-color: #FFFFFF;
+}
+
+.loading-message {
+  color: #666;
+  font-style: italic;
+  padding: 10px 0;
+}
+
+.bank-info {
+  display: flex;
+  gap: 5px;
+}
+
+.bank-name, .branch-name {
+  font-weight: normal;
+}
+
+.bank-code, .branch-code {
+  color: #666;
+  font-size: 0.9em;
+}
+
+.no-account-message .no-data {
+  color: #999;
+  font-style: italic;
+}
+
+/* 新增按鈕樣式 */
+.edit-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 15px;
+  border-top: 1px solid #eee;
+}
+
+.save-button {
+  background-color: #2ed573;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.save-button:hover {
+  background-color: #26d065;
+}
+
+.save-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.cancel-button {
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.cancel-button:hover {
+  background-color: #ff5252;
+}
+
+.delete-button {
+  background-color: #ff4757;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.delete-button:hover {
+  background-color: #ff3742;
+}
+
+.job-input, .job-select {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.job-input:focus, .job-select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.loading-message {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  padding: 20px;
+}
+
+/* 編輯按鈕副標題 */
+.edit-button-subtitle {
+  font-family: 'Microsoft JhengHei';
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #FFFFFF;
+  opacity: 0.9;
+}
+
+/* 載入狀態樣式 */
+.edit-button-text.loading {
+  opacity: 0.7;
+}
+
+.edit-button-text.loading::after {
+  content: '...';
+  animation: dots 1.5s steps(4, end) infinite;
+}
+
+@keyframes dots {
+  0%, 20% { content: ''; }
+  40% { content: '.'; }
+  60% { content: '..'; }
+  80%, 100% { content: '...'; }
+}
+
+/* 編輯模式下的輸入框樣式 */
+.job-input, .job-select {
+  width: 100%;
+  max-width: 200px;
+  padding: 6px 10px;
+  border: 1px solid #B2B2B2;
+  border-radius: 4px;
+  font-family: 'Microsoft JhengHei';
+  font-size: 14px;
+  color: #1F1F1F;
+  background-color: #FFFFFF;
+  transition: border-color 0.2s ease;
+}
+
+.job-input:focus, .job-select:focus {
+  outline: none;
+  border-color: #3A6CA6;
+  box-shadow: 0 0 0 2px rgba(58, 108, 166, 0.1);
+}
+
+/* 試用期容器 */
+.probation-period-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.probation-period-container span {
+  font-family: 'Microsoft JhengHei';
+  font-size: 14px;
+  color: #1F1F1F;
+}
+
+/* 上級主管選擇容器 */
+.supervisor-select-container {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* 受訓管制容器 */
+.training-control-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* 取消編輯按鈕樣式 - 統一大小 */
+.bottom-action-buttons .cancel-edit-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  gap: 2px;
+  width: 160px;
+  height: auto;
+  min-height: 70px;
+  background: #ED1313;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.bottom-action-buttons .cancel-edit-button:hover:not(:disabled) {
+  background: #d10f0f;
+  transform: translateY(-1px);
+}
+
+.bottom-action-buttons .cancel-edit-button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.cancel-edit-button-text {
+  font-family: 'Microsoft JhengHei';
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #FFFFFF;
+}
+
+/* 日期輸入容器樣式 */
+.date-input-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+}
+
+.date-input {
+  cursor: pointer;
+  background-color: #f9f9f9;
+}
+
+.calendar-trigger-btn {
+  background: none;
+  border: 1px solid #B2B2B2;
+  border-radius: 4px;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+  min-width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar-trigger-btn:hover {
+  background-color: #f0f0f0;
+}
+
+.probation-period-container .date-input-container {
+  flex: 1;
+  min-width: 0;
+}
+
+/* 響應式調整 */
+@media (max-width: 768px) {
+  .date-input-container {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .calendar-trigger-btn {
+    width: 100%;
+    max-width: 150px;
+  }
+}
+
+/* 薪資結構標籤內容 */
+.ebit-employee-detail-content .salary-structure-container {
+  width: 100%;
+  height: auto;
+  min-height: 600px;
+}
+
+/* 確保薪資結構在標籤切換時正確顯示 */
+.ebit-employee-detail-content[data-tab="薪資結構"] {
+  padding: 0;
+}
+
+.ebit-employee-detail-content[data-tab="薪資結構"] .salary-structure-container {
+  border-radius: 0;
+  border: none;
+  background: transparent;
+}
+
+/* 輸入框樣式 */
+.info-input, .info-select {
+  width: 100%;
+  max-width: 200px;
+  padding: 6px 10px;
+  border: 1px solid #B2B2B2;
+  border-radius: 4px;
+  font-family: 'Microsoft JhengHei';
+  font-size: 14px;
+  color: #1F1F1F;
+  background-color: #FFFFFF;
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.info-input:focus, .info-select:focus {
+  outline: none;
+  border-color: #3A6CA6;
+  box-shadow: 0 0 0 2px rgba(58, 108, 166, 0.1);
+}
+
+.address-input {
+  max-width: 300px;
+}
+
+/* 錯誤狀態樣式 */
+.info-input.error, .info-select.error {
+  border-color: #ED1313;
+}
+
+.field-error {
+  color: #ED1313;
+  font-size: 12px;
+  margin-top: 2px;
+  font-family: 'Microsoft JhengHei';
+}

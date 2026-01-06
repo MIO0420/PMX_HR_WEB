@@ -1,0 +1,850 @@
+/* 發薪紀錄容器 */
+.payroll-records-container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 1.25rem 0.9375rem;
+  gap: 1.25rem;
+  width: 70.625rem;
+  height: auto;
+  min-height: 45.4375rem;
+  background: rgba(196, 212, 232, 0.15);
+  border: 1px solid #F8F8F8;
+  border-radius: 0.625rem;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+/* 左側查詢區域 */
+.payroll-query-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  gap: 0.625rem;
+  width: 7.5rem;
+  height: 3.9375rem;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.query-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  gap: 0.25rem;
+  width: 7.5rem;
+  height: 3.9375rem;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.query-label {
+  width: 3.5rem;
+  height: 1.1875rem;
+  font-family: 'Microsoft JhengHei', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.1875rem;
+  color: #919191;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.salary-type-selector {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0;
+  gap: 0.1875rem;
+  width: 7.5rem;
+  height: 2.5rem;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.salary-type-option {
+  box-sizing: border-box;
+  width: 7.5rem;
+  height: 2.5rem;
+  background: #3A6CA6;
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  font-family: 'Microsoft JhengHei UI', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.5625rem;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.salary-type-option:hover {
+  background: #2A5C96;
+  transform: translateY(-1px);
+}
+
+.salary-type-option:focus {
+  outline: 2px solid #4A8BC2;
+  outline-offset: 2px;
+}
+
+.salary-type-option.active {
+  background: #3A6CA6;
+  box-shadow: 0 2px 4px rgba(58, 108, 166, 0.3);
+}
+
+/* 右側內容區域 */
+.payroll-content-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  gap: 0.125rem;
+  width: 59.5rem;
+  height: auto;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+/* 表頭 - 使用 Grid 佈局 */
+.payroll-header {
+  display: grid;
+  grid-template-columns: 27rem 6rem 6rem 6rem 6rem 6rem 1fr;
+  align-items: center;
+  padding: 0;
+  width: 59.5rem;
+  height: 1.3125rem;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.header-row {
+  display: contents;
+}
+
+.header-item {
+  font-family: 'Microsoft JhengHei', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.3125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #919191;
+  height: 1.3125rem;
+  text-align: center;
+}
+
+.header-item:nth-child(1) { /* 本薪 */
+  grid-column: 2;
+}
+
+.header-item:nth-child(2) { /* 加項 */
+  grid-column: 3;
+}
+
+.header-item:nth-child(3) { /* 加後總額 */
+  grid-column: 4;
+}
+
+.header-item:nth-child(4) { /* 減項 */
+  grid-column: 5;
+}
+
+.header-item:nth-child(5) { /* 實發金額 */
+  grid-column: 6;
+}
+
+.header-item:nth-child(6) { /* 詳情 */
+  grid-column: 7;
+  justify-content: flex-end;
+  padding-right: 0.875rem;
+}
+
+/* 薪資紀錄列表 */
+.payroll-records-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  gap: 0.625rem;
+  width: 59.5rem;
+  height: auto;
+  max-height: 79.1875rem;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+  overflow-y: auto;
+}
+
+/* 無紀錄狀態 */
+.no-records {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 200px;
+  color: #919191;
+  font-size: 1.125rem;
+}
+
+/* 薪資紀錄項目 */
+.payroll-record-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  width: 59.5rem;
+  flex: none;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+/* 薪資紀錄卡片 - 使用 Grid 佈局 */
+.payroll-record-card {
+  box-sizing: border-box;
+  width: 59.5rem;
+  height: 3.6875rem;
+  background: #FFFFFF;
+  border: 1px solid #E9E9E9;
+  border-radius: 0.3125rem;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  display: grid;
+  grid-template-columns: 27rem 6rem 6rem 6rem 6rem 6rem 1fr;
+  align-items: center;
+}
+
+.payroll-record-card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+.payroll-record-card:focus {
+  outline: 2px solid #3A6CA6;
+  outline-offset: 2px;
+}
+
+.payroll-record-card.expanded {
+  border-bottom: none;
+  border-radius: 0.3125rem 0.3125rem 0 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.payroll-record-card.loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* 卡片載入指示器 */
+.card-loading-indicator {
+  position: absolute;
+  right: 3.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.mini-spinner {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #3A6CA6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* 日曆圖示和標題區域 */
+.calendar-and-title {
+  grid-column: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-left: 0.5625rem;
+}
+
+/* 日曆圖示 */
+.calendar-icon {
+  width: 2.5625rem;
+  height: 2.5625rem;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.calendar-header {
+  box-sizing: border-box;
+  position: absolute;
+  width: 2.5625rem;
+  height: 1.7575rem;
+  left: 0;
+  top: 0;
+  background: #FFFFFF;
+  border: 0.0508rem solid #909090;
+  border-radius: 0.3125rem 0.3125rem 0 0;
+}
+
+.calendar-body {
+  position: absolute;
+  width: 2.5625rem;
+  height: 0.8675rem;
+  left: 0;
+  top: 1.69125rem;
+  background: #3A6CA6;
+  border-radius: 0 0 0.3125rem 0.3125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar-month {
+  font-family: 'Microsoft JhengHei UI', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.6101rem;
+  line-height: 0.75rem;
+  text-align: center;
+  letter-spacing: 0.05em;
+  color: #FFFFFF;
+}
+
+.calendar-date {
+  position: absolute;
+  width: 0.75rem;
+  height: 1.5625rem;
+  left: calc(50% - 0.75rem/2);
+  top: calc(50% - 1.5625rem/2 - 0.434rem);
+  font-family: 'Microsoft JhengHei UI', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.5625rem;
+  text-align: center;
+  color: #000000;
+}
+
+/* 薪資單標題 */
+.payroll-title {
+  font-family: 'Microsoft JhengHei UI', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.4375rem;
+  letter-spacing: 0.05em;
+  color: #1F1F1F;
+  white-space: nowrap;
+}
+
+/* 展開箭頭 */
+.expand-arrow {
+  grid-column: 7;
+  width: 1.875rem;
+  height: 1.875rem;
+  justify-self: end;
+  margin-right: 0.875rem;
+  transition: transform 0.3s ease;
+}
+
+/* 薪資金額 - 使用 Grid 對齊 */
+.payroll-amounts {
+  display: contents;
+}
+
+.amount-item {
+  font-family: 'Microsoft JhengHei', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.6875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1F1F1F;
+  text-align: center;
+}
+
+.amount-item:nth-child(1) { /* 本薪 */
+  grid-column: 2;
+}
+
+.amount-item:nth-child(2) { /* 加項 */
+  grid-column: 3;
+}
+
+.amount-item:nth-child(3) { /* 加後總額 */
+  grid-column: 4;
+}
+
+.amount-item:nth-child(4) { /* 減項 */
+  grid-column: 5;
+}
+
+.amount-item:nth-child(5) { /* 實發金額 */
+  grid-column: 6;
+  color: #3A6CA6;
+  font-weight: 800;
+}
+
+/* 薪資條詳情 - 使用 Grid 佈局 */
+.payroll-details {
+  width: 59.25rem;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  border-radius: 0 0 0.3125rem 0.3125rem;
+  animation: slideDown 0.3s ease-out;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  overflow: hidden;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    max-height: 52.5rem;
+    transform: translateY(0);
+  }
+}
+
+.details-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  width: 59.25rem;
+  background: rgba(255, 255, 255, 0.5);
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+/* 詳情區塊 - 使用 Grid 佈局 */
+.details-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  width: 59.25rem;
+  flex: none;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+/* 本薪區塊 */
+.details-section.base-salary {
+  background: #F8FFFC;
+}
+
+/* 加項區塊 */
+.details-section.additions {
+  background: #E0F5EB;
+}
+
+/* 減項區塊 */
+.details-section.deductions {
+  background: #FFF7F7;
+}
+
+/* 公司負擔區塊 */
+.details-section.company-expenses {
+  background: #FFFFFF;
+}
+
+/* 總計區塊 */
+.details-section.total {
+  background: #FFFFFF;
+}
+
+/* 區塊標題 - 使用 Grid 佈局 */
+.details-section-header {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 27rem 6rem 6rem 6rem 6rem 6rem 1fr;
+  align-items: center;
+  padding: 1.5625rem 0;
+  width: 59.25rem;
+  height: 4.375rem;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.details-section.additions .details-section-header {
+  background: #F8FFFC;
+}
+
+.details-section.deductions .details-section-header {
+  background: #FFF7F7;
+}
+
+.details-section.company-expenses .details-section-header {
+  background: #FFFFFF;
+}
+
+.section-title {
+  grid-column: 1;
+  font-family: 'Microsoft JhengHei', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.375rem;
+  line-height: 1.8125rem;
+  letter-spacing: 0.01em;
+  padding-left: 1.625rem;
+}
+
+.details-section.additions .section-title {
+  color: #3AA672;
+}
+
+.details-section.deductions .section-title {
+  color: #ED1313;
+}
+
+.details-section.company-expenses .section-title {
+  color: #919191;
+}
+
+.section-total {
+  font-family: 'Microsoft JhengHei', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.6875rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.details-section.additions .section-total {
+  color: #3AA672;
+  grid-column: 3; /* 對齊加項欄位 */
+}
+
+.details-section.deductions .section-total {
+  color: #ED1313;
+  grid-column: 5; /* 對齊減項欄位 */
+}
+
+.details-section.company-expenses .section-total {
+  color: #919191;
+  grid-column: 6; /* 調整到第6欄，不要太靠右 */
+  justify-content: center;
+  padding-right: 0;
+}
+
+/* 詳情行 - 使用 Grid 佈局 */
+.details-row {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 27rem 6rem 6rem 6rem 6rem 6rem 1fr;
+  align-items: center;
+  padding: 1.5625rem 0;
+  width: 59.25rem;
+  height: 4.375rem;
+  flex: none;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.details-section.base-salary .details-row {
+  background: #F8FFFC;
+}
+
+.details-section.additions .details-row {
+  background: #E0F5EB;
+}
+
+.details-section.deductions .details-row {
+  background: #FAE0E0;
+}
+
+.details-section.company-expenses .details-row {
+  background: #FFFFFF;
+}
+
+.details-section.total .details-row {
+  background: #FFFFFF;
+}
+
+/* 詳情左側內容 */
+.details-left {
+  grid-column: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 1.625rem;
+  gap: 0.625rem;
+}
+
+/* 詳情右側金額 */
+.details-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 本薪數字對齊本薪欄位 */
+.details-section.base-salary .details-right {
+  grid-column: 2;
+}
+
+/* 加項明細對齊加項欄位 */
+.details-section.additions .details-right {
+  grid-column: 3;
+}
+
+/* 減項明細對齊減項欄位 */
+.details-section.deductions .details-right {
+  grid-column: 5;
+}
+
+/* 不計入明細 - 調整數字位置，不要太靠右 */
+.details-section.company-expenses .details-left {
+  grid-column: 1;
+  justify-content: flex-start;
+  text-align: left;
+  padding: 0 1.625rem;
+}
+
+.details-section.company-expenses .details-right {
+  grid-column: 6; /* 改為第6欄，與實發金額對齊 */
+  justify-content: center;
+  padding-right: 0;
+}
+
+/* 實發金額對齊實發金額欄位 */
+.details-section.total .details-right {
+  grid-column: 6;
+}
+
+.item-name {
+  font-family: 'Microsoft JhengHei', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  letter-spacing: 0.01em;
+  color: #1F1F1F;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.item-note {
+  font-family: 'Microsoft JhengHei', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  letter-spacing: 0.01em;
+  color: #919191;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.item-amount {
+  font-family: 'Microsoft JhengHei', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #1F1F1F;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+/* 總計樣式 */
+.total-label {
+  font-family: 'Microsoft JhengHei', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.375rem;
+  line-height: 1.8125rem;
+  letter-spacing: 0.01em;
+  color: #919191;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.total-amount {
+  font-family: 'Microsoft JhengHei', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.6875rem;
+  text-align: center;
+  color: #919191;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+/* 載入和錯誤狀態 */
+.payroll-records-loading,
+.payroll-records-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 45.4375rem;
+  gap: 1rem;
+}
+
+.loading-spinner {
+  width: 2rem;
+  height: 2rem;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #3A6CA6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.payroll-records-error {
+  color: #F44336;
+  font-size: 1rem;
+}
+
+.retry-button {
+  padding: 0.5rem 1rem;
+  background: #3A6CA6;
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s ease;
+}
+
+.retry-button:hover {
+  background: #2A5C96;
+}
+
+/* 響應式設計 */
+@media (max-width: 1200px) {
+  .payroll-records-container {
+    width: 100%;
+    flex-direction: column;
+    height: auto;
+    gap: 1rem;
+  }
+  
+  .payroll-query-section {
+    width: 100%;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  
+  .payroll-content-section {
+    width: 100%;
+  }
+  
+  .payroll-record-card,
+  .payroll-details {
+    width: 100%;
+  }
+  
+  .payroll-header,
+  .payroll-record-card,
+  .details-section-header,
+  .details-row {
+    display: flex !important;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .payroll-records-container {
+    padding: 1rem 0.5rem;
+  }
+  
+  .payroll-title {
+    position: static;
+    margin: 0.5rem 0;
+  }
+  
+  .calendar-icon {
+    position: static;
+    margin: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .payroll-record-card {
+    height: auto;
+    padding: 1rem;
+  }
+  
+  .amount-item {
+    font-size: 1rem;
+  }
+}
+
+/* 無障礙輔助 */
+@media (prefers-reduced-motion: reduce) {
+  .payroll-record-card,
+  .expand-arrow,
+  .payroll-details {
+    transition: none;
+    animation: none;
+  }
+}
+
+/* 高對比模式 */
+@media (prefers-contrast: high) {
+  .payroll-record-card {
+    border: 2px solid #000;
+  }
+  
+  .amount-item.net-pay {
+    color: #000;
+    font-weight: 900;
+  }
+}

@@ -1,0 +1,328 @@
+/* 草稿主容器 */
+.draft-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 0px;
+  width: 100vw;
+  min-height: 100vh;
+  background: #F8F8F8;
+  font-family: 'Microsoft JhengHei', Arial, sans-serif;
+}
+
+/* 草稿側邊欄包裝器 */
+.draft-sidebar-wrapper {
+  width: 550px;
+  min-height: 100vh;
+  flex-shrink: 0;
+}
+
+/* 主要內容範圍 - 🔥 移除邊框和邊距 */
+.draft-main-content-area {
+  flex: 1;
+  min-height: 100vh;
+  background: #F8F8F8; /* 🔥 改為與背景相同的顏色 */
+  padding: 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+/* 🔥 修改：草稿範圍 - 移除上方空白和居中對齊 */
+.draft-content-area {
+  width: 100%;
+  max-width: none; /* 🔥 移除最大寬度限制 */
+  margin-top: 0px; /* 🔥 移除上方空白 */
+  margin-left: 0;
+  margin-right: 0;
+  position: relative;
+  align-self: flex-start;
+}
+
+/* 表頭 - 🔥 調整位置和樣式 */
+.draft-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 26px; /* 🔥 調整左右內邊距 */
+  margin-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 表頭標題 */
+.draft-header-title {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+  color: #919191;
+  flex: 1;
+}
+
+/* 表頭資訊區域 - 🔥 精確調整間距 */
+.draft-header-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 100px; /* 🔥 調整間距 */
+  min-width: 280px;
+}
+
+/* 表頭排程日期 */
+.draft-header-date {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+  text-align: center;
+  color: #919191;
+  min-width: 72px;
+}
+
+/* 表頭建立者 */
+.draft-header-creator {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+  color: #919191;
+  min-width: 54px;
+  text-align: center;
+}
+
+/* 🔥 修改：公告列表 - 減少間距 */
+.draft-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* 🔥 改回原來的 6px 間距 */
+  width: 100%;
+}
+
+/* 🔥 修改：公告項目框架 */
+.draft-item-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 6px; /* 🔥 恢復原來的 6px 間距 */
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+/* 🔥 修改：公告項目 */
+.draft-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 6px; /* 🔥 恢復原來的 6px 間距 */
+  width: 100%;
+  height: 70px; /* 🔥 改回固定高度 */
+}
+
+/* 🔥 修改：公告項目內容 - 移除邊框，保持背景色 */
+.draft-item-content {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 25px 26px; /* 🔥 改回原來的 padding */
+  width: 100%;
+  height: 70px; /* 🔥 改回固定高度 */
+  background: #FFFFFF;
+  border: none; /* 🔥 移除邊框 */
+  border-radius: 5px; /* 🔥 改回原來的圓角 */
+}
+
+/* 🔥 修改：hover 效果 - 只改變背景色，不顯示邊框 */
+.draft-item-content:hover {
+  background: #FFFFFF; /* 🔥 保持白色背景 */
+}
+
+/* 公告項目標題 */
+.draft-item-title {
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 29px;
+  letter-spacing: 0.01em;
+  color: #3A6CA6;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 公告項目資訊 - 🔥 精確調整對齊 */
+.draft-item-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 60px; /* 🔥 調整間距以匹配表頭 */
+  min-width: 280px;
+  justify-content: flex-end;
+}
+
+/* 日期時間組合 - 🔥 新增組合容器 */
+.draft-datetime-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  min-width: 140px;
+  justify-content: center;
+}
+
+/* 日期組 */
+.draft-date-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-width: 62px;
+}
+
+/* 日期 */
+.draft-date {
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 100%;
+  letter-spacing: 0.01em;
+  color: #1F1F1F;
+  text-align: center;
+  width: 100%;
+}
+
+/* 時間組 */
+.draft-time-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2px;
+  min-width: 95px;
+  justify-content: center;
+}
+
+/* 時間 */
+.draft-time {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* 時間值 */
+.draft-time-value {
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 100%;
+  letter-spacing: 0.01em;
+  color: #1F1F1F;
+}
+
+/* 時段 (AM/PM) */
+.draft-period {
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 100%;
+  letter-spacing: 0.01em;
+  color: #1F1F1F;
+  margin-left: 4px;
+}
+
+/* 建立者組 */
+.draft-creator-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-width: 89px;
+}
+
+/* 建立者 */
+.draft-creator {
+  font-family: 'Microsoft JhengHei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 100%;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #1F1F1F;
+  width: 100%;
+}
+
+/* 捲軸 */
+.draft-scrollbar {
+  display: none;
+}
+
+/* 響應式設計 */
+@media (max-width: 1400px) {
+  .draft-header-info {
+    gap: 80px;
+  }
+  
+  .draft-item-info {
+    gap: 50px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .draft-sidebar-wrapper {
+    width: 300px;
+  }
+  
+  .draft-header {
+    padding: 0px 20px;
+  }
+  
+  .draft-header-info {
+    gap: 60px;
+  }
+  
+  .draft-item-info {
+    gap: 40px;
+  }
+}
+/* 🔥 編輯模式響應式容器 */
+.draft-edit-mode-container,
+.schedule-edit-mode-container {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  box-sizing: border-box !important;
+}
+
+/* 🔥 確保編輯模式下所有元素都響應式 */
+.draft-edit-mode-container *,
+.schedule-edit-mode-container * {
+  box-sizing: border-box !important;
+}
+
+/* 🔥 小螢幕響應式 */
+@media (max-width: 1200px) {
+  .draft-edit-mode-container,
+  .schedule-edit-mode-container {
+    padding: 0 !important;
+  }
+}
